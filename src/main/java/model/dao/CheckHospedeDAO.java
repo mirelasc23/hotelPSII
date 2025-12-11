@@ -2,32 +2,87 @@ package model.dao;
 
 import java.util.List;
 import model.CheckHospede;
+import java.util.ArrayList;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 
 public class CheckHospedeDAO implements InterfaceDAO<CheckHospede>{
-
+private static CheckHospedeDAO INSTANCE;
+    protected EntityManager entityManager;
+    
+    public CheckHospedeDAO(){
+        entityManager = getEntityManager();
+    }
+    
+    public static CheckHospedeDAO getInstance(){
+        if(INSTANCE == null){
+            INSTANCE = new CheckHospedeDAO();
+        }
+        return INSTANCE;
+    }
+    
+    private EntityManager getEntityManager(){
+            EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
+            if(this.entityManager == null){
+                this.entityManager = factory.createEntityManager();
+            }
+            return this.entityManager;
+    }
+    
     @Override
     public void create(CheckHospede objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            this.entityManager.getTransaction().begin();
+            this.entityManager.persist(objeto);
+            this.entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            this.entityManager.getTransaction().rollback();
+        }
     }
 
     @Override
     public CheckHospede retrieve(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        CheckHospede modelo = new CheckHospede();
+        modelo = entityManager.find(CheckHospede.class, id);
+        return modelo;
     }
 
     @Override
     public List<CheckHospede> retrieve(String atributo, String valor) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<CheckHospede> modelos = new ArrayList<>();
+        modelos = entityManager.createQuery(" Select mar From modelo mar "
+                + " where " + atributo + " like (%" + valor + "%)",CheckHospede.class).getResultList();
+        return modelos;
     }
 
     @Override
     public void update(CheckHospede objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.merge(objeto);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
     }
 
     @Override
     public void delete(CheckHospede objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            entityManager.getTransaction().begin();
+            CheckHospede modelo = new CheckHospede();
+            modelo = entityManager.find(CheckHospede.class, objeto.getId());
+            if(modelo != null){
+                entityManager.remove(modelo);
+            }
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
     }
-    
 }
