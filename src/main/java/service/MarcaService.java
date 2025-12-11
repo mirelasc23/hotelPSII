@@ -13,16 +13,16 @@ public class MarcaService {
 
     
     public static Marca Carregar(int id) {
-        MarcaDAO.getInstance().retrieve(id);
-        MarcaDAO marcaDAO = new MarcaDAO();
-        return marcaDAO.retrieve(id);
+        return MarcaDAO.getInstance().retrieve(id);
+        /*MarcaDAO marcaDAO = new MarcaDAO();
+        return marcaDAO.retrieve(id);*/
     }
 
    
     public static List<Marca> Carregar(String atributo, String valor) {
-        MarcaDAO.getInstance().retrieve(atributo, valor);
-        MarcaDAO marcaDAO = new MarcaDAO();
-        return marcaDAO.retrieve(atributo, valor);
+        return MarcaDAO.getInstance().retrieve(atributo, valor);
+        /*MarcaDAO marcaDAO = new MarcaDAO();
+        return marcaDAO.retrieve(atributo, valor);*/
     }
 
     
