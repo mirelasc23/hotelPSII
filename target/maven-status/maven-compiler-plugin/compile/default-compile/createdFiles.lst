@@ -108,7 +108,6 @@ view\CadastroVagaEstacionamento$6$1.class
 view\CadastroFornecedores$1.class
 view\BuscaFornecedor$4$1.class
 view\CadastroHospedes$4.class
-model\bo\HospedeBO.class
 view\BuscaQuarto$2.class
 view\CadastroServico.class
 controller\ControllerBuscaFornecedor.class
@@ -161,7 +160,6 @@ view\TelaMenuPrincipal$10.class
 service\FuncionarioService.class
 view\BuscaHospede$3.class
 model\VagaEstacionamento.class
-model\bo\MarcaBO.class
 view\CadastroVeiculo.class
 view\BuscaFuncionario.class
 view\CadastroMarca$1.class

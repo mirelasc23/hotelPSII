@@ -7,7 +7,6 @@ C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hot
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\utilities\Utilities.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\model\Marca.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\view\CadastroVeiculo.java
-C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\model\bo\HospedeBO.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\controller\ControllerBuscaMarca.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\model\CheckQuarto.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\model\dao\ProdutoCopaDAO.java
@@ -86,7 +85,6 @@ C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hot
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\controller\ControllerCadProdutoCopa.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\model\dao\CaixaDAO.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\view\CadastroFornecedores.java
-C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\model\bo\MarcaBO.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\model\Check.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\service\ServicoService.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\view\TelaCadastroHospede.java

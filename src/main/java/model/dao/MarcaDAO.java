@@ -17,6 +17,7 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
     protected EntityManager entityManager;
     
     public MarcaDAO(){
+        entityManager = getEntityManager();
     }
     
     public static MarcaDAO getInstance(){
@@ -28,10 +29,10 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
     
     private EntityManager getEntityManager(){
             EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
-            if(entityManager == null){
-                entityManager = factory.createEntityManager();
+            if(this.entityManager == null){
+                this.entityManager = factory.createEntityManager();
             }
-            return entityManager;
+            return this.entityManager;
     }
 
 
@@ -39,12 +40,12 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
     public void create(Marca objeto) {
         try {
             //envia para o BD (operacao IO), mas falta encapsular com try-catch
-            entityManager.getTransaction().begin();
-            entityManager.persist(objeto);
-            entityManager.getTransaction().commit();
+            this.entityManager.getTransaction().begin();
+            this.entityManager.persist(objeto);
+            this.entityManager.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
-            entityManager.getTransaction().rollback();
+            this.entityManager.getTransaction().rollback();
         }
         
         /*String sqlInstrucao = "insert into marca (descricao) values(?)";

@@ -8,35 +8,50 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class Pessoa {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
     @Column
     private String nome;
+    
     @Column(name="fone")
     private String fone1;
+    
     @Column
     private String fone2;
+    
     @Column
     private String email;
+    
     @Column
     private String cep;
+    
     @Column
     private String logradouro;
+    
     @Column 
     private String bairro;
+    
     @Column
     private String cidade;
+    
     @Column
     private String complemento;
+    
     @Column(name="data_cadastro")
     private String dataCadastro;
+    
     @Column
     private String cpf;
+    
     @Column
     private String rg;
+    
     @Column
     private String obs;
+    
     @Column
     private char status;
 
