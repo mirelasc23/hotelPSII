@@ -35,7 +35,6 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
             return this.entityManager;
     }
 
-
     @Override
     public void create(Marca objeto) {
         try {
