@@ -1,9 +1,24 @@
 package model;
 
-public class ProdutoCopa {
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class ProdutoCopa implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String descricao, obs;
+    @Column
+    private String descricao;
+    @Column
+    private String obs;
+    @Column
     private float valor;
+    @Column
     private char status;
 
     public ProdutoCopa() {

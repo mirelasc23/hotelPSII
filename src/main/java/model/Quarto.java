@@ -1,10 +1,36 @@
 package model;
 
-public class Quarto {
-    private int id, capacidadeHospedes, andar;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Quarto implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column 
+    private int capacidadeHospedes;
+    @Column 
+    private int andar;
+    @Column
     private float metragem;
-    private String descricao, identificacao, obs;//
-    private boolean flagAnimais, flagFumante, flagBebe;//
+    @Column
+    private String descricao;
+    @Column
+    private String identificacao;
+    @Column
+    private String obs;//
+    @Column
+    private boolean flagAnimais;
+    @Column
+    private boolean flagFumante;
+    @Column
+    private boolean flagBebe;//
+    @Column
     private char status;//
 
     public Quarto() {
