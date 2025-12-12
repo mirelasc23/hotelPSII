@@ -1,10 +1,19 @@
 package model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
 public class Fornecedor extends Pessoa{
-    
+    @Column
     private String razaoSocial;
+    @Column
     private String cnpj;
+    @Column
     private String inscricaoEstadual;
+    @Column
     private String contato;
+    @Column
     private char sexo;
 
     public Fornecedor() {
