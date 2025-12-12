@@ -53,8 +53,8 @@ private static ServicoDAO INSTANCE;
     @Override
     public List<Servico> retrieve(String atributo, String valor) {
         List<Servico> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mar From modelo mar "
-                + " where " + atributo + " like (%" + valor + "%)",Servico.class).getResultList();
+        modelos = entityManager.createQuery(" Select serv From Servico serv "
+                + " where serv." + atributo + " like '%" + valor + "%'",Servico.class).getResultList();
         return modelos;
     }
 

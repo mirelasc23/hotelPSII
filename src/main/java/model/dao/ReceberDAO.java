@@ -53,8 +53,8 @@ private static ReceberDAO INSTANCE;
     @Override
     public List<Receber> retrieve(String atributo, String valor) {
         List<Receber> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mar From modelo mar "
-                + " where " + atributo + " like (%" + valor + "%)",Receber.class).getResultList();
+        modelos = entityManager.createQuery(" Select rec From Receber rec "
+                + " where rec." + atributo + " like '%" + valor + "%'",Receber.class).getResultList();
         return modelos;
     }
 

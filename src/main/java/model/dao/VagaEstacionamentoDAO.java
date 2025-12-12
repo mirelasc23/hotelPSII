@@ -53,8 +53,8 @@ private static VagaEstacionamentoDAO INSTANCE;
     @Override
     public List<VagaEstacionamento> retrieve(String atributo, String valor) {
         List<VagaEstacionamento> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mar From modelo mar "
-                + " where " + atributo + " like (%" + valor + "%)",VagaEstacionamento.class).getResultList();
+        modelos = entityManager.createQuery(" Select vg_e From VagaEstacionamento vg_e "
+                + " where vg_e." + atributo + " like '%" + valor + "%'",VagaEstacionamento.class).getResultList();
         return modelos;
     }
 

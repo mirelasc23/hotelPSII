@@ -53,8 +53,8 @@ private static ReservaQuartoDAO INSTANCE;
     @Override
     public List<ReservaQuarto> retrieve(String atributo, String valor) {
         List<ReservaQuarto> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mar From modelo mar "
-                + " where " + atributo + " like (%" + valor + "%)",ReservaQuarto.class).getResultList();
+        modelos = entityManager.createQuery(" Select re_q From ReservaQuarto re_q "
+                + " where re_q." + atributo + " like '%" + valor + "%'",ReservaQuarto.class).getResultList();
         return modelos;
     }
 
