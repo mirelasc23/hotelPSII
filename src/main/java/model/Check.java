@@ -1,8 +1,24 @@
 package model;
 
-public class Check {
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class Check implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String dataHoraCadastro, dataHoraEntrada, dataHoraSaida, obs;
+    @Column
+    private String dataHoraCadastro; 
+    @Column
+    private String dataHoraEntrada;
+    @Column
+    private String dataHoraSaida;
+    @Column
+    private String obs;
+    @Column
     private char status;
 
     public Check() {

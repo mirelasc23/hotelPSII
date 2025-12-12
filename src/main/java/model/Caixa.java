@@ -1,10 +1,26 @@
 package model;
 
-public class Caixa {
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class Caixa implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private float valorDeAbertura, valorDeFechamento;
-    private String dataHoraAbertura, dataHoraFechamento;
+    @Column
+    private float valorDeAbertura;
+    @Column
+    private float valorDeFechamento;
+    @Column
+    private String dataHoraAbertura;
+    @Column
+    private String dataHoraFechamento;
+    @Column
     private String obs;
+    @Column
     private char status;
 
     public Caixa() {

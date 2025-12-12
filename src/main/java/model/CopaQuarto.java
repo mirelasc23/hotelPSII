@@ -1,9 +1,21 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class CopaQuarto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column
     private float quantidade;
-    private String dataHoraPedido, obs;
+    @Column
+    private String dataHoraPedido;
+    @Column
+    private String obs;
+    @Column
     private char status;
 
     public CopaQuarto() {

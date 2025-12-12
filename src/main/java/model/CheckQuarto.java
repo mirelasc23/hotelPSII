@@ -1,8 +1,21 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class CheckQuarto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String dataHoraInicio, dataHoraFim, obs;
+    @Column
+    private String dataHoraInicio;
+    @Column
+    private String dataHoraFim;
+    @Column
+    private String obs;
+    @Column
     private char status;
 
     public CheckQuarto() {

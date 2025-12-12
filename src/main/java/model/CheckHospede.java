@@ -1,8 +1,20 @@
 package model;
 
-public class CheckHospede {
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class CheckHospede implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String tipoHospede, obs;
+    @Column
+    private String tipoHospede;
+    @Column
+    private String obs;
+    @Column
     private char status;
 
     public CheckHospede() {
