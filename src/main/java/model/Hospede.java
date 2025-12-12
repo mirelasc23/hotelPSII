@@ -1,15 +1,16 @@
 package model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
-public class Hospede extends Pessoa{
-    @Column
+public class Hospede extends Pessoa implements Serializable{
+    @Column(name="razao_social")
     private String razaoSocial;
     @Column
     private String cnpj;
-    @Column
+    @Column(name = "inscricao_estadual")
     private String inscricaoEstdual;
     @Column
     private String contato;

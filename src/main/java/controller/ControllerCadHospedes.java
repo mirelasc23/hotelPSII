@@ -89,10 +89,10 @@ public class ControllerCadHospedes implements ActionListener{
                     if(this.telaCadastroHospedes.getjTextFieldID().getText().trim().equalsIgnoreCase("")){
                         //inclusao
                         hospede.setStatus('A');
-                        service.HospedeService.criar(hospede);
+                        service.HospedeService.Criar(hospede);
                     } else{
                         hospede.setId(Integer.parseInt(this.telaCadastroHospedes.getjTextFieldID().getText()));
-                        service.HospedeService.atualizar(hospede);
+                        service.HospedeService.Atualizar(hospede);
                     }
                 /*} catch (Exception ex) {
                     ex.printStackTrace();

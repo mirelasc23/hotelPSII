@@ -1,7 +1,6 @@
 package service;
 
 import java.util.List;
-import javax.swing.JOptionPane;
 import model.Hospede;
 import model.dao.HospedeDAO;
 

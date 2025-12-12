@@ -52,7 +52,7 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor>{
     @Override
     public List<Fornecedor> retrieve(String atributo, String valor) {
         List<Fornecedor> fornecedores = new ArrayList<>();
-        fornecedores = entityManager.createQuery(" Select mar From fornecedor mar "
+        fornecedores = entityManager.createQuery(" Select forn From fornecedor "
                 + " where " + atributo + " like (%" + valor + "%)",Fornecedor.class).getResultList();
         return fornecedores;
     }
