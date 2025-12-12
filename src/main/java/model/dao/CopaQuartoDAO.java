@@ -52,8 +52,8 @@ private static CopaQuartoDAO INSTANCE;
     @Override
     public List<CopaQuarto> retrieve(String atributo, String valor) {
         List<CopaQuarto> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mar From modelo mar "
-                + " where " + atributo + " like (%" + valor + "%)",CopaQuarto.class).getResultList();
+        modelos = entityManager.createQuery(" Select cp_q From CopaQuarto cp_q "
+                + " where cp_q." + atributo + " like '%" + valor + "%'",CopaQuarto.class).getResultList();
         return modelos;
     }
 

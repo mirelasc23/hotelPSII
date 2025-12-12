@@ -52,8 +52,8 @@ private static MovimentoCaixaDAO INSTANCE;
     @Override
     public List<MovimentoCaixa> retrieve(String atributo, String valor) {
         List<MovimentoCaixa> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mar From modelo mar "
-                + " where " + atributo + " like (%" + valor + "%)",MovimentoCaixa.class).getResultList();
+        modelos = entityManager.createQuery(" Select mv_cx From MovimentoCaixa mv_cx "
+                + " where mv_cx." + atributo + " like '%" + valor + "%'",MovimentoCaixa.class).getResultList();
         return modelos;
     }
 

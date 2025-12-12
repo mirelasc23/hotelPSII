@@ -55,8 +55,8 @@ private static ProdutoCopaDAO INSTANCE;
     @Override
     public List<ProdutoCopa> retrieve(String atributo, String valor) {
         List<ProdutoCopa> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mar From modelo mar "
-                + " where " + atributo + " like (%" + valor + "%)",ProdutoCopa.class).getResultList();
+        modelos = entityManager.createQuery(" Select pc From ProdutoCopa pc "
+                + " where pc." + atributo + " like '%" + valor + "%'",ProdutoCopa.class).getResultList();
         return modelos;
     }
 

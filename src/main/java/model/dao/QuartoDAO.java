@@ -53,8 +53,8 @@ private static QuartoDAO INSTANCE;
     @Override
     public List<Quarto> retrieve(String atributo, String valor) {
         List<Quarto> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mar From modelo mar "
-                + " where " + atributo + " like (%" + valor + "%)",Quarto.class).getResultList();
+        modelos = entityManager.createQuery(" Select qu From Quarto qu "
+                + " where qu." + atributo + " like '%" + valor + "%'",Quarto.class).getResultList();
         return modelos;
     }
 

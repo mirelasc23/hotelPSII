@@ -52,8 +52,8 @@ public class ModeloDAO implements InterfaceDAO<Modelo>{
     @Override
     public List<Modelo> retrieve(String atributo, String valor) {
         List<Modelo> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mar From modelo mar "
-                + " where " + atributo + " like (%" + valor + "%)",Modelo.class).getResultList();
+        modelos = entityManager.createQuery(" Select mod From Modelo mod "
+                + " where mod." + atributo + " like '%" + valor + "%'",Modelo.class).getResultList();
         return modelos;
     }
 
