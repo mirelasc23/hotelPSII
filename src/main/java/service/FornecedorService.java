@@ -9,16 +9,13 @@ public class FornecedorService {
         FornecedorDAO.getInstance().create(objeto);
     }
 
-    
     public static Fornecedor Carregar(int id) {
         return FornecedorDAO.getInstance().retrieve(id);
     }
-
    
     public static List<Fornecedor> Carregar(String atributo, String valor) {
         return FornecedorDAO.getInstance().retrieve(atributo, valor);
     }
-
     
     public static void Atualizar(Fornecedor objeto) {
         FornecedorDAO.getInstance().update(objeto);

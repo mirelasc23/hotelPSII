@@ -53,8 +53,8 @@ private static HospedeDAO INSTANCE;
     @Override
     public List<Hospede> retrieve(String atributo, String valor) {
         List<Hospede> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mar From modelo mar "
-                + " where " + atributo + " like (%" + valor + "%)",Hospede.class).getResultList();
+        modelos = entityManager.createQuery(" Select hosp From Hospede hosp "
+                + " where hosp." + atributo + " like '%" + valor + "%'",Hospede.class).getResultList();
         return modelos;
     }
 

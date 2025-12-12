@@ -52,8 +52,8 @@ private static CaixaDAO INSTANCE;
     @Override
     public List<Caixa> retrieve(String atributo, String valor) {
         List<Caixa> caixas = new ArrayList<>();
-        caixas = entityManager.createQuery(" Select mar From caixa mar "
-                + " where " + atributo + " like (%" + valor + "%)",Caixa.class).getResultList();
+        caixas = entityManager.createQuery(" Select cai From Caixa cai "
+                + " where forn." + atributo + " like '%" + valor + "%'",Caixa.class).getResultList();
         return caixas;
     }
 

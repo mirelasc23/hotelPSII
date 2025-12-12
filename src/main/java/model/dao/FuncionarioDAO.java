@@ -52,8 +52,8 @@ private static FuncionarioDAO INSTANCE;
     @Override
     public List<Funcionario> retrieve(String atributo, String valor) {
         List<Funcionario> funcionarios = new ArrayList<>();
-        funcionarios = entityManager.createQuery(" Select mar From funcionario mar "
-                + " where " + atributo + " like (%" + valor + "%)",Funcionario.class).getResultList();
+        funcionarios = entityManager.createQuery(" Select f From Funcionario f "
+                + " where f." + atributo + " like '%" + valor + "%'",Funcionario.class).getResultList();
         return funcionarios;
     }
 

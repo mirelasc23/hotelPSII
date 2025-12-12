@@ -52,8 +52,8 @@ private static AlocacaoVagaDAO INSTANCE;
     @Override
     public List<AlocacaoVaga> retrieve(String atributo, String valor) {
         List<AlocacaoVaga> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mar From modelo mar "
-                + " where " + atributo + " like (%" + valor + "%)",AlocacaoVaga.class).getResultList();
+        modelos = entityManager.createQuery(" Select al_v From AlocacaoVaga al_v "
+                + " where al_v." + atributo + " like '%" + valor + "%'",AlocacaoVaga.class).getResultList();
         return modelos;
     }
 

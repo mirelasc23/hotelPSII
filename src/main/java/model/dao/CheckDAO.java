@@ -52,8 +52,8 @@ private static CheckDAO INSTANCE;
     @Override
     public List<Check> retrieve(String atributo, String valor) {
         List<Check> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mar From modelo mar "
-                + " where " + atributo + " like (%" + valor + "%)",Check.class).getResultList();
+        modelos = entityManager.createQuery(" Select ch From Check ch "
+                + " where ch." + atributo + " like '%" + valor + "%'",Check.class).getResultList();
         return modelos;
     }
 

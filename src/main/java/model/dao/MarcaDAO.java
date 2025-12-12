@@ -114,8 +114,8 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
     @Override
     public List<Marca> retrieve(String atributo, String valor) {
         List<Marca> marcas = new ArrayList<>();
-        marcas = entityManager.createQuery(" Select mar From marca mar "
-                + " where " + atributo + " like (%" + valor + "%)",Marca.class).getResultList();
+        marcas = entityManager.createQuery(" Select mar From Marca mar "
+                + " where mar." + atributo + " like '%" + valor + "%'",Marca.class).getResultList();
         return marcas;
         
         /*String sqlInstrucao = "select id, descricao, status"
