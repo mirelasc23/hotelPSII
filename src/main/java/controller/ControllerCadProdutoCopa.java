@@ -35,9 +35,7 @@ public class ControllerCadProdutoCopa implements ActionListener{
             this.telaCadastroProdutoCopa.getjComboBoxStatus().setSelectedIndex(0);
             this.telaCadastroProdutoCopa.getjComboBoxStatus().setEnabled(false);
             
-            JOptionPane.showMessageDialog(null, "botao NOVO");
         }else if(e.getSource() == this.telaCadastroProdutoCopa.getjButtonGravar()){
-            JOptionPane.showMessageDialog(null, "botao GRAVAR");
             if(this.telaCadastroProdutoCopa.getjTextFieldDescricao().getText().trim().equalsIgnoreCase("")){
                 JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
                 this.telaCadastroProdutoCopa.getjTextFieldDescricao().requestFocus();
@@ -82,7 +80,6 @@ public class ControllerCadProdutoCopa implements ActionListener{
                 utilities.Utilities.limpaComponentes(this.telaCadastroProdutoCopa.getjPanelDados(), false);
             }
         }else if(e.getSource() == this.telaCadastroProdutoCopa.getjButtonBuscar()){
-            JOptionPane.showMessageDialog(null, "botao BUSCAR");
             BuscaProdutoCopa telaBuscaProdutoCopa= new BuscaProdutoCopa(null, true);
             ControllerBuscaProdutoCopa controllerBuscaProdutoCopa = new ControllerBuscaProdutoCopa(telaBuscaProdutoCopa);
             telaBuscaProdutoCopa.setVisible(true);
@@ -112,7 +109,6 @@ public class ControllerCadProdutoCopa implements ActionListener{
                 this.telaCadastroProdutoCopa.getjTextFieldDescricao().requestFocus();
         
         }else if(e.getSource() == this.telaCadastroProdutoCopa.getjButtonCancelar()){
-            JOptionPane.showMessageDialog(null, "botao cancelar");
             utilities.Utilities.ativaDesativaBotoes(this.telaCadastroProdutoCopa.getjPanelBotoes(), true);
             utilities.Utilities.limpaComponentes(this.telaCadastroProdutoCopa.getjPanelDados(), false);
         }else if(e.getSource() == this.telaCadastroProdutoCopa.getjButtonSair()){

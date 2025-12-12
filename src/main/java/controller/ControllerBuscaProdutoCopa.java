@@ -45,7 +45,10 @@ public class ControllerBuscaProdutoCopa implements ActionListener{
                     
                 } else if(telaBuscaProdutoCopa.getjComboBoxFiltrarPor().getSelectedIndex() == 1){
                     List<ProdutoCopa> produtosCopa = new ArrayList<>();
-                    produtosCopa = service.ProdutoCopaService.Carregar("decricao", this.telaBuscaProdutoCopa.getjTextFieldValor().getText());
+                    // JPA: lida com o atributo do java, e nao com o campo do BD
+                    produtosCopa = service.ProdutoCopaService.Carregar("descricao", this.telaBuscaProdutoCopa.getjTextFieldValor().getText());
+                    
+                    // .JAR =: produtosCopa = service.ProdutoCopaService.Carregar("decricao", this.telaBuscaProdutoCopa.getjTextFieldValor().getText());
                                         
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaProdutoCopa.getjTableDados().getModel();
                     tabela.setRowCount(0);

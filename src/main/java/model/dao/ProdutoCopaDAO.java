@@ -11,11 +11,11 @@ import javax.persistence.Persistence;
 
 
 public class ProdutoCopaDAO implements InterfaceDAO<ProdutoCopa>{
-private static ProdutoCopaDAO INSTANCE;
-    protected EntityManager entityManager;
+    private static ProdutoCopaDAO INSTANCE;
+    //protected EntityManager em;
     
     public ProdutoCopaDAO(){
-        entityManager = getEntityManager();
+        //em = getEntityManager();
     }
     
     public static ProdutoCopaDAO getInstance(){
@@ -24,67 +24,87 @@ private static ProdutoCopaDAO INSTANCE;
         }
         return INSTANCE;
     }
-    
+    /*
     private EntityManager getEntityManager(){
             EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
-            if(this.entityManager == null){
-                this.entityManager = factory.createEntityManager();
+            if(em == null){
+                em = factory.createEntityManager();
             }
-            return this.entityManager;
-    }
+            return em;
+    }*/
     
     @Override
     public void create(ProdutoCopa objeto) {
+        EntityManager em = utilities.Utilities.getEntityManager();
         try {
-            this.entityManager.getTransaction().begin();
-            this.entityManager.persist(objeto);
-            this.entityManager.getTransaction().commit();
+            em.getTransaction().begin();
+            em.persist(objeto);
+            em.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
-            this.entityManager.getTransaction().rollback();
+            em.getTransaction().rollback();
+        } finally {
+            // É fundamental fechar o EntityManager
+            if (em != null) {
+                em.close();
+            }
         }
     }
 
     @Override
     public ProdutoCopa retrieve(int id) {
+        EntityManager em = utilities.Utilities.getEntityManager();
         ProdutoCopa modelo = new ProdutoCopa();
-        modelo = entityManager.find(ProdutoCopa.class, id);
+        modelo = em.find(ProdutoCopa.class, id);
         return modelo;
     }
 
     @Override
     public List<ProdutoCopa> retrieve(String atributo, String valor) {
+        EntityManager em = utilities.Utilities.getEntityManager();
         List<ProdutoCopa> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select pc From ProdutoCopa pc "
+        modelos = em.createQuery(" Select pc From ProdutoCopa pc "
                 + " where pc." + atributo + " like '%" + valor + "%'",ProdutoCopa.class).getResultList();
         return modelos;
     }
 
     @Override
     public void update(ProdutoCopa objeto) {
+        EntityManager em = utilities.Utilities.getEntityManager();
         try {
-            entityManager.getTransaction().begin();
-            entityManager.merge(objeto);
-            entityManager.getTransaction().commit();
+            em.getTransaction().begin();
+            em.merge(objeto);
+            em.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
-            entityManager.getTransaction().rollback();
+            em.getTransaction().rollback();
+        } finally {
+            // É fundamental fechar o EntityManager
+            if (em != null) {
+                em.close();
+            }
         }
     }
 
     @Override
     public void delete(ProdutoCopa objeto) {
+        EntityManager em = utilities.Utilities.getEntityManager();
         try {
-            entityManager.getTransaction().begin();
+            em.getTransaction().begin();
             ProdutoCopa modelo = new ProdutoCopa();
-            modelo = entityManager.find(ProdutoCopa.class, objeto.getId());
+            modelo = em.find(ProdutoCopa.class, objeto.getId());
             if(modelo != null){
-                entityManager.remove(modelo);
+                em.remove(modelo);
             }
-            entityManager.getTransaction().commit();
+            em.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
-            entityManager.getTransaction().rollback();
+            em.getTransaction().rollback();
+        } finally {
+            // É fundamental fechar o EntityManager
+            if (em != null) {
+                em.close();
+            }
         }
     }
 }

@@ -5,28 +5,23 @@ import model.Servico;
 import model.dao.ServicoDAO;
 
 public class ServicoService {
-    
     public static void Criar(Servico objeto) {
-        ServicoDAO servicoDAO = new ServicoDAO();
-        servicoDAO.create(objeto);
+        ServicoDAO.getInstance().create(objeto);
     }
-
+    
     public static Servico Carregar(int id) {
-        ServicoDAO servicoDAO = new ServicoDAO();
-        return servicoDAO.retrieve(id);
+        return ServicoDAO.getInstance().retrieve(id);
     }
 
     public static List<Servico> Carregar(String atributo, String valor) {
-        ServicoDAO servicoDAO = new ServicoDAO();
-        return servicoDAO.retrieve(atributo, valor);
+        return ServicoDAO.getInstance().retrieve(atributo, valor);
     }
-
+    
     public static void Atualizar(Servico objeto) {
-        ServicoDAO servicoDAO = new ServicoDAO();
-        servicoDAO.update(objeto);
+        ServicoDAO.getInstance().update(objeto);
     }
 
-    public static void Deletar(Servico objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deletar(Servico objeto) {
+        ServicoDAO.getInstance().delete(objeto);
     }
 }

@@ -33,7 +33,6 @@ public class ControllerBuscaFornecedor implements ActionListener{
                 this.telaBuscaFornecedor.dispose();
             }
         } else if(evento.getSource() == this.telaBuscaFornecedor.getjButtonFiltrar()){
-            JOptionPane.showMessageDialog(null, "Botão Filtrar Pressionado");
             if(this.telaBuscaFornecedor.getjTextFieldValor().getText().trim().equalsIgnoreCase("")){
                 JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
             } else {
@@ -48,7 +47,7 @@ public class ControllerBuscaFornecedor implements ActionListener{
                     tabela.setRowCount(0);
                     tabela.addRow(new Object[] {fornecedor.getId(), fornecedor.getNome(), fornecedor.getCpf(), fornecedor.getStatus()});
                 } else if(telaBuscaFornecedor.getjComboBoxFiltrarPor().getSelectedIndex() == 1){
-                    JOptionPane.showMessageDialog(null, "Filtrando Por Nome");
+                    //JOptionPane.showMessageDialog(null, "Filtrando Por Nome");
                     List<Fornecedor> fornecedores = new ArrayList<>();
                     fornecedores = service.FornecedorService.Carregar("nome", this.telaBuscaFornecedor.getjTextFieldValor().getText());
                                         
@@ -57,10 +56,9 @@ public class ControllerBuscaFornecedor implements ActionListener{
                     int i=0;
                     for (Fornecedor fornecedor : fornecedores) {
                         tabela.addRow(new Object[] {fornecedor.getId(), fornecedor.getNome(), fornecedor.getCpf(), fornecedor.getStatus()});
-                        JOptionPane.showMessageDialog(null, ++i);
                     }
                 } else if(telaBuscaFornecedor.getjComboBoxFiltrarPor().getSelectedIndex() == 2){
-                    JOptionPane.showMessageDialog(null, "Filtrando Por CPF");
+                    //JOptionPane.showMessageDialog(null, "Filtrando Por CPF");
                     List<Fornecedor> fornecedores = new ArrayList<>();
                     fornecedores = service.FornecedorService.Carregar("cpf", this.telaBuscaFornecedor.getjTextFieldValor().getText());
                                         
@@ -69,10 +67,9 @@ public class ControllerBuscaFornecedor implements ActionListener{
                     int i=0;
                     for (Fornecedor fornecedor : fornecedores) {
                         tabela.addRow(new Object[] {fornecedor.getId(), fornecedor.getNome(), fornecedor.getCpf(), fornecedor.getStatus()});
-                        JOptionPane.showMessageDialog(null, ++i);
                     }
                 } else if(telaBuscaFornecedor.getjComboBoxFiltrarPor().getSelectedIndex() == 3){
-                    JOptionPane.showMessageDialog(null, "Filtrando Por CNPJ");
+                    //JOptionPane.showMessageDialog(null, "Filtrando Por CNPJ");
                     List<Fornecedor> fornecedores = new ArrayList<>();
                     fornecedores = service.FornecedorService.Carregar("cnpj", this.telaBuscaFornecedor.getjTextFieldValor().getText());
                                         
@@ -81,7 +78,6 @@ public class ControllerBuscaFornecedor implements ActionListener{
                     int i=0;
                     for (Fornecedor fornecedor : fornecedores) {
                         tabela.addRow(new Object[] {fornecedor.getId(), fornecedor.getNome(), fornecedor.getCpf(), fornecedor.getStatus()});
-                        JOptionPane.showMessageDialog(null, ++i);
                     }
                 }
             }

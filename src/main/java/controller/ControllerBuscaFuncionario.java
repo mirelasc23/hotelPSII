@@ -58,7 +58,6 @@ public class ControllerBuscaFuncionario implements ActionListener{
                     int i=0;
                     for (Funcionario funcionario : funcionarios) {
                         tabela.addRow(new Object[] {funcionario.getId(), funcionario.getNome(), funcionario.getCpf(), funcionario.getUsuario(), funcionario.getStatus()});
-                        JOptionPane.showMessageDialog(null, ++i);
                     }
                 } else if(telaBuscaFuncionario.getjComboBoxFiltrarPor().getSelectedIndex() == 2){
                     //JOptionPane.showMessageDialog(null, "Filtrando Por CPF");
@@ -70,7 +69,6 @@ public class ControllerBuscaFuncionario implements ActionListener{
                     int i=0;
                     for (Funcionario funcionario : funcionarios) {
                         tabela.addRow(new Object[] {funcionario.getId(), funcionario.getNome(), funcionario.getCpf(), funcionario.getUsuario(), funcionario.getStatus()});
-                        JOptionPane.showMessageDialog(null, ++i);
                     }
                 } else if(telaBuscaFuncionario.getjComboBoxFiltrarPor().getSelectedIndex() == 3){
                     //JOptionPane.showMessageDialog(null, "Filtrando Por Usuário");
@@ -82,7 +80,6 @@ public class ControllerBuscaFuncionario implements ActionListener{
                     int i=0;
                     for (Funcionario funcionario : funcionarios) {
                         tabela.addRow(new Object[] {funcionario.getId(), funcionario.getNome(), funcionario.getCpf(), funcionario.getUsuario(), funcionario.getStatus()});
-                        JOptionPane.showMessageDialog(null, ++i);
                     }
                 }
             }

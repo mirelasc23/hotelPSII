@@ -12,7 +12,7 @@ public class Quarto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column 
+    @Column (name = "capacidade_hospedes")
     private int capacidadeHospedes;
     @Column 
     private int andar;
@@ -24,11 +24,11 @@ public class Quarto implements Serializable {
     private String identificacao;
     @Column
     private String obs;//
-    @Column
+    @Column (name = "flag_animais")
     private boolean flagAnimais;
-    @Column
+    @Column(name = "flag_fumante")
     private boolean flagFumante;
-    @Column
+    @Column (name = "flag_bebe")
     private boolean flagBebe;//
     @Column
     private char status;//

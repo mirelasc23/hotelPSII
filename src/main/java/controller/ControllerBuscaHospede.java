@@ -29,7 +29,7 @@ public class ControllerBuscaHospede implements ActionListener{
             if(telaBuscaHospede.getjTableDados().getRowCount() == 0){
                 JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
             } else {
-                JOptionPane.showMessageDialog(null, "Carregando Dados");
+                //JOptionPane.showMessageDialog(null, "Carregando Dados");
                 //Retornar os dados para a tela de cadastro
                 ControllerCadHospedes.codigo = (int)this.telaBuscaHospede.getjTableDados().getValueAt(this.telaBuscaHospede.getjTableDados().getSelectedRow(), 0);
                 this.telaBuscaHospede.dispose();
@@ -71,7 +71,6 @@ public class ControllerBuscaHospede implements ActionListener{
                     int i=0;
                     for (Hospede hospede : hospedes) {
                         tabela.addRow(new Object[] {hospede.getId(), hospede.getNome(), hospede.getCpf(), hospede.getStatus()});
-                        JOptionPane.showMessageDialog(null, ++i);
                     }
                     
                 } else if(telaBuscaHospede.getjComboBoxFiltrarPor().getSelectedIndex() == 2){

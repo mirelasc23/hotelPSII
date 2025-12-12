@@ -7,24 +7,36 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.text.DateFormatter;
 
 public class Utilities {
+    private static final EntityManagerFactory FACTORY = 
+        Persistence.createEntityManagerFactory("PU");
+    
+    public static EntityManager getEntityManager() {
+        return FACTORY.createEntityManager();
+    }
+    
+    // Opcional: Para fechar a Factory ao desligar a aplicação
+    public static void closeFactory() {
+        if (FACTORY != null && FACTORY.isOpen()) {
+            FACTORY.close();
+        }
+    }
+    
     public static final String CHAVE_FUNCAO =  "ativaDesativaBusca()";
     
     public static void ativaDesativaBotoes(JPanel painel, boolean ativa){
