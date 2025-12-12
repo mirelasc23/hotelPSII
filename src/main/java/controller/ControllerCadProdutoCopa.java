@@ -107,7 +107,7 @@ public class ControllerCadProdutoCopa implements ActionListener{
                 }
                 this.telaCadastroProdutoCopa.getjComboBoxStatus().setSelectedIndex(index_status);
                 this.telaCadastroProdutoCopa.getjTextFieldDescricao().requestFocus();
-        
+            }
         }else if(e.getSource() == this.telaCadastroProdutoCopa.getjButtonCancelar()){
             utilities.Utilities.ativaDesativaBotoes(this.telaCadastroProdutoCopa.getjPanelBotoes(), true);
             utilities.Utilities.limpaComponentes(this.telaCadastroProdutoCopa.getjPanelDados(), false);
@@ -115,5 +115,5 @@ public class ControllerCadProdutoCopa implements ActionListener{
            this.telaCadastroProdutoCopa.dispose();
         }  
     
-    }}
+    }
 }
