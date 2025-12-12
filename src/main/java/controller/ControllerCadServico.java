@@ -2,10 +2,15 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import model.Servico;
+import view.BuscaServico;
 import view.CadastroServico;
 
-public class ControllerCadServico implements ActionListener{
-        CadastroServico telaCadastroServico;
+public class ControllerCadServico implements ActionListener {
+//parei na linha 78
+    CadastroServico telaCadastroServico;
+    public static int codigo;
 
     public ControllerCadServico(CadastroServico telaCadastroServico) {
         this.telaCadastroServico = telaCadastroServico;
@@ -16,29 +21,71 @@ public class ControllerCadServico implements ActionListener{
         this.telaCadastroServico.getjButtonSair().addActionListener(this);
         utilities.Utilities.ativaDesativaBotoes(this.telaCadastroServico.getjPanelBotoes(), true);
         utilities.Utilities.limpaComponentes(this.telaCadastroServico.getjPanelDados(), false);
-        
+
         //Desenvolver as setagens de situação inicial dos componentes:  ||quais botões estarão ativos
-        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == this.telaCadastroServico.getjButtonNovo()){
+        if (e.getSource() == this.telaCadastroServico.getjButtonNovo()) {
             utilities.Utilities.ativaDesativaBotoes(this.telaCadastroServico.getjPanelBotoes(), false);
             utilities.Utilities.limpaComponentes(this.telaCadastroServico.getjPanelDados(), true);
-        }else if(e.getSource() == this.telaCadastroServico.getjButtonGravar()){
+            this.telaCadastroServico.getjTextFieldID().setEnabled(false);
+            this.telaCadastroServico.getjComboBoxSituacao().setSelectedIndex(0);
+            this.telaCadastroServico.getjComboBoxSituacao().setEnabled(false);
+            this.telaCadastroServico.getjComboBoxFiltrarPor().setEnabled(false);
+            this.telaCadastroServico.getjTextFieldValor().setEnabled(false);
+
+        } else if (e.getSource() == this.telaCadastroServico.getjButtonGravar()) {
             utilities.Utilities.ativaDesativaBotoes(this.telaCadastroServico.getjPanelBotoes(), true);
             utilities.Utilities.limpaComponentes(this.telaCadastroServico.getjPanelDados(), false);
-        }else if(e.getSource() == this.telaCadastroServico.getjButtonBuscar()){
-            /*BuscaHospede telaBuscaHospede= new BuscaHospede(null, true);
-            ControllerBuscaHospede controllerBuscaHospedes = new ControllerBuscaHospede(telaBuscaHospede);
-            telaBuscaHospede.setVisible(true);*/
-        }else if(e.getSource() == this.telaCadastroServico.getjButtonCancelar()){
+
+            if (this.telaCadastroServico.getjTextFieldDescricao().getText().trim().equalsIgnoreCase("")) {
+                JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
+                this.telaCadastroServico.getjTextFieldDescricao().requestFocus();
+            } else {
+                Servico servico = new Servico();
+
+                servico.setDescricao(this.telaCadastroServico.getjTextFieldDescricao().getText());
+                servico.setObs(this.telaCadastroServico.getjTextAreaObs().getText());
+
+                if (this.telaCadastroServico.getjTextFieldID().getText().trim().equalsIgnoreCase("")) {
+                    //inclusao
+                    servico.setStatus('A');
+                    service.ServicoService.Criar(servico);
+                } else {
+                    servico.setId(Integer.parseInt(this.telaCadastroServico.getjTextFieldID().getText()));
+                    service.ServicoService.Atualizar(servico);
+                }
+                utilities.Utilities.ativaDesativaBotoes(this.telaCadastroServico.getjPanelBotoes(), true);
+                utilities.Utilities.limpaComponentes(this.telaCadastroServico.getjPanelDados(), false);
+            }
+        } else if (e.getSource() == this.telaCadastroServico.getjButtonBuscar()) {
+            codigo = 0;
+
+            BuscaServico telaBuscaServico = new BuscaServico(null, true);
+            ControllerBuscaServico controllerBuscaServico = new ControllerBuscaServico(telaBuscaServico);
+            telaBuscaServico.setVisible(true);
+            
+            if (codigo != 0) {
+                utilities.Utilities.ativaDesativaBotoes(this.telaCadastroServico.getjPanelBotoes(), false);
+                utilities.Utilities.limpaComponentes(this.telaCadastroServico.getjPanelDados(), true);
+
+                this.telaCadastroServico.getjTextFieldID().setText(codigo + "");
+                this.telaCadastroServico.getjTextFieldID().setEnabled(false);
+            
+                Servico servico = new Servico();
+                /*
+                servico.setDescricao(this.telaCadastroServico.getjTextFieldDescricao().getText());
+                servico.setObs(this.telaCadastroServico.getjTextAreaObs().getText());*/
+                
+            }
+        } else if (e.getSource() == this.telaCadastroServico.getjButtonCancelar()) {
             utilities.Utilities.ativaDesativaBotoes(this.telaCadastroServico.getjPanelBotoes(), true);
             utilities.Utilities.limpaComponentes(this.telaCadastroServico.getjPanelDados(), false);
-        }else if(e.getSource() == this.telaCadastroServico.getjButtonSair()){
-           this.telaCadastroServico.dispose();
+        } else if (e.getSource() == this.telaCadastroServico.getjButtonSair()) {
+            this.telaCadastroServico.dispose();
         }
-        
+
     }
 }

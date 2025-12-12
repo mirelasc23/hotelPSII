@@ -5,12 +5,12 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class BuscaMarca extends javax.swing.JDialog {
+public class BuscaServico extends javax.swing.JDialog {
 
     /**
      * Creates new form TemplateBuscas2025
      */
-    public BuscaMarca(java.awt.Frame parent, boolean modal) {
+    public BuscaServico(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -108,14 +108,18 @@ public class BuscaMarca extends javax.swing.JDialog {
 
             },
             new String [] {
-                "id", "Descrição", "Status"
+                "id", "Descrição", "Valor", "Status"
             }
         ));
         jTableDados.setSelectionBackground(new java.awt.Color(153, 153, 153));
         jScrollPane1.setViewportView(jTableDados);
         if (jTableDados.getColumnModel().getColumnCount() > 0) {
             jTableDados.getColumnModel().getColumn(0).setMaxWidth(50);
-            jTableDados.getColumnModel().getColumn(2).setMaxWidth(50);
+            jTableDados.getColumnModel().getColumn(1).setMaxWidth(250);
+            jTableDados.getColumnModel().getColumn(2).setMinWidth(200);
+            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(200);
+            jTableDados.getColumnModel().getColumn(2).setMaxWidth(200);
+            jTableDados.getColumnModel().getColumn(3).setMaxWidth(50);
         }
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
@@ -139,7 +143,7 @@ public class BuscaMarca extends javax.swing.JDialog {
             }
         });
 
-        jComboBoxFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Descrição", "Obs" }));
+        jComboBoxFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Descrição", "Valor", "Obs" }));
 
         jButtonCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Load.png"))); // NOI18N
         jButtonCarregar.setText("Carregar");
@@ -265,13 +269,13 @@ public class BuscaMarca extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BuscaMarca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscaServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BuscaMarca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscaServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BuscaMarca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscaServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BuscaMarca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscaServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -309,7 +313,7 @@ public class BuscaMarca extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                BuscaMarca dialog = new BuscaMarca(new javax.swing.JFrame(), true);
+                BuscaServico dialog = new BuscaServico(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -317,8 +321,6 @@ public class BuscaMarca extends javax.swing.JDialog {
                     }
                 });
                 dialog.setVisible(true);
-                dialog.pack();
-                dialog.setLocationRelativeTo(null);
             }
         });
     }

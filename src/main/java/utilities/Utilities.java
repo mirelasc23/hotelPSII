@@ -111,7 +111,8 @@ public class Utilities {
         
     }
     
-    public static String validaCpf(String cpf){//boolean validaCpf(String cpf){
+    public static boolean /*String*/ validaCpf(String cpf){//boolean validaCpf(String cpf){
+        boolean valido=false;
         List<Integer> valor = new ArrayList<>();
         List<Integer> valor1Convertido = new ArrayList<>();
         List<Integer> valor2Preparacao = new ArrayList<>();
@@ -165,8 +166,8 @@ public class Utilities {
             
             
             
-            return valor2Convertido.toString() + " = " + soma + 
-                "\nvalidador 2: " + validador2;
+            //return valor2Convertido.toString() + " = " + soma + 
+              //  "\nvalidador 2: " + validador2;
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
@@ -182,7 +183,8 @@ public class Utilities {
         
         /*return valor2Convertido.toString() + " = " + soma + 
                 "\nvalidador 1: " + validador1;*/
-        return "resp";
+        //return "resp";
+        return valido;
     }
     
     public static void validaCnpj(){

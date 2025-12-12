@@ -62,7 +62,8 @@ public class ControllerCadHospedes implements ActionListener{
                 hospede.setCidade(this.telaCadastroHospedes.getjTextFieldCidade().getText());
                 hospede.setComplemento(this.telaCadastroHospedes.getjTextFieldComplemento().getText());
                 hospede.setDataCadastro(this.telaCadastroHospedes.getjFormattedTextFieldDataCadastro().getText());
-                hospede.setCpf(this.telaCadastroHospedes.getjFormattedTextFieldCpf().getText());
+                if(utilities.Utilities.validaCpf(this.telaCadastroHospedes.getjFormattedTextFieldCpf().getText()))
+                    hospede.setCpf(this.telaCadastroHospedes.getjFormattedTextFieldCpf().getText());
                 hospede.setRg(this.telaCadastroHospedes.getjTextFieldRG().getText());
                 hospede.setObs(this.telaCadastroHospedes.getjTextFieldObs().getText());
                 //hospede.setStatus(this.telaCadastroHospedes.getj().setText(hospede.getStatus()));

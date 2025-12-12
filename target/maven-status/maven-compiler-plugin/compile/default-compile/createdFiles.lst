@@ -5,6 +5,7 @@ view\BuscaProdutoCopa$4.class
 model\dao\CaixaDAO.class
 model\Pessoa.class
 view\CadastroModelo$1.class
+view\BuscaMarca$2.class
 view\BuscaFuncionario$1.class
 view\CadastroServico$5.class
 view\CadastroHospedes$1.class
@@ -14,6 +15,7 @@ view\BuscaFornecedor$2.class
 model\OrdemServico.class
 view\CadastroFuncionarios$7$1.class
 model\Caixa.class
+controller\ControllerCadMarcaCopy.class
 view\BuscaHospede$3$1.class
 view\BuscaFuncionario$4$1.class
 view\CadastroServico$6$1.class
@@ -25,8 +27,10 @@ view\CadastroVagaEstacionamento$1.class
 view\CadastroFuncionarios$4.class
 view\BuscaProdutoCopa$3.class
 view\BuscaQuarto.class
+view\CadastroMarcaCopy$1.class
 view\CadastroVeiculo$1$1.class
 model\CopaQuarto.class
+view\BuscaMarca$4$1.class
 service\QuartoService.class
 view\CadastroHospedes$7$1.class
 controller\ControllerCadVagaEstacionamento.class
@@ -45,6 +49,7 @@ view\CadastroProdutoCopa$6$1.class
 view\CadastroFuncionarios.class
 model\dao\ReservaQuartoDAO.class
 view\TelaCadastroHospede.class
+view\BuscaMarca$1.class
 controller\ControllerBuscaMarca.class
 controller\ControllerCadVeiculo.class
 model\Marca.class
@@ -82,12 +87,14 @@ controller\ControllerCadFuncionario.class
 controller\ControllerCadMarca.class
 view\BuscaQuarto$4$1.class
 controller\ControllerCadProdutoCopa.class
+view\CadastroMarcaCopy$4$1.class
 view\TemplateCadastros2025$1.class
 view\CadastroMarca.class
 model\dao\ModeloDAO.class
 utilities\Utilities.class
 view\CadastroServico$1.class
 view\BuscaFuncionario$4.class
+view\CadastroMarcaCopy$3.class
 service\MarcaService.class
 view\BuscaProdutoCopa.class
 controller\ControllerBuscaFuncionario.class
@@ -132,6 +139,7 @@ view\BuscaHospede.class
 view\CadastroProdutoCopa$3.class
 controller\ControllerBuscaQuarto.class
 view\TemplateBuscas2025$1.class
+view\CadastroMarcaCopy$2.class
 view\TemplateBuscas2025.class
 model\CheckQuarto.class
 view\CadastroMarca$3.class
@@ -162,6 +170,7 @@ view\BuscaHospede$3.class
 model\VagaEstacionamento.class
 view\CadastroVeiculo.class
 view\BuscaFuncionario.class
+view\BuscaMarca$3.class
 view\CadastroMarca$1.class
 view\CadastroServico$6.class
 view\BuscaProdutoCopa$2.class
@@ -177,14 +186,18 @@ model\dao\ServicoDAO.class
 service\ServicoService.class
 view\BuscaQuarto$3.class
 view\CadastroHospedes.class
+view\CadastroMarcaCopy$4.class
 model\dao\ReservaDAO.class
 model\Hospede.class
 view\CadastroVagaEstacionamento$4.class
 view\CadastroFuncionarios$1.class
 view\CadastroProdutoCopa$5.class
+view\BuscaMarca$4.class
 controller\ControllerCadQuarto.class
 controller\JavaTest.class
 model\dao\CheckDAO.class
 service\FornecedorService.class
+view\BuscaMarca.class
+view\CadastroMarcaCopy.class
 controller\ControllerCadHospedes.class
 view\TelaMenuPrincipal$3.class

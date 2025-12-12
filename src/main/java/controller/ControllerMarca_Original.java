@@ -82,7 +82,7 @@ public class ControllerMarca_Original implements ActionListener{
             
             
             //CONTROLLER
-            ControllerBuscaMarca controllerBuscaHospedes = new ControllerBuscaMarca(this.telaCadastroMarca);
+//            ControllerBuscaMarca controllerBuscaHospedes = new ControllerBuscaMarca(this.telaCadastroMarca);
             
             /*DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaMarca.getjTableDados().getModel();
                 //Limpa a tabela a cada filtragem

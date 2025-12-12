@@ -2,11 +2,9 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import model.Marca;
+import view.BuscaMarca;
 import view.CadastroMarca;
 
 public class ControllerCadMarca implements ActionListener{
@@ -21,7 +19,7 @@ public class ControllerCadMarca implements ActionListener{
         this.telaCadastroMarca.getjButtonCancelar().addActionListener(this);
         this.telaCadastroMarca.getjButtonSair().addActionListener(this);
         this.telaCadastroMarca.getjButtonCarregar().addActionListener(this);
-        this.telaCadastroMarca.getjButtonFiltrar().addActionListener(this);
+        this.telaCadastroMarca.getjButtonBuscar().addActionListener(this);
         
         utilities.Utilities.ativaDesativaBotoes(this.telaCadastroMarca.getjPanelBotoes(), true);
         utilities.Utilities.limpaComponentes(this.telaCadastroMarca.getjPanelDados(), false);
@@ -76,17 +74,12 @@ public class ControllerCadMarca implements ActionListener{
              }
             
             
-        //BOTAO FILTRAR
-        }else if(e.getSource() == this.telaCadastroMarca.getjButtonFiltrar()){
-            
-            //ATIVA BOTOES PARA BUSCA
-            utilities.Utilities.ativaDesativaBusca(this.telaCadastroMarca.getjPanelDados(), true);
-            
-            //ATIVA COMPONENTES PARA BUSCA
-            this.telaCadastroMarca.getjComboBoxFiltrarPor().setEnabled(true);
-            this.telaCadastroMarca.getjTextFieldValor().setEnabled(true);
-            //JOptionPane.showMessageDialog(null, "ativou componentes"); 
-                        
+        //BOTAO BUSCAR
+        }else if(e.getSource() == this.telaCadastroMarca.getjButtonBuscar()){
+            JOptionPane.showMessageDialog(null, "botao buscar clicado");
+            BuscaMarca telaBuscaMarca= new BuscaMarca(null, true);
+            ControllerBuscaMarca controllerBuscaMarca = new ControllerBuscaMarca(telaBuscaMarca);
+            telaBuscaMarca.setVisible(true);           
             if (codigo != 0) {
                 
                 //DESATIVA BOTOES PARA BUSCA

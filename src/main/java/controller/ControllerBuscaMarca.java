@@ -7,12 +7,12 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Marca;
-import view.CadastroMarca;
+import view.BuscaMarca;
 
 public  class ControllerBuscaMarca implements ActionListener{
-    private CadastroMarca telaBuscaMarca;
+    private BuscaMarca telaBuscaMarca;
 
-    public ControllerBuscaMarca(CadastroMarca telaBuscaMarca) {
+    public ControllerBuscaMarca(BuscaMarca telaBuscaMarca) {
         this.telaBuscaMarca = telaBuscaMarca;
         
         this.telaBuscaMarca.getjButtonCarregar().addActionListener(this);

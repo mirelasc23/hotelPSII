@@ -146,10 +146,10 @@ public class CadastroMarca extends javax.swing.JDialog {
         jButtonCarregar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanelBotoes = new javax.swing.JPanel();
-        jButtonBuscar = new javax.swing.JButton();
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonGravar = new javax.swing.JButton();
+        jButtonBuscar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -312,15 +312,6 @@ public class CadastroMarca extends javax.swing.JDialog {
 
         jPanelBotoes.setBackground(new java.awt.Color(204, 204, 204));
 
-        jButtonBuscar.setText("jButton1");
-        jButtonBuscar.setActionCommand("1");
-        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarActionPerformed(evt);
-            }
-        });
-        jPanelBotoes.add(jButtonBuscar);
-
         jButtonNovo.setBackground(new java.awt.Color(204, 204, 204));
         jButtonNovo.setForeground(new java.awt.Color(0, 0, 0));
         jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
@@ -343,6 +334,18 @@ public class CadastroMarca extends javax.swing.JDialog {
         jButtonGravar.setActionCommand("0");
         jButtonGravar.setEnabled(false);
         jPanelBotoes.add(jButtonGravar);
+
+        jButtonBuscar.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonBuscar.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.setActionCommand("1");
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarActionPerformed(evt);
+            }
+        });
+        jPanelBotoes.add(jButtonBuscar);
 
         jButtonSair.setBackground(new java.awt.Color(204, 204, 204));
         jButtonSair.setForeground(new java.awt.Color(0, 0, 0));
