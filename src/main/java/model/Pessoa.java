@@ -177,6 +177,7 @@ public class Pessoa {
         } catch (RuntimeException e) {
             e.printStackTrace();
         }*/
+        this.cpf = cpf;
     }
 
     public String getRg() {

@@ -1,6 +1,7 @@
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\view\CadastroMarca.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\view\TemplateCadastros2025.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\model\dao\ReservaDAO.java
+C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\controller\ControllerBuscaServico.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\view\CadastroFuncionarios.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\model\CheckQuarto.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\controller\ControllerCadMarcaCopy.java
@@ -55,6 +56,7 @@ C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hot
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\controller\ControllerBuscaMarca.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\model\dao\ProdutoCopaDAO.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\view\BuscaQuarto.java
+C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\view\BuscaServico.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\service\ModeloService.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\view\TemplateBuscas2025.java
 C:\Users\Info\OneDrive\Área de Trabalho\Eclipse-workspace\Projetos\HotelPSI\hotelPSI\src\main\java\controller\ControllerMarca_Original.java

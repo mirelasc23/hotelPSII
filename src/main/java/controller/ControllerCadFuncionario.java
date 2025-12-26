@@ -77,7 +77,7 @@ public class ControllerCadFuncionario implements ActionListener{
                 funcionario.setSexo(sexo);
                 if(this.telaCadastroFuncionarios.getjTextFieldID().getText().trim().equalsIgnoreCase("")){
                     //inclusao
-                    JOptionPane.showMessageDialog(null, "entrou em criar");
+                    //JOptionPane.showMessageDialog(null, "entrou em criar");
                     funcionario.setStatus('a');
                     service.FuncionarioService.Criar(funcionario);
                 } else{
@@ -90,9 +90,9 @@ public class ControllerCadFuncionario implements ActionListener{
                     }
 
                     funcionario.setStatus(status);
-                    JOptionPane.showMessageDialog(null, status);
+                    /*JOptionPane.showMessageDialog(null, status);
                     JOptionPane.showMessageDialog(null, "entrou em atualizar");
-                    JOptionPane.showMessageDialog(null, funcionario);
+                    JOptionPane.showMessageDialog(null, funcionario);*/
                     service.FuncionarioService.Atualizar(funcionario);
                 }
                 utilities.Utilities.ativaDesativaBotoes(this.telaCadastroFuncionarios.getjPanelBotoes(), true);

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import model.Fornecedor;
 
 public class FornecedorDAO implements InterfaceDAO<Fornecedor>{
@@ -54,6 +55,20 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor>{
         List<Fornecedor> fornecedores = new ArrayList<>();
         fornecedores = entityManager.createQuery(" Select forn From Fornecedor forn "
                 + " where forn." + atributo + " like '%" + valor + "%'",Fornecedor.class).getResultList();
+        return fornecedores;
+    }
+    
+    public List<Fornecedor> retrieveAll() {
+        // Exemplo JPQL (Hibernate adiciona LIMIT/OFFSET)
+        TypedQuery<Fornecedor> query = entityManager.createQuery("Select forn From Fornecedor forn ORDER BY forn.id",Fornecedor.class);
+        //query.setFirstResult(10); // Offset: Pula os 10 primeiros
+        query.setMaxResults(30);   // Limit: Pega os próximos 5
+        //List<Pessoa> pessoas = query.getResultList();
+
+        
+        List<Fornecedor> fornecedores = new ArrayList<>();
+        //fornecedores = entityManager.createQuery(" Select forn From Fornecedor forn ORDER BY forn.id",Fornecedor.class).getResultList();
+        fornecedores = query.getResultList();
         return fornecedores;
     }
 

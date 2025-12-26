@@ -79,6 +79,14 @@ public class ControllerCadFornecedor implements ActionListener{
                     service.FornecedorService.Criar(fornecedor);
                 } else{
                     fornecedor.setId(Integer.parseInt(this.telaCadastroFornecedores.getjTextFieldID().getText()));
+                    char status;
+                    if(this.telaCadastroFornecedores.getjComboBoxStatus().getSelectedIndex() == 0){
+                        status = 'a';
+                    }else{
+                        status = 'i';
+                    }
+
+                    fornecedor.setStatus(status);
                     service.FornecedorService.Atualizar(fornecedor);
                 }
                 utilities.Utilities.ativaDesativaBotoes(this.telaCadastroFornecedores.getjPanelBotoes(), true);
@@ -86,7 +94,7 @@ public class ControllerCadFornecedor implements ActionListener{
              }
         }else if(e.getSource() == this.telaCadastroFornecedores.getjButtonBuscar()){
             //JOptionPane.showMessageDialog(null, "Falta ControllerBuscaFuncionarios");
-            JOptionPane.showMessageDialog(null, "ENTROU EM BUSCAR");
+            //JOptionPane.showMessageDialog(null, "ENTROU EM BUSCAR");
             BuscaFornecedor telaBuscaFornecedor= new BuscaFornecedor(null, true);
             ControllerBuscaFornecedor controllerBuscaFornecedor = new ControllerBuscaFornecedor(telaBuscaFornecedor);
             telaBuscaFornecedor.setVisible(true);
@@ -97,6 +105,7 @@ public class ControllerCadFornecedor implements ActionListener{
 
                 this.telaCadastroFornecedores.getjTextFieldID().setText(codigo + "");
                 this.telaCadastroFornecedores.getjTextFieldID().setEnabled(false);
+                this.telaCadastroFornecedores.getjFormattedTextFieldDataCadastro().setEnabled(false);
                 
                 
                 Fornecedor fornecedor = new Fornecedor();
@@ -126,7 +135,16 @@ public class ControllerCadFornecedor implements ActionListener{
                 }else{
                     index_sexo = 1;
                 }
+                
+                int index_status;
+                if(fornecedor.getStatus() == 'a' || fornecedor.getStatus() == 'A' ){
+                    index_status = 0;
+                }else{
+                    index_status = 1;
+                }
+                
                 this.telaCadastroFornecedores.getjComboBoxSexo().setSelectedIndex(index_sexo);
+                this.telaCadastroFornecedores.getjComboBoxStatus().setSelectedIndex(index_status);
                 
 
                 //carregar os dados para os containers faltantes

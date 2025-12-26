@@ -18,6 +18,16 @@ public class ControllerBuscaFornecedor implements ActionListener{
         this.telaBuscaFornecedor.getjButtonCarregar().addActionListener(this);
         this.telaBuscaFornecedor.getjButtonFechar().addActionListener(this);
         this.telaBuscaFornecedor.getjButtonFiltrar().addActionListener(this);
+        
+        List<Fornecedor> fornecedores = new ArrayList<>();
+        fornecedores = service.FornecedorService.Carregar();
+
+        DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFornecedor.getjTableDados().getModel();
+        tabela.setRowCount(0);
+        int i=0;
+        for (Fornecedor fornecedor : fornecedores) {
+            tabela.addRow(new Object[] {fornecedor.getId(), fornecedor.getNome(), fornecedor.getCpf(), fornecedor.getCnpj(), fornecedor.getStatus()});
+        }
           
     }
     
@@ -45,7 +55,7 @@ public class ControllerBuscaFornecedor implements ActionListener{
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFornecedor.getjTableDados().getModel();
                     //Limpa a tabela a cada filtragem
                     tabela.setRowCount(0);
-                    tabela.addRow(new Object[] {fornecedor.getId(), fornecedor.getNome(), fornecedor.getCpf(), fornecedor.getStatus()});
+                    tabela.addRow(new Object[] {fornecedor.getId(), fornecedor.getNome(), fornecedor.getCpf(), fornecedor.getCnpj(), fornecedor.getStatus()});
                 } else if(telaBuscaFornecedor.getjComboBoxFiltrarPor().getSelectedIndex() == 1){
                     //JOptionPane.showMessageDialog(null, "Filtrando Por Nome");
                     List<Fornecedor> fornecedores = new ArrayList<>();
