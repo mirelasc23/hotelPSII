@@ -19,6 +19,15 @@ public class ControllerBuscaFuncionario implements ActionListener{
         this.telaBuscaFuncionario.getjButtonFiltrar().addActionListener(this);
         this.telaBuscaFuncionario.getjButtonFechar().addActionListener(this);
         
+        List<Funcionario> funcionarios = new ArrayList<>();
+        funcionarios = service.FuncionarioService.Carregar("nome", this.telaBuscaFuncionario.getjTextFieldValor().getText());
+
+        DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFuncionario.getjTableDados().getModel();
+        tabela.setRowCount(0);
+        int i=0;
+        for (Funcionario funcionario : funcionarios) {
+            tabela.addRow(new Object[] {funcionario.getId(), funcionario.getNome(), funcionario.getCpf(), funcionario.getUsuario(), funcionario.getStatus()});
+        }
     }
 
     @Override

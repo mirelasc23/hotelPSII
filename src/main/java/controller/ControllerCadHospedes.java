@@ -42,6 +42,8 @@ public class ControllerCadHospedes implements ActionListener{
             this.telaCadastroHospedes.getjFormattedTextFieldDataCadastro().setText(data);
             this.telaCadastroHospedes.getjFormattedTextFieldDataCadastro().setEnabled(false);
             this.telaCadastroHospedes.getjTextFieldID().setEnabled(false);
+            this.telaCadastroHospedes.getjComboBoxSexoStatus().setSelectedIndex(0);
+            this.telaCadastroHospedes.getjComboBoxSexoStatus().setEnabled(false);
         }else if(e.getSource() == this.telaCadastroHospedes.getjButtonGravar()){
             
             if(this.telaCadastroHospedes.getjTextFieldNomeFantasia().getText().trim().equalsIgnoreCase("")){
@@ -62,7 +64,7 @@ public class ControllerCadHospedes implements ActionListener{
                 hospede.setCidade(this.telaCadastroHospedes.getjTextFieldCidade().getText());
                 hospede.setComplemento(this.telaCadastroHospedes.getjTextFieldComplemento().getText());
                 hospede.setDataCadastro(this.telaCadastroHospedes.getjFormattedTextFieldDataCadastro().getText());
-                if(utilities.Utilities.validaCpf(this.telaCadastroHospedes.getjFormattedTextFieldCpf().getText()))
+                //if(utilities.Utilities.validaCpf(this.telaCadastroHospedes.getjFormattedTextFieldCpf().getText()))
                     hospede.setCpf(this.telaCadastroHospedes.getjFormattedTextFieldCpf().getText());
                 hospede.setRg(this.telaCadastroHospedes.getjTextFieldRG().getText());
                 hospede.setObs(this.telaCadastroHospedes.getjTextFieldObs().getText());
@@ -93,6 +95,14 @@ public class ControllerCadHospedes implements ActionListener{
                         service.HospedeService.Criar(hospede);
                     } else{
                         hospede.setId(Integer.parseInt(this.telaCadastroHospedes.getjTextFieldID().getText()));
+                        char status;
+                        if(this.telaCadastroHospedes.getjComboBoxSexoStatus().getSelectedIndex() == 0){
+                            status = 'a';
+                        }else{
+                            status = 'i';
+                        }
+
+                        hospede.setStatus(status);
                         service.HospedeService.Atualizar(hospede);
                     }
                 /*} catch (Exception ex) {
@@ -181,7 +191,16 @@ public class ControllerCadHospedes implements ActionListener{
                 }else{
                     index_sexo = 1;
                 }
+                
+                int index_status;
+                if(hospede.getStatus() == 'a' || hospede.getStatus() == 'A' ){
+                    index_status = 0;
+                }else{
+                    index_status = 1;
+                }
+                
                 this.telaCadastroHospedes.getjComboBoxSexo().setSelectedIndex(index_sexo);
+                this.telaCadastroHospedes.getjComboBoxSexoStatus().setSelectedIndex(index_status);
                 
 
                 //carregar os dados para os containers faltantes

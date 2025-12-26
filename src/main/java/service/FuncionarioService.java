@@ -9,6 +9,9 @@ public class FuncionarioService {
         FuncionarioDAO.getInstance().create(objeto);
     }
 
+    public static List<Funcionario> Carregar() {
+        return FuncionarioDAO.getInstance().retrieveAll();
+    }
     
     public static Funcionario Carregar(int id) {
         return FuncionarioDAO.getInstance().retrieve(id);

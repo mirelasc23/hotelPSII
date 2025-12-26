@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 
 public class HospedeDAO implements InterfaceDAO<Hospede>{
@@ -52,11 +53,21 @@ private static HospedeDAO INSTANCE;
 
     @Override
     public List<Hospede> retrieve(String atributo, String valor) {
-        List<Hospede> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select hosp From Hospede hosp "
+        List<Hospede> hospedes = new ArrayList<>();
+        hospedes = entityManager.createQuery(" Select hosp From Hospede hosp "
                 + " where hosp." + atributo + " like '%" + valor + "%'",Hospede.class).getResultList();
-        return modelos;
+        return hospedes;
     }
+    
+    public List<Hospede> retrieveAll() {
+        TypedQuery<Hospede> query = entityManager.createQuery("Select hosp From Hospede hosp ORDER BY hosp.id",Hospede.class);
+        query.setMaxResults(30);
+        
+        List<Hospede> hospedes = new ArrayList<>();
+        hospedes = query.getResultList();
+        return hospedes;
+    }
+
 
     @Override
     public void update(Hospede objeto) {

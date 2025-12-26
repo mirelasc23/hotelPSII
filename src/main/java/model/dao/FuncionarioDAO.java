@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import model.Funcionario;
 
 public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
@@ -54,6 +55,15 @@ private static FuncionarioDAO INSTANCE;
         List<Funcionario> funcionarios = new ArrayList<>();
         funcionarios = entityManager.createQuery(" Select f From Funcionario f "
                 + " where f." + atributo + " like '%" + valor + "%'",Funcionario.class).getResultList();
+        return funcionarios;
+    }
+    
+    public List<Funcionario> retrieveAll() {
+        TypedQuery<Funcionario> query = entityManager.createQuery("Select f From Funcionario f ORDER BY f.id",Funcionario.class);
+        query.setMaxResults(30);   // Limit: Pega os próximos 5
+        
+        List<Funcionario> funcionarios = new ArrayList<>();
+        funcionarios = query.getResultList();
         return funcionarios;
     }
 

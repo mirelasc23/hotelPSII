@@ -29,7 +29,7 @@ public class ControllerCadFuncionario implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == this.telaCadastroFuncionarios.getjButtonNovo()){
+        if(e.getSource() == this.telaCadastroFuncionarios.getjButtonNovo ()){
             Date hoje = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             String data = sdf.format(hoje);
@@ -40,6 +40,8 @@ public class ControllerCadFuncionario implements ActionListener{
             this.telaCadastroFuncionarios.getjFormattedTextFieldDataCadastro().setText(data);
             this.telaCadastroFuncionarios.getjFormattedTextFieldDataCadastro().setEnabled(false);
             this.telaCadastroFuncionarios.getjTextFieldID().setEnabled(false);
+            this.telaCadastroFuncionarios.getjComboBoxSexoStatus().setSelectedIndex(0);
+            this.telaCadastroFuncionarios.getjComboBoxSexoStatus().setEnabled(false);
           
         }else if(e.getSource() == this.telaCadastroFuncionarios.getjButtonGravar()){
             if(this.telaCadastroFuncionarios.getjTextFieldNomeFantasia().getText().trim().equalsIgnoreCase("")){

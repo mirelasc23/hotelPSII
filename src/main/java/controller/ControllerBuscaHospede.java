@@ -20,6 +20,16 @@ public class ControllerBuscaHospede implements ActionListener{
         this.telaBuscaHospede.getjButtonFechar().addActionListener(this);
         
         this.telaBuscaHospede.getjComboBoxFiltrarPor().addActionListener(this);
+        
+        List<Hospede> hospedes = new ArrayList<>();
+        hospedes = service.HospedeService.Carregar();
+
+        DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaHospede.getjTableDados().getModel();
+        tabela.setRowCount(0);
+        int i=0;
+        for (Hospede hospede : hospedes) {
+            tabela.addRow(new Object[] {hospede.getId(), hospede.getNome(), hospede.getCpf(), hospede.getStatus()});
+        }
     }
     
     @Override

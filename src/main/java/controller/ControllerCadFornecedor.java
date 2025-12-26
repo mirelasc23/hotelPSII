@@ -39,6 +39,8 @@ public class ControllerCadFornecedor implements ActionListener{
             this.telaCadastroFornecedores.getjFormattedTextFieldDataCadastro().setText(data);
             this.telaCadastroFornecedores.getjFormattedTextFieldDataCadastro().setEnabled(false);
             this.telaCadastroFornecedores.getjTextFieldID().setEnabled(false);
+            this.telaCadastroFornecedores.getjComboBoxStatus().setSelectedIndex(0);
+            this.telaCadastroFornecedores.getjComboBoxStatus().setEnabled(false);
         }else if(e.getSource() == this.telaCadastroFornecedores.getjButtonGravar()){
              if(this.telaCadastroFornecedores.getjTextFieldNomeFantasia().getText().trim().equalsIgnoreCase("")){
                 JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");

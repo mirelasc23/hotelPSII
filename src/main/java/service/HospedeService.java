@@ -9,6 +9,10 @@ public class HospedeService {
         HospedeDAO.getInstance().create(objeto);
     }
 
+    public static List<Hospede> Carregar() {
+        return HospedeDAO.getInstance().retrieveAll();
+    }
+
     
     public static Hospede Carregar(int id) {
         return HospedeDAO.getInstance().retrieve(id);
