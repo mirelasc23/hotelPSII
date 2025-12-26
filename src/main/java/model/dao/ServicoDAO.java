@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 
 public class ServicoDAO implements InterfaceDAO<Servico>{
@@ -57,6 +58,16 @@ private static ServicoDAO INSTANCE;
                 + " where serv." + atributo + " like '%" + valor + "%'",Servico.class).getResultList();
         return modelos;
     }
+    
+    public List<Servico> retrieveAll() {
+        TypedQuery<Servico> query = entityManager.createQuery("Select serv From Servico serv ORDER BY serv.id",Servico.class);
+        query.setMaxResults(30);
+        
+        List<Servico> servicos = new ArrayList<>();
+        servicos = query.getResultList();
+        return servicos;
+    }
+
 
     @Override
     public void update(Servico objeto) {

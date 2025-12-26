@@ -37,12 +37,10 @@ public class ControllerCadServico implements ActionListener {
             this.telaCadastroServico.getjTextFieldValor().setEnabled(false);
 
         } else if (e.getSource() == this.telaCadastroServico.getjButtonGravar()) {
-            utilities.Utilities.ativaDesativaBotoes(this.telaCadastroServico.getjPanelBotoes(), true);
-            utilities.Utilities.limpaComponentes(this.telaCadastroServico.getjPanelDados(), false);
-
             if (this.telaCadastroServico.getjTextFieldDescricao().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
                 this.telaCadastroServico.getjTextFieldDescricao().requestFocus();
+                this.telaCadastroServico.getjTextFieldDescricao().setText("vazio");
             } else {
                 Servico servico = new Servico();
 
@@ -55,6 +53,14 @@ public class ControllerCadServico implements ActionListener {
                     service.ServicoService.Criar(servico);
                 } else {
                     servico.setId(Integer.parseInt(this.telaCadastroServico.getjTextFieldID().getText()));
+                    char status;
+                    if(this.telaCadastroServico.getjComboBoxSituacao().getSelectedIndex() == 0){
+                        status = 'a';
+                    }else{
+                        status = 'i';
+                    }
+
+                    servico.setStatus(status);
                     service.ServicoService.Atualizar(servico);
                 }
                 utilities.Utilities.ativaDesativaBotoes(this.telaCadastroServico.getjPanelBotoes(), true);
@@ -75,9 +81,22 @@ public class ControllerCadServico implements ActionListener {
                 this.telaCadastroServico.getjTextFieldID().setEnabled(false);
             
                 Servico servico = new Servico();
-                /*
-                servico.setDescricao(this.telaCadastroServico.getjTextFieldDescricao().getText());
-                servico.setObs(this.telaCadastroServico.getjTextAreaObs().getText());*/
+                servico = service.ServicoService.Carregar(codigo);
+                
+                this.telaCadastroServico.getjTextFieldDescricao().setText(servico.getDescricao());
+                this.telaCadastroServico.getjTextAreaObs().setText(servico.getObs());
+                
+                int index_status;
+                if(servico.getStatus() == 'a' || servico.getStatus() == 'A' ){
+                    index_status = 0;
+                }else{
+                    index_status = 1;
+                }
+                
+                this.telaCadastroServico.getjComboBoxSituacao().setSelectedIndex(index_status);
+                
+                //servico.setDescricao(this.telaCadastroServico.getjTextFieldDescricao().getText());
+                //servico.setObs(this.telaCadastroServico.getjTextAreaObs().getText());
                 
             }
         } else if (e.getSource() == this.telaCadastroServico.getjButtonCancelar()) {

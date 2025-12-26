@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.ProdutoCopa;
+import model.Servico;
 import view.BuscaProdutoCopa;
 import view.BuscaServico;
 
@@ -37,48 +37,36 @@ public class ControllerBuscaServico implements ActionListener{
                 JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
             } else {
                 if(telaBuscaServico.getjComboBoxFiltrarPor().getSelectedIndex() == 0){
-                    ProdutoCopa produtoCopa = new ProdutoCopa();
-                    produtoCopa = service.ProdutoCopaService.Carregar(Integer.parseInt(this.telaBuscaServico.getjTextFieldValor().getText()));
+                    Servico produtoCopa = new Servico();
+                    produtoCopa = service.ServicoService.Carregar(Integer.parseInt(this.telaBuscaServico.getjTextFieldValor().getText()));
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaServico.getjTableDados().getModel();
                     //Limpa a tabela a cada filtragem
                     tabela.setRowCount(0);
-                    tabela.addRow(new Object[] {produtoCopa.getId(), produtoCopa.getDescricao(), produtoCopa.getValor(), produtoCopa.getStatus()});
+                    tabela.addRow(new Object[] {produtoCopa.getId(), produtoCopa.getDescricao(), produtoCopa.getObs(), produtoCopa.getStatus()});
                     
                 } else if(telaBuscaServico.getjComboBoxFiltrarPor().getSelectedIndex() == 1){
-                    List<ProdutoCopa> produtosCopa = new ArrayList<>();
+                    List<Servico> produtosCopa = new ArrayList<>();
                     // JPA: lida com o atributo do java, e nao com o campo do BD
-                    produtosCopa = service.ProdutoCopaService.Carregar("descricao", this.telaBuscaServico.getjTextFieldValor().getText());
+                    produtosCopa = service.ServicoService.Carregar("descricao", this.telaBuscaServico.getjTextFieldValor().getText());
                     
-                    // .JAR =: produtosCopa = service.ProdutoCopaService.Carregar("decricao", this.telaBuscaServico.getjTextFieldValor().getText());
+                    // .JAR =: produtosCopa = service.ServicoService.Carregar("decricao", this.telaBuscaServico.getjTextFieldValor().getText());
                                         
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaServico.getjTableDados().getModel();
                     tabela.setRowCount(0);
                     int i=0;
-                    for (ProdutoCopa produtoCopa : produtosCopa) {
-                        tabela.addRow(new Object[] {produtoCopa.getId(), produtoCopa.getDescricao(), produtoCopa.getValor(), produtoCopa.getStatus()});
+                    for (Servico produtoCopa : produtosCopa) {
+                        tabela.addRow(new Object[] {produtoCopa.getId(), produtoCopa.getDescricao(), produtoCopa.getObs(), produtoCopa.getStatus()});
                         //JOptionPane.showMessageDialog(null, ++i);
                     }
                 } else if(telaBuscaServico.getjComboBoxFiltrarPor().getSelectedIndex() == 2){
-                    List<ProdutoCopa> produtosCopa = new ArrayList<>();
-                    produtosCopa = service.ProdutoCopaService.Carregar("valor", this.telaBuscaServico.getjTextFieldValor().getText());
+                    List<Servico> produtosCopa = new ArrayList<>();
+                    produtosCopa = service.ServicoService.Carregar("obs", this.telaBuscaServico.getjTextFieldValor().getText());
                                         
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaServico.getjTableDados().getModel();
                     tabela.setRowCount(0);
                     int i=0;
-                    for (ProdutoCopa produtoCopa : produtosCopa) {
-                        tabela.addRow(new Object[] {produtoCopa.getId(), produtoCopa.getDescricao(), produtoCopa.getValor(), produtoCopa.getStatus()});
-                        //JOptionPane.showMessageDialog(null, ++i);
-                    }
-                } else if(telaBuscaServico.getjComboBoxFiltrarPor().getSelectedIndex() == 3){
-                    List<ProdutoCopa> produtosCopa = new ArrayList<>();
-                    produtosCopa = service.ProdutoCopaService.Carregar("obs", this.telaBuscaServico.getjTextFieldValor().getText());
-                                        
-                    DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaServico.getjTableDados().getModel();
-                    tabela.setRowCount(0);
-                    int i=0;
-                    for (ProdutoCopa produtoCopa : produtosCopa) {
-                        tabela.addRow(new Object[] {produtoCopa.getId(), produtoCopa.getDescricao(), produtoCopa.getValor(), produtoCopa.getStatus()});
-                        //JOptionPane.showMessageDialog(null, ++i);
+                    for (Servico produtoCopa : produtosCopa) {
+                        tabela.addRow(new Object[] {produtoCopa.getId(), produtoCopa.getDescricao(), produtoCopa.getObs(), produtoCopa.getStatus()});
                     }
                 }
             }

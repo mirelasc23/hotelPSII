@@ -9,6 +9,10 @@ public class ServicoService {
         ServicoDAO.getInstance().create(objeto);
     }
     
+    public static List<Servico> Carregar() {
+        return ServicoDAO.getInstance().retrieveAll();
+    }
+
     public static Servico Carregar(int id) {
         return ServicoDAO.getInstance().retrieve(id);
     }

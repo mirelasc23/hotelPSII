@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 
 public class QuartoDAO implements InterfaceDAO<Quarto>{
@@ -56,6 +57,15 @@ private static QuartoDAO INSTANCE;
         modelos = entityManager.createQuery(" Select qu From Quarto qu "
                 + " where qu." + atributo + " like '%" + valor + "%'",Quarto.class).getResultList();
         return modelos;
+    }
+
+    public List<Quarto> retrieveAll() {
+        TypedQuery<Quarto> query = entityManager.createQuery("Select qu From Quarto qu ORDER BY qu.id",Quarto.class);
+        query.setMaxResults(30);
+        
+        List<Quarto> quartos = new ArrayList<>();
+        quartos = query.getResultList();
+        return quartos;
     }
 
     @Override

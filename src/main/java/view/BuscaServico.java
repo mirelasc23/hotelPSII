@@ -108,7 +108,7 @@ public class BuscaServico extends javax.swing.JDialog {
 
             },
             new String [] {
-                "id", "Descrição", "Valor", "Status"
+                "id", "Descrição", "Observação", "Status"
             }
         ));
         jTableDados.setSelectionBackground(new java.awt.Color(153, 153, 153));
@@ -116,9 +116,9 @@ public class BuscaServico extends javax.swing.JDialog {
         if (jTableDados.getColumnModel().getColumnCount() > 0) {
             jTableDados.getColumnModel().getColumn(0).setMaxWidth(50);
             jTableDados.getColumnModel().getColumn(1).setMaxWidth(250);
-            jTableDados.getColumnModel().getColumn(2).setMinWidth(200);
-            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(200);
-            jTableDados.getColumnModel().getColumn(2).setMaxWidth(200);
+            jTableDados.getColumnModel().getColumn(2).setMinWidth(300);
+            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(300);
+            jTableDados.getColumnModel().getColumn(2).setMaxWidth(300);
             jTableDados.getColumnModel().getColumn(3).setMaxWidth(50);
         }
 
@@ -143,7 +143,7 @@ public class BuscaServico extends javax.swing.JDialog {
             }
         });
 
-        jComboBoxFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Descrição", "Valor", "Obs" }));
+        jComboBoxFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Descrição", "Obs" }));
 
         jButtonCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Load.png"))); // NOI18N
         jButtonCarregar.setText("Carregar");

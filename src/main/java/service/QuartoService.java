@@ -9,6 +9,10 @@ public class QuartoService {
         QuartoDAO.getInstance().create(objeto);
     }
     
+    public static List<Quarto> Carregar() {
+        return QuartoDAO.getInstance().retrieveAll();
+    }
+
     public static Quarto Carregar(int id) {
         return QuartoDAO.getInstance().retrieve(id);
     }

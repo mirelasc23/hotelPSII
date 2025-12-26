@@ -19,6 +19,15 @@ public class ControllerBuscaQuarto implements ActionListener{
         this.telaBuscaQuarto.getjButtonFiltrar().addActionListener(this);
         this.telaBuscaQuarto.getjButtonFechar().addActionListener(this);
 
+        List<Quarto> quartos = new ArrayList<>();
+        quartos = service.QuartoService.Carregar();
+
+        DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaQuarto.getjTableDados().getModel();
+        tabela.setRowCount(0);
+        int i=0;
+        for (Quarto quarto : quartos) {
+            tabela.addRow(new Object[] {quarto.getId(), quarto.getIdentificacao(), quarto.getCapacidadeHospedes(), quarto.getMetragem()});
+        }
     }
     
     @Override
