@@ -17,6 +17,14 @@ public class ControllerBuscaModelo implements ActionListener{
         
         this.telaBuscaModelo.getjButtonCarregar().addActionListener(this);
         this.telaBuscaModelo.getjButtonFiltrar().addActionListener(this);
+        
+        List<Modelo> modelos = new ArrayList<>();
+        modelos = service.ModeloService.Carregar();
+        DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaModelo.getjTableDados().getModel();
+        tabela.setRowCount(0);
+        for (Modelo modelo : modelos) {
+            tabela.addRow(new Object[] {modelo.getId(), modelo.getDescricao(), modelo.getStatus()});
+        }
     }
     
     @Override

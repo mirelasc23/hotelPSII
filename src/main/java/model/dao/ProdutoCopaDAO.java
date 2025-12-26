@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 
 public class ProdutoCopaDAO implements InterfaceDAO<ProdutoCopa>{
@@ -66,6 +67,16 @@ public class ProdutoCopaDAO implements InterfaceDAO<ProdutoCopa>{
         modelos = em.createQuery(" Select pc From ProdutoCopa pc "
                 + " where pc." + atributo + " like '%" + valor + "%'",ProdutoCopa.class).getResultList();
         return modelos;
+    }
+
+    public List<ProdutoCopa> retrieveAll() {
+        EntityManager em = utilities.Utilities.getEntityManager();
+        TypedQuery<ProdutoCopa> query = em.createQuery("Select pc From ProdutoCopa pc ORDER BY pc.id",ProdutoCopa.class);
+        query.setMaxResults(30);
+        
+        List<ProdutoCopa> produtos = new ArrayList<>();
+        produtos = query.getResultList();
+        return produtos;
     }
 
     @Override

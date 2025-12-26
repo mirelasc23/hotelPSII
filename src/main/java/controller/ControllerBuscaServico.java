@@ -19,6 +19,16 @@ public class ControllerBuscaServico implements ActionListener{
         this.telaBuscaServico.getjButtonCarregar().addActionListener(this);
         this.telaBuscaServico.getjButtonFiltrar().addActionListener(this);
         this.telaBuscaServico.getjButtonFechar().addActionListener(this);
+        
+        List<Servico> servicos = new ArrayList<>();
+        servicos = service.ServicoService.Carregar("obs", this.telaBuscaServico.getjTextFieldValor().getText());
+
+        DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaServico.getjTableDados().getModel();
+        tabela.setRowCount(0);
+        int i=0;
+        for (Servico servico : servicos) {
+            tabela.addRow(new Object[] {servico.getId(), servico.getDescricao(), servico.getObs(), servico.getStatus()});
+        }
     }
 
     @Override
@@ -28,7 +38,7 @@ public class ControllerBuscaServico implements ActionListener{
             if(telaBuscaServico.getjTableDados().getRowCount() == 0){
                 JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
             } else {
-                ControllerCadProdutoCopa.codigo = (int)this.telaBuscaServico.getjTableDados().getValueAt(this.telaBuscaServico.getjTableDados().getSelectedRow(), 0);
+                ControllerCadServico.codigo = (int)this.telaBuscaServico.getjTableDados().getValueAt(this.telaBuscaServico.getjTableDados().getSelectedRow(), 0);
                 this.telaBuscaServico.dispose();
             }
         } else if(evento.getSource() == this.telaBuscaServico.getjButtonFiltrar()){

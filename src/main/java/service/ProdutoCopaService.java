@@ -11,6 +11,10 @@ public class ProdutoCopaService{
         produtoCopaDAO.create(objeto);
     }
 
+    public static List<ProdutoCopa> Carregar() {
+        return ProdutoCopaDAO.getInstance().retrieveAll();
+    }
+
     public static ProdutoCopa Carregar(int id) {
         ProdutoCopaDAO produtoCopaDAO = new ProdutoCopaDAO();
         return produtoCopaDAO.retrieve(id);

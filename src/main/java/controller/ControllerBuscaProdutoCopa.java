@@ -18,6 +18,16 @@ public class ControllerBuscaProdutoCopa implements ActionListener{
         this.telaBuscaProdutoCopa.getjButtonCarregar().addActionListener(this);
         this.telaBuscaProdutoCopa.getjButtonFiltrar().addActionListener(this);
         this.telaBuscaProdutoCopa.getjButtonFechar().addActionListener(this);
+        
+        List<ProdutoCopa> produtosCopa = new ArrayList<>();
+        produtosCopa = service.ProdutoCopaService.Carregar();
+
+        DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaProdutoCopa.getjTableDados().getModel();
+        tabela.setRowCount(0);
+        int i=0;
+        for (ProdutoCopa produtoCopa : produtosCopa) {
+            tabela.addRow(new Object[] {produtoCopa.getId(), produtoCopa.getDescricao(), produtoCopa.getValor(), produtoCopa.getStatus()});
+        }
     }
 
     @Override

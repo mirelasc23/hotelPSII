@@ -11,6 +11,10 @@ public class ModeloService{
         modeloDAO.create(objeto);
     }
 
+    public static List<Modelo> Carregar() {
+        return ModeloDAO.getInstance().retrieveAll();
+    }
+
     public static Modelo Carregar(int id) {
         ModeloDAO modeloDAO = new ModeloDAO();
         return modeloDAO.retrieve(id);

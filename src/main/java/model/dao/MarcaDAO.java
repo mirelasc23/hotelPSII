@@ -155,7 +155,7 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
     
     public List<Marca> retrieveAll() {
         List<Marca> marcas = new ArrayList<>();
-        marcas = entityManager.createQuery(" Select mar From marca mar",Marca.class).getResultList();
+        marcas = entityManager.createQuery(" Select mar From Marca mar",Marca.class).getResultList();
         return marcas;
         /*String sqlInstrucao = "select id, descricao, status"
                 + " from marca ";

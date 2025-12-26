@@ -11,7 +11,10 @@ public class MarcaService {
         marcaDAO.create(objeto);*/
     }
 
-    
+    public static List<Marca> Carregar() {
+        return MarcaDAO.getInstance().retrieveAll();
+    }
+
     public static Marca Carregar(int id) {
         return MarcaDAO.getInstance().retrieve(id);
         /*MarcaDAO marcaDAO = new MarcaDAO();

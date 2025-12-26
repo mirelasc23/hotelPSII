@@ -18,6 +18,14 @@ public  class ControllerBuscaMarca implements ActionListener{
         this.telaBuscaMarca.getjButtonCarregar().addActionListener(this);
         this.telaBuscaMarca.getjButtonFiltrar().addActionListener(this);
         //this.telaBuscaMarca.getjButtonCancelarFiltro().addActionListener(this);
+        
+        List<Marca> marcas = new ArrayList<>();
+        marcas = service.MarcaService.Carregar();
+        DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaMarca.getjTableDados().getModel();
+        tabela.setRowCount(0);
+        for (Marca marca : marcas) {
+            tabela.addRow(new Object[] {marca.getId(), marca.getDescricao(), marca.getStatus()});
+        }
     }
     
     @Override

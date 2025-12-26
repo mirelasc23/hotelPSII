@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import model.Modelo;
 
 public class ModeloDAO implements InterfaceDAO<Modelo>{
@@ -56,6 +57,16 @@ public class ModeloDAO implements InterfaceDAO<Modelo>{
                 + " where mod." + atributo + " like '%" + valor + "%'",Modelo.class).getResultList();
         return modelos;
     }
+    
+    public List<Modelo> retrieveAll() {
+        TypedQuery<Modelo> query = entityManager.createQuery("Select mod From Modelo mod ORDER BY mod.id",Modelo.class);
+        query.setMaxResults(30);
+        
+        List<Modelo> modelos = new ArrayList<>();
+        modelos = query.getResultList();
+        return modelos;
+    }
+
 
     @Override
     public void update(Modelo objeto) {
