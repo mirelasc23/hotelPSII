@@ -57,9 +57,10 @@ public class Marca implements Serializable{
 
     @Override
     public String toString() {
-        return    "id    = " + this.getId()
-                + "Desc. = " + this.getDescricao()
-                + "Status= " + this.getStatus();
+        return this.getDescricao();
+//        return    "id    = " + this.getId()
+//                + "Desc. = " + this.getDescricao()
+//                + "Status= " + this.getStatus();
     }
 
 }

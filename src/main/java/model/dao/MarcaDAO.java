@@ -190,6 +190,19 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
         
         return marcas;*/
     }
+    
+    public List<String> retrieveCheckBox() {
+        //TypedQuery<Modelo> query = entityManager.createQuery("Select mo From Modelo mo ORDER BY mo.id",Modelo.class);
+        
+        List<Marca> model = new ArrayList<>();
+        model = retrieveAll();
+        
+        List<String> modelos = new ArrayList<>();
+        for (Marca modelo : model) {
+            modelos.add(modelo.getDescricao());
+        }
+        return modelos;
+    }
 
     @Override
     public void update(Marca objeto) {

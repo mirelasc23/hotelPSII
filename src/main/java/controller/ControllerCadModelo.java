@@ -75,9 +75,7 @@ public class ControllerCadModelo implements ActionListener{
             
             //ATIVA COMPONENTES PARA BUSCA
             this.telaCadastroModelo.getjComboBoxFiltrarPor().setEnabled(true);
-            this.telaCadastroModelo.getjTextFieldValor().setEnabled(true);
-            JOptionPane.showMessageDialog(null, "ativou componentes"); 
-            
+            this.telaCadastroModelo.getjTextFieldValor().setEnabled(true);            
             
             //CONTROLLER
             ControllerBuscaModelo controllerBuscaModelo = new ControllerBuscaModelo(this.telaCadastroModelo);

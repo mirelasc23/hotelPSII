@@ -13,7 +13,7 @@ public class ControllerBuscaModelo implements ActionListener{
     private CadastroModelo telaBuscaModelo;
 
     public ControllerBuscaModelo(CadastroModelo telaBuscaModelo) {
-    this.telaBuscaModelo = telaBuscaModelo;
+        this.telaBuscaModelo = telaBuscaModelo;
         
         this.telaBuscaModelo.getjButtonCarregar().addActionListener(this);
         this.telaBuscaModelo.getjButtonFiltrar().addActionListener(this);

@@ -53,20 +53,32 @@ public class ModeloDAO implements InterfaceDAO<Modelo>{
     @Override
     public List<Modelo> retrieve(String atributo, String valor) {
         List<Modelo> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mod From Modelo mod "
-                + " where mod." + atributo + " like '%" + valor + "%'",Modelo.class).getResultList();
+        modelos = entityManager.createQuery(" Select mo From Modelo mo"
+                + " where mo." + atributo + " like '%" + valor + "%'",Modelo.class).getResultList();
         return modelos;
     }
     
     public List<Modelo> retrieveAll() {
-        TypedQuery<Modelo> query = entityManager.createQuery("Select mod From Modelo mod ORDER BY mod.id",Modelo.class);
+        TypedQuery<Modelo> query = entityManager.createQuery("Select mo From Modelo mo ORDER BY mo.id",Modelo.class);
         query.setMaxResults(30);
         
         List<Modelo> modelos = new ArrayList<>();
         modelos = query.getResultList();
         return modelos;
     }
-
+    
+    public List<String> retrieveCheckBox() {
+        //TypedQuery<Modelo> query = entityManager.createQuery("Select mo From Modelo mo ORDER BY mo.id",Modelo.class);
+        
+        List<Modelo> model = new ArrayList<>();
+        model = retrieveAll();
+        
+        List<String> modelos = new ArrayList<>();
+        for (Modelo modelo : model) {
+            modelos.add(modelo.getDescricao());
+        }
+        return modelos;
+    }
 
     @Override
     public void update(Modelo objeto) {

@@ -14,6 +14,10 @@ public class ModeloService{
     public static List<Modelo> Carregar() {
         return ModeloDAO.getInstance().retrieveAll();
     }
+    
+    public static List<String> CarregarCheckBox() {
+        return ModeloDAO.getInstance().retrieveCheckBox();
+    }
 
     public static Modelo Carregar(int id) {
         ModeloDAO modeloDAO = new ModeloDAO();

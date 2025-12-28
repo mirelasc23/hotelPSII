@@ -5,11 +5,13 @@
  */
 package view;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import model.Marca;
 
 /**
  *
@@ -168,6 +170,8 @@ public class CadastroModelo extends javax.swing.JDialog {
 
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Marca");
+
+        jComboBoxMarca.setModel(new DefaultComboBoxModel(service.MarcaService.Carregar().toArray()));
 
         jScrollPane1.setBackground(new java.awt.Color(153, 153, 153));
 

@@ -14,6 +14,10 @@ public class MarcaService {
     public static List<Marca> Carregar() {
         return MarcaDAO.getInstance().retrieveAll();
     }
+    
+    public static List<String> CarregarCheckBox() {
+        return MarcaDAO.getInstance().retrieveCheckBox();
+    }
 
     public static Marca Carregar(int id) {
         return MarcaDAO.getInstance().retrieve(id);
@@ -21,7 +25,6 @@ public class MarcaService {
         return marcaDAO.retrieve(id);*/
     }
 
-   
     public static List<Marca> Carregar(String atributo, String valor) {
         return MarcaDAO.getInstance().retrieve(atributo, valor);
         /*MarcaDAO marcaDAO = new MarcaDAO();

@@ -72,10 +72,11 @@ public class Modelo implements Serializable{
 
     @Override
     public String toString() {
-        return "id     = " + this.getId()
-                + "\nDescr. = " + this.getDescricao()
-                + "\nMarca  = " + this.getMarca().getDescricao()
-                + "\nStatus = " + this.getStatus();
+        return this.descricao;
+//        return "id     = " + this.getId()
+//                + "\nDescr. = " + this.getDescricao()
+//                + "\nMarca  = " + this.getMarca().getDescricao()
+//                + "\nStatus = " + this.getStatus();
     }
 
 }
