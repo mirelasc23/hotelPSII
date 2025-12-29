@@ -54,7 +54,7 @@ private static VeiculoDAO INSTANCE;
     public List<Veiculo> retrieve(String atributo, String valor) {
         List<Veiculo> modelos = new ArrayList<>();
         modelos = entityManager.createQuery(" Select vei From Veiculo vei "
-                + " where forn." + atributo + " like '%" + valor + "%'",Veiculo.class).getResultList();
+                + " where vei." + atributo + " like '%" + valor + "%'",Veiculo.class).getResultList();
         return modelos;
     }
 

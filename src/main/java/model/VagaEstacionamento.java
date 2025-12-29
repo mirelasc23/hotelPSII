@@ -1,9 +1,25 @@
 package model;
 
-public class VagaEstacionamento {
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class VagaEstacionamento implements Serializable{
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column (name = "metragem_vaga")
     private float metragemVaga;
-    private String obs, descricao;
+    @Column
+    private String obs;
+    @Column
+    private String descricao;
+    @Column
     private char status;
 
     public VagaEstacionamento(){
