@@ -59,17 +59,12 @@ public class ModeloDAO implements InterfaceDAO<Modelo>{
     }
     
     public List<Modelo> retrieveAll() {
-        TypedQuery<Modelo> query = entityManager.createQuery("Select mo From Modelo mo ORDER BY mo.id",Modelo.class);
-        query.setMaxResults(30);
-        
         List<Modelo> modelos = new ArrayList<>();
-        modelos = query.getResultList();
+        modelos = entityManager.createQuery("Select mo From Modelo mo ORDER BY mo.id",Modelo.class).getResultList();
         return modelos;
     }
     
-    public List<String> retrieveCheckBox() {
-        //TypedQuery<Modelo> query = entityManager.createQuery("Select mo From Modelo mo ORDER BY mo.id",Modelo.class);
-        
+    public List<String> retrieveCheckBox() {        
         List<Modelo> model = new ArrayList<>();
         model = retrieveAll();
         
