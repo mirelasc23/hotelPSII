@@ -23,12 +23,11 @@ public class ProdutoCopaService{
     }
 
     public static void Atualizar(ProdutoCopa objeto) {
-        ProdutoCopaDAO produtoCopaDAO = new ProdutoCopaDAO();
-        produtoCopaDAO.update(objeto);
+        ProdutoCopaDAO.getInstance().update(objeto);
     }
 
     public static void Deletar(ProdutoCopa objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ProdutoCopaDAO.getInstance().delete(objeto);
     }
     
 }

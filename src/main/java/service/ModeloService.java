@@ -7,8 +7,7 @@ import model.dao.ModeloDAO;
 public class ModeloService{
 
     public static void Criar(Modelo objeto) {
-        ModeloDAO modeloDAO = new ModeloDAO();
-        modeloDAO.create(objeto);
+        ModeloDAO.getInstance().create(objeto);
     }
 
     public static List<Modelo> Carregar() {
@@ -20,23 +19,19 @@ public class ModeloService{
     }
 
     public static Modelo Carregar(int id) {
-        ModeloDAO modeloDAO = new ModeloDAO();
-        return modeloDAO.retrieve(id);
+        return ModeloDAO.getInstance().retrieve(id);
     }
 
     public static List<Modelo> Carregar(String atributo, String valor) {
-        ModeloDAO modeloDAO = new ModeloDAO();
-        return modeloDAO.retrieve(atributo, valor);
+        return ModeloDAO.getInstance().retrieve(atributo, valor);
     }
 
     public static void Atualizar(Modelo objeto) {
-        ModeloDAO modeloDAO = new ModeloDAO();
-        modeloDAO.update(objeto);
+        ModeloDAO.getInstance().update(objeto);
     }
 
     public static void Deletar(Modelo objeto) {
-        ModeloDAO modeloDAO = new ModeloDAO();
-        modeloDAO.delete(objeto);
+        ModeloDAO.getInstance().delete(objeto);
     }
     
 }
