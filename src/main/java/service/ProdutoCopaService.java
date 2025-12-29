@@ -7,8 +7,7 @@ import model.dao.ProdutoCopaDAO;
 public class ProdutoCopaService{
 
     public static void Criar(ProdutoCopa objeto) {
-        ProdutoCopaDAO produtoCopaDAO = new ProdutoCopaDAO();
-        produtoCopaDAO.create(objeto);
+        ProdutoCopaDAO.getInstance().create(objeto);
     }
 
     public static List<ProdutoCopa> Carregar() {
@@ -16,13 +15,11 @@ public class ProdutoCopaService{
     }
 
     public static ProdutoCopa Carregar(int id) {
-        ProdutoCopaDAO produtoCopaDAO = new ProdutoCopaDAO();
-        return produtoCopaDAO.retrieve(id);
+        return ProdutoCopaDAO.getInstance().retrieve(id);
     }
 
     public static List<ProdutoCopa> Carregar(String atributo, String valor) {
-        ProdutoCopaDAO produtoCopaDAO = new ProdutoCopaDAO();
-        return produtoCopaDAO.retrieve(atributo, valor);
+        return ProdutoCopaDAO.getInstance().retrieve(atributo, valor);
     }
 
     public static void Atualizar(ProdutoCopa objeto) {
