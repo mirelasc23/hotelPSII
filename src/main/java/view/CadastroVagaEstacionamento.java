@@ -8,6 +8,7 @@ package view;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -116,6 +117,14 @@ public class CadastroVagaEstacionamento extends javax.swing.JDialog {
     public void setjTextFieldValor(JTextField jTextFieldValor) {
         this.jTextFieldValor = jTextFieldValor;
     }
+
+    public JTable getjTableDados() {
+        return jTableDados;
+    }
+
+    public void setjTableDados(JTable jTableDados) {
+        this.jTableDados = jTableDados;
+    }
     
     
     
@@ -217,14 +226,25 @@ public class CadastroVagaEstacionamento extends javax.swing.JDialog {
         jTableDados.setForeground(new java.awt.Color(102, 102, 102));
         jTableDados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+                {null, null, null, null, null}
             },
             new String [] {
-                "id", "Modelo", "Marca", "Cor", "Placa", "Status"
+                "id", "Descrição", "Metragem", "Obs", "Status"
             }
         ));
         jTableDados.setSelectionBackground(new java.awt.Color(153, 153, 153));
         jScrollPane2.setViewportView(jTableDados);
+        if (jTableDados.getColumnModel().getColumnCount() > 0) {
+            jTableDados.getColumnModel().getColumn(0).setMinWidth(50);
+            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(50);
+            jTableDados.getColumnModel().getColumn(0).setMaxWidth(50);
+            jTableDados.getColumnModel().getColumn(2).setMinWidth(75);
+            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(75);
+            jTableDados.getColumnModel().getColumn(2).setMaxWidth(75);
+            jTableDados.getColumnModel().getColumn(4).setMinWidth(50);
+            jTableDados.getColumnModel().getColumn(4).setPreferredWidth(50);
+            jTableDados.getColumnModel().getColumn(4).setMaxWidth(50);
+        }
 
         jButtonCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Load.png"))); // NOI18N
         jButtonCarregar.setText("Carregar");
@@ -271,7 +291,7 @@ public class CadastroVagaEstacionamento extends javax.swing.JDialog {
                     .addComponent(jSeparator1)
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jScrollPane2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonCarregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -325,9 +345,9 @@ public class CadastroVagaEstacionamento extends javax.swing.JDialog {
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jButtonFiltrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonCarregar))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addComponent(jButtonCarregar)
+                        .addGap(73, 73, 73))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanelBotoes.setBackground(new java.awt.Color(204, 204, 204));

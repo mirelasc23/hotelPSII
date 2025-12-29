@@ -2,7 +2,10 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.VagaEstacionamento;
 import view.CadastroVagaEstacionamento;
 
@@ -36,19 +39,19 @@ public class ControllerCadVagaEstacionamento implements ActionListener{
             if (this.telaCadastroVagaEstacionamento.getjTextFieldDescricao().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
                 this.telaCadastroVagaEstacionamento.getjTextFieldDescricao().requestFocus();
-                this.telaCadastroVagaEstacionamento.getjTextFieldDescricao().setText("vazio");
             } else {
-                VagaEstacionamento servico = new VagaEstacionamento();
+                VagaEstacionamento vagaEstacionamento = new VagaEstacionamento();
 
-                servico.setDescricao(this.telaCadastroVagaEstacionamento.getjTextFieldDescricao().getText());
-                servico.setObs(this.telaCadastroVagaEstacionamento.getjTextAreaObs().getText());
+                vagaEstacionamento.setDescricao(this.telaCadastroVagaEstacionamento.getjTextFieldDescricao().getText());
+                vagaEstacionamento.setMetragemVaga(Float.parseFloat(this.telaCadastroVagaEstacionamento.getjTextFieldMetragem().getText()));
+                vagaEstacionamento.setObs(this.telaCadastroVagaEstacionamento.getjTextAreaObs().getText());
 
                 if (this.telaCadastroVagaEstacionamento.getjTextFieldID().getText().trim().equalsIgnoreCase("")) {
                     //inclusao
-                    servico.setStatus('A');
-                    service.VagaEstacionamentoService.Criar(servico);
+                    vagaEstacionamento.setStatus('A');
+                    service.VagaEstacionamentoService.Criar(vagaEstacionamento);
                 } else {
-                    servico.setId(Integer.parseInt(this.telaCadastroVagaEstacionamento.getjTextFieldID().getText()));
+                    vagaEstacionamento.setId(Integer.parseInt(this.telaCadastroVagaEstacionamento.getjTextFieldID().getText()));
                     char status;
                     if(this.telaCadastroVagaEstacionamento.getjComboBoxSituacao().getSelectedIndex() == 0){
                         status = 'a';
@@ -56,13 +59,27 @@ public class ControllerCadVagaEstacionamento implements ActionListener{
                         status = 'i';
                     }
 
-                    servico.setStatus(status);
-                    service.VagaEstacionamentoService.Atualizar(servico);
+                    vagaEstacionamento .setStatus(status);
+                    service.VagaEstacionamentoService.Atualizar(vagaEstacionamento);
                 }
                 utilities.Utilities.ativaDesativaBotoes(this.telaCadastroVagaEstacionamento.getjPanelBotoes(), true);
                 utilities.Utilities.limpaComponentes(this.telaCadastroVagaEstacionamento.getjPanelDados(), false);
             }
         }else if(e.getSource() == this.telaCadastroVagaEstacionamento.getjButtonBuscar()){
+            this.telaCadastroVagaEstacionamento.getjComboBoxFIltrarPor().setEnabled(true);
+            this.telaCadastroVagaEstacionamento.getjTextFieldValor().setEnabled(true);            
+            
+            //CONTROLLER
+            //ControllerBuscaVagaEstacionamento controllerBuscaVaga = new ControllerBuscaVagaEstacionamento(this.telaCadastroVagaEstacionamento);
+            List<VagaEstacionamento> vagas = new ArrayList<>();
+            vagas = service.VagaEstacionamentoService.Carregar();
+            DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVagaEstacionamento.getjTableDados().getModel();
+            tabela.setRowCount(0);
+            for (VagaEstacionamento vaga : vagas) {
+                tabela.addRow(new Object[] {vaga.getId(), vaga.getDescricao(), vaga.getMetragemVaga(), vaga.getObs(), vaga.getStatus()});
+            }
+            
+            
             /*BuscaHospede telaBuscaHospede= new BuscaHospede(null, true);
             ControllerBuscaHospede controllerBuscaHospedes = new ControllerBuscaHospede(telaBuscaHospede);
             telaBuscaHospede.setVisible(true);*/

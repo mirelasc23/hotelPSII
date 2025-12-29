@@ -11,6 +11,7 @@
     <class>model.ProdutoCopa</class>
     <class>model.Quarto</class>
     <class>model.Servico</class>
+    <class>model.VagaEstacionamento</class>
     <validation-mode>NONE</validation-mode>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hotel?verifyServerCertificate=false&amp;                      useSSL=false&amp;requireSSL=false&amp;serverTimezone=UTC"/>

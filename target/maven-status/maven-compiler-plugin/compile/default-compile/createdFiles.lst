@@ -106,6 +106,7 @@ view\CadastroFornecedores$2$1.class
 model\dao\InterfaceDAO.class
 service\ModeloService.class
 view\CadastroProdutoCopa$2.class
+service\VagaEstacionamentoService.class
 view\TelaMenuPrincipal$4.class
 view\CadastroFuncionarios$6.class
 view\CadastroQuarto$2.class

@@ -10,6 +10,10 @@ public class VagaEstacionamentoService{
         VagaEstacionamentoDAO.getInstance().create(objeto);
     }
 
+    public static List<VagaEstacionamento> Carregar() {
+        return VagaEstacionamentoDAO.getInstance().retrieveAll();
+    }
+    
     public static VagaEstacionamento Carregar(int id) {
         return VagaEstacionamentoDAO.getInstance().retrieve(id);
     }
