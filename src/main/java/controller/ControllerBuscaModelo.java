@@ -77,8 +77,6 @@ public class ControllerBuscaModelo implements ActionListener{
                 }
             }
         } 
-
-    //JOptionPane.showMessageDialog(null, "sai do contrBusca");
     }
     
 

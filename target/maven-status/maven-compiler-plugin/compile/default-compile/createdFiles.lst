@@ -185,7 +185,6 @@ view\BuscaProdutoCopa$2.class
 model\Check.class
 service\InterfaceService.class
 model\MovimentoCaixa.class
-model\dao\Test.class
 view\CadastroProdutoCopa$4.class
 view\TelaMenuPrincipal$2.class
 view\TemplateBuscas2025$1$1.class

@@ -71,7 +71,9 @@ public class ControllerCadQuarto implements ActionListener{
                 
                 char status;
                 if(this.telaCadastroQuarto.getjComboBoxStatus().getSelectedIndex() == 0){
-                    status = 'a';
+                    status = 'l';
+                }else if(this.telaCadastroQuarto.getjComboBoxStatus().getSelectedIndex() == 1){
+                    status = 'o';
                 }else {
                     status = 'm';
                 }
@@ -116,10 +118,12 @@ public class ControllerCadQuarto implements ActionListener{
                 this.telaCadastroQuarto.getjTextAreaObs().setText(quarto.getObs());
                 //this.telaCadastroQuarto.getj().setText(hospede.getStatus());
                 int index_status;
-                if(quarto.getStatus()== 'a' || quarto.getStatus()== 'A'){
+                if(quarto.getStatus()== 'l' || quarto.getStatus()== 'L'){
                     index_status = 0;
-                }else{
+                }else if(quarto.getStatus()== 'o' || quarto.getStatus()== 'O'){
                     index_status = 1;
+                }else{
+                    index_status = 2;
                 }
                 this.telaCadastroQuarto.getjComboBoxStatus().setSelectedIndex(index_status);
                 

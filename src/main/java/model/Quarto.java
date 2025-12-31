@@ -140,7 +140,9 @@ public class Quarto implements Serializable {
     }
 
     public void setStatus(char status) {
-        this.status = status;
+        if ( (status == 'L') || (status == 'O') || (status == 'M') || (status == 'l') || (status == 'o') || (status == 'm') ) {
+            this.status = status;
+        }
     }
     
     

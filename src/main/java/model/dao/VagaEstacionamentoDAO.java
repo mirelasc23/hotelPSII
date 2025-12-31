@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 
 public class VagaEstacionamentoDAO implements InterfaceDAO<VagaEstacionamento>{
@@ -61,7 +62,7 @@ private static VagaEstacionamentoDAO INSTANCE;
     public List<VagaEstacionamento> retrieveAll() {
         List<VagaEstacionamento> modelos = new ArrayList<>();
         modelos = entityManager.createQuery("Select vg_e From VagaEstacionamento vg_e WHERE vg_e.status = :status ORDER BY vg_e.id",VagaEstacionamento.class)
-                .setParameter("status", 'a').getResultList();
+                .setParameter("status", 'l').setMaxResults(15).getResultList();
         return modelos;
     }
       

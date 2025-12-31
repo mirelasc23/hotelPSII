@@ -61,7 +61,9 @@ private static QuartoDAO INSTANCE;
 
     public List<Quarto> retrieveAll() {
         TypedQuery<Quarto> query = entityManager.createQuery("Select qu From Quarto qu ORDER BY qu.id",Quarto.class);
+        //TypedQuery<Quarto> query = entityManager.createQuery("Select qu From Quarto qu WHERE qu.status = :status ORDER BY qu.id",Quarto.class);
         query.setMaxResults(30);
+        //query.setParameter("status", 'l');
         
         List<Quarto> quartos = new ArrayList<>();
         quartos = query.getResultList();
