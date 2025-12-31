@@ -61,10 +61,11 @@ private static VagaEstacionamentoDAO INSTANCE;
     public List<VagaEstacionamento> retrieveAll() {
         List<VagaEstacionamento> modelos = new ArrayList<>();
         modelos = entityManager.createQuery("Select vg_e From VagaEstacionamento vg_e WHERE vg_e.status = :status ORDER BY vg_e.id",VagaEstacionamento.class)
-                .setParameter("status", 'i').getResultList();
+                .setParameter("status", 'a').getResultList();
         return modelos;
     }
-    
+      
+        
     @Override
     public void update(VagaEstacionamento objeto) {
         try {

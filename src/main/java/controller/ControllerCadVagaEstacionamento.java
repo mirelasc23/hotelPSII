@@ -19,6 +19,8 @@ public class ControllerCadVagaEstacionamento implements ActionListener{
         this.telaCadastroVagaEstacionamento.getjButtonBuscar().addActionListener(this);
         this.telaCadastroVagaEstacionamento.getjButtonCancelar().addActionListener(this);
         this.telaCadastroVagaEstacionamento.getjButtonSair().addActionListener(this);
+        this.telaCadastroVagaEstacionamento.getjButtonFiltrar().addActionListener(this);
+        this.telaCadastroVagaEstacionamento.getjButtonCarregar().addActionListener(this);
         utilities.Utilities.ativaDesativaBotoes(this.telaCadastroVagaEstacionamento.getjPanelBotoes(), true);
         utilities.Utilities.limpaComponentes(this.telaCadastroVagaEstacionamento.getjPanelDados(), false);
                 
@@ -67,7 +69,7 @@ public class ControllerCadVagaEstacionamento implements ActionListener{
             }
         }else if(e.getSource() == this.telaCadastroVagaEstacionamento.getjButtonBuscar()){
             this.telaCadastroVagaEstacionamento.getjComboBoxFIltrarPor().setEnabled(true);
-            this.telaCadastroVagaEstacionamento.getjTextFieldValor().setEnabled(true);            
+            this.telaCadastroVagaEstacionamento.getjTextFieldValor().setEnabled(true);
             
             //CONTROLLER
             //ControllerBuscaVagaEstacionamento controllerBuscaVaga = new ControllerBuscaVagaEstacionamento(this.telaCadastroVagaEstacionamento);
@@ -83,6 +85,36 @@ public class ControllerCadVagaEstacionamento implements ActionListener{
             /*BuscaHospede telaBuscaHospede= new BuscaHospede(null, true);
             ControllerBuscaHospede controllerBuscaHospedes = new ControllerBuscaHospede(telaBuscaHospede);
             telaBuscaHospede.setVisible(true);*/
+        }else if(e.getSource() == this.telaCadastroVagaEstacionamento.getjButtonCarregar()){
+            if(telaCadastroVagaEstacionamento.getjTableDados().getRowCount() == 0){
+                JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
+            } else {
+                utilities.Utilities.ativaDesativaBotoes(this.telaCadastroVagaEstacionamento.getjPanelBotoes(), false);
+            utilities.Utilities.limpaComponentes(this.telaCadastroVagaEstacionamento.getjPanelDados(), true);
+            
+                int codigo = (int)this.telaCadastroVagaEstacionamento.getjTableDados().getValueAt(this.telaCadastroVagaEstacionamento.getjTableDados().getSelectedRow(), 0);
+                
+                VagaEstacionamento vaga = service.VagaEstacionamentoService.Carregar(codigo);
+                this.telaCadastroVagaEstacionamento.getjTextFieldID().setText(codigo + "");
+                this.telaCadastroVagaEstacionamento.getjTextFieldID().setEnabled(false);
+                
+                this.telaCadastroVagaEstacionamento.getjTextFieldDescricao().setText(vaga.getDescricao());
+                this.telaCadastroVagaEstacionamento.getjTextFieldMetragem().setText(String.valueOf(vaga.getMetragemVaga()));
+                this.telaCadastroVagaEstacionamento.getjTextFieldDescricao().setText(vaga.getDescricao());
+                int index_status;
+                if(vaga.getStatus()== 'a' || vaga.getStatus()== 'A'){
+                    index_status = 0;
+                }else{
+                    index_status = 1;
+                }
+                this.telaCadastroVagaEstacionamento.getjComboBoxSituacao().setSelectedIndex(index_status);
+                
+                this.telaCadastroVagaEstacionamento.getjTextFieldDescricao().requestFocus();
+                
+            }
+        }else if(e.getSource() == this.telaCadastroVagaEstacionamento.getjButtonFiltrar()){
+            utilities.Utilities.ativaDesativaBotoes(this.telaCadastroVagaEstacionamento.getjPanelBotoes(), true);
+            utilities.Utilities.limpaComponentes(this.telaCadastroVagaEstacionamento.getjPanelDados(), false);
         }else if(e.getSource() == this.telaCadastroVagaEstacionamento.getjButtonCancelar()){
             utilities.Utilities.ativaDesativaBotoes(this.telaCadastroVagaEstacionamento.getjPanelBotoes(), true);
             utilities.Utilities.limpaComponentes(this.telaCadastroVagaEstacionamento.getjPanelDados(), false);
