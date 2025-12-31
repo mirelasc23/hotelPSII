@@ -249,7 +249,7 @@ public class CadastroVagaEstacionamento extends javax.swing.JDialog {
         jButtonFiltrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jButtonFiltrar.setText("Filtrar");
 
-        jComboBoxFIltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "MODELO", "MARCA", "COR", "PLACA" }));
+        jComboBoxFIltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Descrição", "Metragem", "Observação", "Status" }));
         jComboBoxFIltrarPor.setSelectedIndex(-1);
 
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));

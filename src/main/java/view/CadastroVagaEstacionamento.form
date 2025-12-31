@@ -380,10 +380,10 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
                 <StringItem index="0" value="ID"/>
-                <StringItem index="1" value="MODELO"/>
-                <StringItem index="2" value="MARCA"/>
-                <StringItem index="3" value="COR"/>
-                <StringItem index="4" value="PLACA"/>
+                <StringItem index="1" value="Descri&#xe7;&#xe3;o"/>
+                <StringItem index="2" value="Metragem"/>
+                <StringItem index="3" value="Observa&#xe7;&#xe3;o"/>
+                <StringItem index="4" value="Status"/>
               </StringArray>
             </Property>
             <Property name="selectedIndex" type="int" value="-1"/>
