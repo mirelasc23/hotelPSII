@@ -8,6 +8,7 @@ package view;
 import controller.ControllerCadFornecedor;
 import controller.ControllerCadFuncionario;
 import controller.ControllerCadHospedes;
+import controller.ControllerCadMarca;
 import controller.ControllerMarca_Original;
 import controller.ControllerCadModelo;
 import controller.ControllerCadProdutoCopa;
@@ -302,7 +303,8 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMarcaActionPerformed
         // TODO add your handling code here:
         CadastroMarca telaCadastroMarca = new CadastroMarca(null, true);
-        ControllerMarca_Original controllerCadMarca = new ControllerMarca_Original(telaCadastroMarca);
+        ControllerCadMarca controllerCadMarca = new ControllerCadMarca(telaCadastroMarca);
+        //ControllerMarca_Original controllerCadMarca = new ControllerMarca_Original(telaCadastroMarca);
         telaCadastroMarca.setVisible(true);
     }//GEN-LAST:event_jMenuItemMarcaActionPerformed
 

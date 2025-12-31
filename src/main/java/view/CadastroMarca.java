@@ -230,10 +230,20 @@ public class CadastroMarca extends javax.swing.JDialog {
         jButtonFiltrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         jButtonFiltrar.setText("Filtrar");
         jButtonFiltrar.setActionCommand("2");
+        jButtonFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFiltrarActionPerformed(evt);
+            }
+        });
 
         jButtonCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Load.png"))); // NOI18N
         jButtonCarregar.setText("Carregar");
         jButtonCarregar.setActionCommand("2");
+        jButtonCarregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCarregarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
@@ -317,6 +327,11 @@ public class CadastroMarca extends javax.swing.JDialog {
         jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
         jButtonNovo.setText("Novo");
         jButtonNovo.setActionCommand("1");
+        jButtonNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNovoActionPerformed(evt);
+            }
+        });
         jPanelBotoes.add(jButtonNovo);
 
         jButtonCancelar.setBackground(new java.awt.Color(204, 204, 204));
@@ -325,6 +340,11 @@ public class CadastroMarca extends javax.swing.JDialog {
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setActionCommand("0");
         jButtonCancelar.setEnabled(false);
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
         jPanelBotoes.add(jButtonCancelar);
 
         jButtonGravar.setBackground(new java.awt.Color(204, 204, 204));
@@ -333,6 +353,11 @@ public class CadastroMarca extends javax.swing.JDialog {
         jButtonGravar.setText("Gravar");
         jButtonGravar.setActionCommand("0");
         jButtonGravar.setEnabled(false);
+        jButtonGravar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGravarActionPerformed(evt);
+            }
+        });
         jPanelBotoes.add(jButtonGravar);
 
         jButtonBuscar.setBackground(new java.awt.Color(204, 204, 204));
@@ -398,6 +423,26 @@ public class CadastroMarca extends javax.swing.JDialog {
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonNovoActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGravarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonGravarActionPerformed
+
+    private void jButtonCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCarregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCarregarActionPerformed
+
+    private void jButtonFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFiltrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonFiltrarActionPerformed
 
     /**
      * @param args the command line arguments

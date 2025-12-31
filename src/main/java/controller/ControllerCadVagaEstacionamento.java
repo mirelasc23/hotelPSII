@@ -33,6 +33,7 @@ public class ControllerCadVagaEstacionamento implements ActionListener{
         if(e.getSource() == this.telaCadastroVagaEstacionamento.getjButtonNovo()){
             utilities.Utilities.ativaDesativaBotoes(this.telaCadastroVagaEstacionamento.getjPanelBotoes(), false);
             utilities.Utilities.limpaComponentes(this.telaCadastroVagaEstacionamento.getjPanelDados(), true);
+            
             this.telaCadastroVagaEstacionamento.getjTextFieldID().setEnabled(false);
             this.telaCadastroVagaEstacionamento.getjComboBoxSituacao().setSelectedIndex(0);
             this.telaCadastroVagaEstacionamento.getjComboBoxSituacao().setEnabled(false);
@@ -55,17 +56,17 @@ public class ControllerCadVagaEstacionamento implements ActionListener{
                     vagaEstacionamento.setStatus('A');
                     service.VagaEstacionamentoService.Criar(vagaEstacionamento);
                 } else {
-                    vagaEstacionamento.setId(Integer.parseInt(this.telaCadastroVagaEstacionamento.getjTextFieldID().getText()));
-                char status;
-                if(this.telaCadastroVagaEstacionamento.getjComboBoxSituacao().getSelectedIndex() == 0){
-                    status = 'l';
-                }else if(this.telaCadastroVagaEstacionamento.getjComboBoxSituacao().getSelectedIndex() == 1){
-                    status = 'o';
-                }else {
-                    status = 'm';
-                }
+                    char status;
+                    if(this.telaCadastroVagaEstacionamento.getjComboBoxSituacao().getSelectedIndex() == 0){
+                        status = 'l';
+                    }else if(this.telaCadastroVagaEstacionamento.getjComboBoxSituacao().getSelectedIndex() == 1){
+                        status = 'o';
+                    }else {
+                        status = 'm';
+                    }
 
-                    vagaEstacionamento .setStatus(status);
+                    vagaEstacionamento.setStatus(status);
+                    vagaEstacionamento.setId(Integer.parseInt(this.telaCadastroVagaEstacionamento.getjTextFieldID().getText()));
                     service.VagaEstacionamentoService.Atualizar(vagaEstacionamento);
                 }
                 utilities.Utilities.ativaDesativaBotoes(this.telaCadastroVagaEstacionamento.getjPanelBotoes(), true);
@@ -104,7 +105,6 @@ public class ControllerCadVagaEstacionamento implements ActionListener{
                 
                 this.telaCadastroVagaEstacionamento.getjTextFieldDescricao().setText(vaga.getDescricao());
                 this.telaCadastroVagaEstacionamento.getjTextFieldMetragem().setText(String.valueOf(vaga.getMetragemVaga()));
-                this.telaCadastroVagaEstacionamento.getjTextFieldDescricao().setText(vaga.getDescricao());
                 int index_status;
                 if(vaga.getStatus()== 'l' || vaga.getStatus()== 'L'){
                     index_status = 0;

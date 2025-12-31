@@ -35,7 +35,7 @@ public  class ControllerBuscaMarca implements ActionListener{
             if(telaBuscaMarca.getjTableDados().getRowCount() == 0){
                 JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
             } else {
-                ControllerCadMarca.codigo = (int)this.telaBuscaMarca.getjTableDados().getValueAt(this.telaBuscaMarca.getjTableDados().getSelectedRow(), 0);
+                //ControllerCadMarca.codigo = (int)this.telaBuscaMarca.getjTableDados().getValueAt(this.telaBuscaMarca.getjTableDados().getSelectedRow(), 0);
             }
             //JOptionPane.showMessageDialog(null, "saiu do if-else");
         } else if(evento.getSource() == this.telaBuscaMarca.getjButtonFiltrar()){
