@@ -36,9 +36,7 @@ public class ControllerCadMarca implements ActionListener{
 //        String str = "Evento disparado por: " + e.getSource().toString();
 //        JOptionPane.showMessageDialog(null, str);
         //BOTAO NOVO
-        if(e.getSource() == this.telaCadastroMarca.getjButtonNovo()){
-            JOptionPane.showMessageDialog(null, "botao novo");
-            
+        if(e.getSource() == this.telaCadastroMarca.getjButtonNovo()){            
            //padrao dos botoes
             utilities.Utilities.ativaDesativaBotoes(this.telaCadastroMarca.getjPanelBotoes(), false);
             utilities.Utilities.limpaComponentes(this.telaCadastroMarca.getjPanelDados(), true);
@@ -54,29 +52,36 @@ public class ControllerCadMarca implements ActionListener{
             
         //BOTAO GRAVAR
         }else if(e.getSource() == this.telaCadastroMarca.getjButtonGravar()){
-            JOptionPane.showMessageDialog(null, "botao gravar");
             if(this.telaCadastroMarca.getjTextFieldDescricao().getText().trim().equalsIgnoreCase("")){
                 JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
                 this.telaCadastroMarca.getjTextFieldDescricao().requestFocus();
             }else{
 
+                JOptionPane.showMessageDialog(null, "entrou no else 1");
+                
                 Marca marca = new Marca();
                 marca.setDescricao(this.telaCadastroMarca.getjTextFieldDescricao().getText());
                 
                 
                 if(this.telaCadastroMarca.getjTextFieldID().getText().trim().equalsIgnoreCase("")){
                     //inclusao
+                    marca.setStatus('A');
                     service.MarcaService.Criar(marca);
                 } else{
+                    JOptionPane.showMessageDialog(null, "entrou no else 2");
+                    
                     char status;
                     if(this.telaCadastroMarca.getjComboBoxStatus().getSelectedIndex() == 0){
-                        status = 'a';
+                        status = 'A';
                     }else {
-                        status = 'i';
+                        status = 'I';
                     } 
                     marca.setStatus(status);
+                    JOptionPane.showMessageDialog(null, "Status selecionado: " + status);
                     
+                    marca.setDescricao(this.telaCadastroMarca.getjTextFieldDescricao().getText());
                     marca.setId(Integer.parseInt(this.telaCadastroMarca.getjTextFieldID().getText()));
+                    System.out.println("");
                     service.MarcaService.Atualizar(marca);
                 }
                 utilities.Utilities.ativaDesativaBotoes(this.telaCadastroMarca.getjPanelBotoes(), true);
@@ -86,9 +91,9 @@ public class ControllerCadMarca implements ActionListener{
             
         //BOTAO BUSCAR
         }else if(e.getSource() == this.telaCadastroMarca.getjButtonBuscar()){
-            JOptionPane.showMessageDialog(null, "botao buscar");
             this.telaCadastroMarca.getjComboBoxFiltrarPor().setEnabled(true);
             this.telaCadastroMarca.getjTextFieldValor().setEnabled(true);
+            this.telaCadastroMarca.getjTableDados().setEnabled(true);
             
             List<Marca> marcas = new ArrayList();
             marcas = service.MarcaService.Carregar();
@@ -134,7 +139,6 @@ public class ControllerCadMarca implements ActionListener{
         
         //BOTAO CARREGAR
         }else if(e.getSource() == this.telaCadastroMarca.getjButtonCarregar()){
-            JOptionPane.showMessageDialog(null, "botao carregar");
              if(telaCadastroMarca.getjTableDados().getRowCount() == 0){
                 JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
             } else {
@@ -149,12 +153,10 @@ public class ControllerCadMarca implements ActionListener{
                 
                 this.telaCadastroMarca.getjTextFieldDescricao().setText(marca.getDescricao());
                 int index_status;
-                if(marca.getStatus()== 'l' || marca.getStatus()== 'L'){
+                if(marca.getStatus()== 'a' || marca.getStatus()== 'A'){
                     index_status = 0;
-                }else if(marca.getStatus()== 'o' || marca.getStatus()== 'O'){
-                    index_status = 1;
                 }else{
-                    index_status = 2;
+                    index_status = 1;
                 }
                 this.telaCadastroMarca.getjComboBoxStatus().setSelectedIndex(index_status);
                 
@@ -163,11 +165,39 @@ public class ControllerCadMarca implements ActionListener{
                 this.telaCadastroMarca.getjTextFieldValor().setEnabled(false);
                 
             }
-            
-
+        
+        //BOTAO FILTRAR
+        }else if(e.getSource() == this.telaCadastroMarca.getjButtonFiltrar()){
+           if(this.telaCadastroMarca.getjTextFieldValor().getText().trim().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
+            } else {
+                if(telaCadastroMarca.getjComboBoxFiltrarPor().getSelectedIndex() == 0){
+                    Marca produtoCopa = new Marca();
+                    produtoCopa = service.MarcaService.Carregar(Integer.parseInt(this.telaCadastroMarca.getjTextFieldValor().getText()));
+                    DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroMarca.getjTableDados().getModel();
+                    //Limpa a tabela a cada filtragem
+                    tabela.setRowCount(0);
+                    tabela.addRow(new Object[] {produtoCopa.getId(), produtoCopa.getDescricao(), produtoCopa.getStatus()});
+                
+                } else if(telaCadastroMarca.getjComboBoxFiltrarPor().getSelectedIndex() == 1){
+                    List<Marca> produtosCopa = new ArrayList<>();
+                    // JPA: lida com o atributo do java, e nao com o campo do BD
+                    produtosCopa = service.MarcaService.Carregar("descricao", this.telaCadastroMarca.getjTextFieldValor().getText());
+                    
+                    // .JAR =: produtosCopa = service.MarcaService.Carregar("decricao", this.telaCadastroMarca.getjTextFieldValor().getText());
+                                        
+                    DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroMarca.getjTableDados().getModel();
+                    tabela.setRowCount(0);
+                    int i=0;
+                    for (Marca produtoCopa : produtosCopa) {
+                        tabela.addRow(new Object[] {produtoCopa.getId(), produtoCopa.getDescricao(), produtoCopa.getStatus()});
+                        //JOptionPane.showMessageDialog(null, ++i);
+                    }
+                } 
+            }
+        
         //BOTAO CANCELAR
         }else if(e.getSource() == this.telaCadastroMarca.getjButtonCancelar()){
-            JOptionPane.showMessageDialog(null, "botao cancelar");
             utilities.Utilities.ativaDesativaBotoes(this.telaCadastroMarca.getjPanelBotoes(), true);
             utilities.Utilities.limpaComponentes(this.telaCadastroMarca.getjPanelDados(), false);
             
@@ -176,7 +206,6 @@ public class ControllerCadMarca implements ActionListener{
             
         //BOTAO SAIR
         }else if(e.getSource() == this.telaCadastroMarca.getjButtonSair()){
-            JOptionPane.showMessageDialog(null, "botao sair");
            this.telaCadastroMarca.dispose();
         }        
     }

@@ -40,7 +40,6 @@ public class ControllerCadServico implements ActionListener {
             if (this.telaCadastroServico.getjTextFieldDescricao().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
                 this.telaCadastroServico.getjTextFieldDescricao().requestFocus();
-                this.telaCadastroServico.getjTextFieldDescricao().setText("vazio");
             } else {
                 Servico servico = new Servico();
 
@@ -55,9 +54,9 @@ public class ControllerCadServico implements ActionListener {
                     servico.setId(Integer.parseInt(this.telaCadastroServico.getjTextFieldID().getText()));
                     char status;
                     if(this.telaCadastroServico.getjComboBoxSituacao().getSelectedIndex() == 0){
-                        status = 'a';
+                        status = 'A';
                     }else{
-                        status = 'i';
+                        status = 'I';
                     }
 
                     servico.setStatus(status);

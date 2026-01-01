@@ -209,6 +209,7 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
         //com o framework, só precisa de try-catch quando for operacao de IO
         try {
             entityManager.getTransaction().begin();
+            entityManager.flush();
             entityManager.merge(objeto);
             entityManager.getTransaction().commit();
         } catch (Exception e) {

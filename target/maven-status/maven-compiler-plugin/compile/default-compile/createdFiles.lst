@@ -4,6 +4,7 @@ view\BuscaHospede$2.class
 view\BuscaProdutoCopa$4.class
 model\dao\CaixaDAO.class
 model\Pessoa.class
+view\CadastroMarca$9$1.class
 view\CadastroModelo$1.class
 view\BuscaMarca$2.class
 view\BuscaFuncionario$1.class
@@ -57,9 +58,9 @@ controller\ControllerCadFornecedor.class
 model\dao\MarcaDAO.class
 view\BuscaFornecedor.class
 view\BuscaFornecedor$3.class
+view\CadastroMarca$7.class
 view\BuscaServico$1.class
 view\CadastroFornecedores.class
-view\CadastroMarca$4$1.class
 view\CadastroMarca$4.class
 view\TelaMenuPrincipal$8.class
 view\BuscaFuncionario$3.class
@@ -79,6 +80,7 @@ model\dao\ReceberDAO.class
 view\CadastroFuncionarios$7.class
 model\Fornecedor.class
 view\TelaMenuPrincipal$9.class
+view\CadastroMarca$5.class
 view\BuscaFornecedor$1.class
 view\BuscaFuncionario$2.class
 model\dao\OrdemServicoDAO.class
@@ -90,6 +92,7 @@ view\BuscaQuarto$4$1.class
 controller\ControllerCadProdutoCopa.class
 view\CadastroMarcaCopy$4$1.class
 view\TemplateCadastros2025$1.class
+view\CadastroMarca$6.class
 view\CadastroMarca.class
 model\dao\ModeloDAO.class
 utilities\Utilities.class
@@ -120,6 +123,7 @@ view\CadastroFornecedores$1.class
 view\BuscaFornecedor$4$1.class
 view\CadastroHospedes$4.class
 view\BuscaQuarto$2.class
+view\CadastroMarca$8.class
 view\CadastroServico.class
 controller\ControllerBuscaFornecedor.class
 model\dao\MovimentoCaixaDAO.class
@@ -145,6 +149,7 @@ view\CadastroProdutoCopa$3.class
 controller\ControllerBuscaQuarto.class
 view\TemplateBuscas2025$1.class
 view\CadastroMarcaCopy$2.class
+view\CadastroMarca$9.class
 controller\ControllerBuscaServico.class
 view\TemplateBuscas2025.class
 model\CheckQuarto.class
