@@ -15,7 +15,6 @@ public class ControllerBuscaModelo implements ActionListener{
     public ControllerBuscaModelo(CadastroModelo telaBuscaModelo) {
         this.telaBuscaModelo = telaBuscaModelo;
         
-        this.telaBuscaModelo.getjButtonCarregar().addActionListener(this);
         this.telaBuscaModelo.getjButtonFiltrar().addActionListener(this);
         
         List<Modelo> modelos = new ArrayList<>();
@@ -23,22 +22,15 @@ public class ControllerBuscaModelo implements ActionListener{
         DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaModelo.getjTableDados().getModel();
         tabela.setRowCount(0);
         for (Modelo modelo : modelos) {
-            tabela.addRow(new Object[] {modelo.getId(), modelo.getDescricao(), modelo.getStatus()});
+            tabela.addRow(new Object[] {modelo.getId(), modelo.getDescricao(), modelo.getMarca(), modelo.getStatus()});
         }
     }
     
+    
+    
     @Override
     public void actionPerformed(ActionEvent evento) {
-        if(evento.getSource() == this.telaBuscaModelo.getjButtonCarregar()){
-            //JOptionPane.showMessageDialog(null, "Botão Carregar Pressionado");
-            if(telaBuscaModelo.getjTableDados().getRowCount() == 0){
-                JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
-            } else {
-                ControllerCadModelo.codigo = (int)this.telaBuscaModelo.getjTableDados().getValueAt(this.telaBuscaModelo.getjTableDados().getSelectedRow(), 0);
-                JOptionPane.showMessageDialog(null, ControllerCadModelo.codigo);
-            }
-            //JOptionPane.showMessageDialog(null, "saiu do if-else");
-        } else if(evento.getSource() == this.telaBuscaModelo.getjButtonFiltrar()){
+        if(evento.getSource() == this.telaBuscaModelo.getjButtonFiltrar()){
             //JOptionPane.showMessageDialog(null, "Botão Filtrar Pressionado");
             if(this.telaBuscaModelo.getjTextFieldValor().getText().trim().equalsIgnoreCase("")){
                 JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
@@ -51,7 +43,7 @@ public class ControllerBuscaModelo implements ActionListener{
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaModelo.getjTableDados().getModel();
                     //Limpa a tabela a cada filtragem
                     tabela.setRowCount(0);
-                    tabela.addRow(new Object[] {modelo.getId(), modelo.getDescricao(), modelo.getStatus()});
+                    tabela.addRow(new Object[] {modelo.getId(), modelo.getDescricao(), modelo.getMarca(), modelo.getStatus()});
                     
                 } else if(telaBuscaModelo.getjComboBoxFiltrarPor().getSelectedIndex() == 1){
                     List<Modelo> modelos = new ArrayList<>();
@@ -61,7 +53,7 @@ public class ControllerBuscaModelo implements ActionListener{
                     //Limpa a tabela a cada filtragem
                     tabela.setRowCount(0);
                     for (Modelo modelo : modelos) {
-                        tabela.addRow(new Object[] {modelo.getId(), modelo.getDescricao(), modelo.getStatus()});
+                        tabela.addRow(new Object[] {modelo.getId(), modelo.getDescricao(), modelo.getMarca(), modelo.getStatus()});
                     }
                     /*JOptionPane.showMessageDialog(null, "Filtrando Por Descricao");
                     List<Modelo> modeloes = new ArrayList<>();
@@ -74,10 +66,18 @@ public class ControllerBuscaModelo implements ActionListener{
                         tabela.addRow(new Object[] {modelo.getId(), modelo.getDescricao(), modelo.getStatus()});
                         //JOptionPane.showMessageDialog(null, ++i);
                     }*/
+                }else if(telaBuscaModelo.getjComboBoxFiltrarPor().getSelectedIndex() == 2){
+                    List<Modelo> modelos = new ArrayList<>();
+                    modelos = service.ModeloService.Carregar("marca", this.telaBuscaModelo.getjTextFieldValor().getText());
+                    //System.out.println(modelo);
+                    DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaModelo.getjTableDados().getModel();
+                    //Limpa a tabela a cada filtragem
+                    tabela.setRowCount(0);
+                    for (Modelo modelo : modelos) {
+                        tabela.addRow(new Object[] {modelo.getId(), modelo.getDescricao(), modelo.getMarca(), modelo.getStatus()});
+                    }
                 }
             }
         } 
     }
-    
-
 }

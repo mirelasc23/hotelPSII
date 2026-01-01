@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,8 +21,10 @@ public class Modelo implements Serializable{
     @Column
     private char status;
 
-    @JoinColumn
-    @ManyToOne
+    /*@JoinColumn
+    @ManyToOne*/
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "marca_id")
     private Marca marca;
 
     public Modelo() {

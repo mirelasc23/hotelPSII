@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 import model.Modelo;
 
 public class ModeloDAO implements InterfaceDAO<Modelo>{
@@ -54,7 +53,14 @@ public class ModeloDAO implements InterfaceDAO<Modelo>{
     public List<Modelo> retrieve(String atributo, String valor) {
         List<Modelo> modelos = new ArrayList<>();
         modelos = entityManager.createQuery(" Select mo From Modelo mo"
-                + " where mo." + atributo + " like '%" + valor + "%'",Modelo.class).getResultList();
+        /*linha 56*/        + " where mo." + atributo + " like '%" + valor + "%'",Modelo.class).getResultList();
+        return modelos;
+    }
+    
+    public List<Modelo> retrieveJoin(String atributo, String valor) {
+        List<Modelo> modelos = new ArrayList<>();
+        modelos = entityManager.createQuery(" Select mo From Modelo mo JOIN FETCH mo.marca_id"
+        /*linha 56*/        + " where mo." + atributo + " like '%" + valor + "%'",Modelo.class).getResultList();
         return modelos;
     }
     

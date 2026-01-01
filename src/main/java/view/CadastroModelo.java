@@ -67,7 +67,7 @@ public class CadastroModelo extends javax.swing.JDialog {
         return jComboBoxStatus;
     }
 
-    public JComboBox<String> getjComboBoxMarca() {
+    public JComboBox<Marca> getjComboBoxMarca() {
         return jComboBoxMarca;
     }
 
@@ -418,7 +418,7 @@ public class CadastroModelo extends javax.swing.JDialog {
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JComboBox<String> jComboBoxFiltrarPor;
-    private javax.swing.JComboBox<String> jComboBoxMarca;
+    private javax.swing.JComboBox<Marca> jComboBoxMarca;
     private javax.swing.JComboBox<String> jComboBoxStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -3,6 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import model.Marca;
 import model.Modelo;
 import view.CadastroModelo;
 
@@ -18,6 +19,7 @@ public class ControllerCadModelo implements ActionListener{
         this.telaCadastroModelo.getjButtonBuscar().addActionListener(this);
         this.telaCadastroModelo.getjButtonCancelar().addActionListener(this);
         this.telaCadastroModelo.getjButtonSair().addActionListener(this);
+        this.telaCadastroModelo.getjButtonCarregar().addActionListener(this);
         
         utilities.Utilities.ativaDesativaBotoes(this.telaCadastroModelo.getjPanelBotoes(), true);
         utilities.Utilities.limpaComponentes(this.telaCadastroModelo.getjPanelDados(), false);
@@ -47,7 +49,7 @@ public class ControllerCadModelo implements ActionListener{
 
                 //modelo.setId(Integer.parseInt(this.telaCadastroModelo.getjTextFieldID().getText()));
                 modelo.setDescricao(this.telaCadastroModelo.getjTextFieldDescricao().getText());
-                
+                modelo.setMarca((Marca)this.telaCadastroModelo.getjComboBoxMarca().getSelectedItem());
                 char status;
                 if(this.telaCadastroModelo.getjComboBoxStatus().getSelectedIndex() == 0){
                     status = 'a';
@@ -71,7 +73,7 @@ public class ControllerCadModelo implements ActionListener{
         }else if(e.getSource() == this.telaCadastroModelo.getjButtonBuscar()){
             
             //ATIVA BOTOES PARA BUSCA
-            /*utilities.Utilities.ativaDesativaBusca(this.telaCadastroModelo.getjPanelDados(), true);*/
+            //utilities.Utilities.ativaDesativaBusca(this.telaCadastroModelo.getjPanelDados(), true);
             
             //ATIVA COMPONENTES PARA BUSCA
             this.telaCadastroModelo.getjComboBoxFiltrarPor().setEnabled(true);
@@ -79,14 +81,15 @@ public class ControllerCadModelo implements ActionListener{
             
             //CONTROLLER
             ControllerBuscaModelo controllerBuscaModelo = new ControllerBuscaModelo(this.telaCadastroModelo);
+            JOptionPane.showMessageDialog(null, "código do controller: " + codigo);
             
-            /*DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaModelo.getjTableDados().getModel();
+            /*DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroModelo.getjTableDados().getModel();
                 //Limpa a tabela a cada filtragem
                 tabela.setRowCount(0);*/
             //JOptionPane.showMessageDialog(null, "saiu do contrBusca");
             //JOptionPane.showMessageDialog(null, "cód. em CadModelo" + ControllerCadModelo.codigo);
             
-            if (codigo != 0) {
+            //if (codigo != 0) {
                 
                 //JOptionPane.showMessageDialog(null, "entrou no if(codigo)");
 
@@ -108,24 +111,40 @@ public class ControllerCadModelo implements ActionListener{
                 this.telaCadastroModelo.getjTableDados().setEnabled(true);
                 this.telaCadastroModelo.getjComboBoxFiltrarPor().setEnabled(false);*/
 
+                
+            //}
+        }else if(e.getSource() == this.telaCadastroModelo.getjButtonCarregar()){
+            //JOptionPane.showMessageDialog(null, "Botão Carregar Pressionado");
+            if(telaCadastroModelo.getjTableDados().getRowCount() == 0){
+                JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
+            } else {
+                codigo = (int)this.telaCadastroModelo.getjTableDados().getValueAt(this.telaCadastroModelo.getjTableDados().getSelectedRow(), 0);
+                
                 this.telaCadastroModelo.getjTextFieldID().setText(codigo + "");
                 this.telaCadastroModelo.getjTextFieldID().setEnabled(false);
                 
                 Modelo modelo = new Modelo();
-                modelo  = service.ModeloService.Carregar(codigo);
-                
-                //JOptionPane.showMessageDialog(null, modelo);
-                this.telaCadastroModelo.getjTextFieldDescricao().setText(modelo.getDescricao());
-                int index_status;
-                if(modelo.getStatus()== 'a' || modelo.getStatus()== 'A'){
-                    index_status = 0;
+                if(service.ModeloService.Carregar(codigo) == null){
+                    JOptionPane.showMessageDialog(null, "código nulo");
                 }else{
-                    index_status = 1;
+                    JOptionPane.showMessageDialog(null, "código não nulo");
+                    modelo  = service.ModeloService.Carregar(codigo);
+
+                    //JOptionPane.showMessageDialog(null, modelo);
+                    this.telaCadastroModelo.getjTextFieldDescricao().setText(modelo.getDescricao());
+                    int index_status;
+                    if(modelo.getStatus()== 'a' || modelo.getStatus()== 'A'){
+                        index_status = 0;
+                    }else{
+                        index_status = 1;
+                    }
+                    this.telaCadastroModelo.getjComboBoxStatus().setSelectedIndex(index_status);
+
+                    this.telaCadastroModelo.getjTextFieldDescricao().requestFocus();
                 }
-                this.telaCadastroModelo.getjComboBoxStatus().setSelectedIndex(index_status);
                 
-                this.telaCadastroModelo.getjTextFieldDescricao().requestFocus();
             }
+            //JOptionPane.showMessageDialog(null, "saiu do if-else");
         }else if(e.getSource() == this.telaCadastroModelo.getjButtonCancelar()){
             utilities.Utilities.ativaDesativaBotoes(this.telaCadastroModelo.getjPanelBotoes(), true);
             utilities.Utilities.limpaComponentes(this.telaCadastroModelo.getjPanelDados(), false);
