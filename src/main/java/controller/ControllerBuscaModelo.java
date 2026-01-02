@@ -68,7 +68,8 @@ public class ControllerBuscaModelo implements ActionListener{
                     }*/
                 }else if(telaBuscaModelo.getjComboBoxFiltrarPor().getSelectedIndex() == 2){
                     List<Modelo> modelos = new ArrayList<>();
-                    modelos = service.ModeloService.Carregar("marca", this.telaBuscaModelo.getjTextFieldValor().getText());
+                    modelos = service.ModeloService.ConsultaJoin(this.telaBuscaModelo.getjTextFieldValor().getText());
+                    //modelos = service.ModeloService.Carregar("marca", this.telaBuscaModelo.getjTextFieldValor().getText());
                     //System.out.println(modelo);
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaModelo.getjTableDados().getModel();
                     //Limpa a tabela a cada filtragem

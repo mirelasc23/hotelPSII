@@ -25,6 +25,10 @@ public class ModeloService{
     public static List<Modelo> Carregar(String atributo, String valor) {
         return ModeloDAO.getInstance().retrieve(atributo, valor);
     }
+    
+    public static List<Modelo> ConsultaJoin(String consulta) {
+        return ModeloDAO.getInstance().retrieveJoin(consulta);
+    }
 
     public static void Atualizar(Modelo objeto) {
         ModeloDAO.getInstance().update(objeto);

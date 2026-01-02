@@ -57,16 +57,55 @@ public class ModeloDAO implements InterfaceDAO<Modelo>{
         return modelos;
     }
     
-    public List<Modelo> retrieveJoin(String atributo, String valor) {
+    public List<Modelo> retrieveJoin(String consulta) {
         List<Modelo> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mo From Modelo mo JOIN FETCH mo.marca"
-        /*linha 56*/        + " where mo." + atributo + " like '%" + valor + "%'",Modelo.class).getResultList();
+
+        // Mudamos o nome do parâmetro do ID para :idFiltro
+        String jpql = "SELECT mo FROM Modelo mo JOIN mo.marca ma " +
+                      "WHERE ma.id = :idFiltro OR ma.descricao LIKE :descFiltro";
+
+        try {
+            var query = entityManager.createQuery(jpql, Modelo.class);
+
+            // 1. Tenta converter a consulta para número. Se não for número, coloca um ID impossível (-1)
+            int idBusca;
+            try {
+                idBusca = Integer.parseInt(consulta);
+            } catch (NumberFormatException e) {
+                idBusca = -1; 
+            }
+
+            // 2. Define os parâmetros separadamente
+            query.setParameter("idFiltro", idBusca);
+            query.setParameter("descFiltro", "%" + consulta + "%");
+
+            modelos = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return modelos;
+        
+        /*List<Modelo> modelos = new ArrayList<>();
+        /*modelos = entityManager.createQuery(" Select mo From Modelo mo JOIN FETCH mo.marca"
+        /*linha 56        + " where mo." + atributo + " like '%" + valor + "%'",Modelo.class).getResultList();
+        
+        String jpql = "SELECT mo FROM Modelo mo JOIN mo.marca ma " +
+                  "WHERE ma.id = :filtro OR ma.descricao LIKE :filtro";
+    
+        try {
+            modelos = entityManager.createQuery(jpql, Modelo.class)
+                        .setParameter("filtro", "%" + consulta + "%")
+                        .getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return modelos;*/
     }
     
     public List<Modelo> retrieveAll() {
         List<Modelo> modelos = new ArrayList<>();
         modelos = entityManager.createQuery("Select mo From Modelo mo ORDER BY mo.id",Modelo.class).getResultList();
+        /*modelos = entityManager.createNativeQuery("SELECT * FROM hotel.modelo", Modelo.class).getResultList();*/
         return modelos;
     }
     
