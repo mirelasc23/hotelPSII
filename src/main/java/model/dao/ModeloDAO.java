@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import model.Modelo;
 
 public class ModeloDAO implements InterfaceDAO<Modelo>{
@@ -65,7 +66,7 @@ public class ModeloDAO implements InterfaceDAO<Modelo>{
                       "WHERE ma.id = :idFiltro OR ma.descricao LIKE :descFiltro";
 
         try {
-            var query = entityManager.createQuery(jpql, Modelo.class);
+            Query query = entityManager.createQuery(jpql, Modelo.class);
 
             // 1. Tenta converter a consulta para número. Se não for número, coloca um ID impossível (-1)
             int idBusca;
