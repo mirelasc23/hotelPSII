@@ -52,9 +52,9 @@ public class ControllerCadModelo implements ActionListener{
                 modelo.setMarca((Marca)this.telaCadastroModelo.getjComboBoxMarca().getSelectedItem());
                 char status;
                 if(this.telaCadastroModelo.getjComboBoxStatus().getSelectedIndex() == 0){
-                    status = 'a';
+                    status = 'A';
                 }else {
-                    status = 'i';
+                    status = 'I';
                 } modelo.setStatus(status);
                 
                 if(this.telaCadastroModelo.getjTextFieldID().getText().trim().equalsIgnoreCase("")){
@@ -81,7 +81,7 @@ public class ControllerCadModelo implements ActionListener{
             
             //CONTROLLER
             ControllerBuscaModelo controllerBuscaModelo = new ControllerBuscaModelo(this.telaCadastroModelo);
-            JOptionPane.showMessageDialog(null, "código do controller: " + codigo);
+            //JOptionPane.showMessageDialog(null, "código do controller: " + codigo);
             
             /*DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroModelo.getjTableDados().getModel();
                 //Limpa a tabela a cada filtragem
@@ -118,6 +118,8 @@ public class ControllerCadModelo implements ActionListener{
             if(telaCadastroModelo.getjTableDados().getRowCount() == 0){
                 JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
             } else {
+                utilities.Utilities.ativaDesativaBotoes(this.telaCadastroModelo.getjPanelBotoes(), false);
+                utilities.Utilities.limpaComponentes(this.telaCadastroModelo.getjPanelDados(), true);
                 codigo = (int)this.telaCadastroModelo.getjTableDados().getValueAt(this.telaCadastroModelo.getjTableDados().getSelectedRow(), 0);
                 
                 this.telaCadastroModelo.getjTextFieldID().setText(codigo + "");
@@ -125,13 +127,15 @@ public class ControllerCadModelo implements ActionListener{
                 
                 Modelo modelo = new Modelo();
                 if(service.ModeloService.Carregar(codigo) == null){
-                    JOptionPane.showMessageDialog(null, "código nulo");
+                    //JOptionPane.showMessageDialog(null, "código nulo");
                 }else{
-                    JOptionPane.showMessageDialog(null, "código não nulo");
+                    //JOptionPane.showMessageDialog(null, "código não nulo");
                     modelo  = service.ModeloService.Carregar(codigo);
 
                     //JOptionPane.showMessageDialog(null, modelo);
                     this.telaCadastroModelo.getjTextFieldDescricao().setText(modelo.getDescricao());
+                    this.telaCadastroModelo.getjComboBoxMarca().setSelectedIndex(modelo.getMarca().getId()-1);
+                    
                     int index_status;
                     if(modelo.getStatus()== 'a' || modelo.getStatus()== 'A'){
                         index_status = 0;
@@ -140,6 +144,11 @@ public class ControllerCadModelo implements ActionListener{
                     }
                     this.telaCadastroModelo.getjComboBoxStatus().setSelectedIndex(index_status);
 
+                    this.telaCadastroModelo.getjTextFieldValor().setEnabled(false);
+                    this.telaCadastroModelo.getjComboBoxFiltrarPor().setEnabled(false);
+                    this.telaCadastroModelo.getjComboBoxStatus().setEnabled(true);
+                    this.telaCadastroModelo.getjTextFieldDescricao().setEnabled(true);
+                    this.telaCadastroModelo.getjComboBoxMarca().setEnabled(true);
                     this.telaCadastroModelo.getjTextFieldDescricao().requestFocus();
                 }
                 

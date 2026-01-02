@@ -66,7 +66,7 @@ public class Modelo implements Serializable{
     }
 
     public void setStatus(char status) {
-        if ((status == 'A') || (status == 'C') || (status == 'a') || (status == 'c')) {
+        if ((status == 'A') || (status == 'I') || (status == 'a') || (status == 'i')) {
             this.status = status;
         } else {
             this.status = 'A';

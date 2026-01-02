@@ -59,7 +59,7 @@ public class ModeloDAO implements InterfaceDAO<Modelo>{
     
     public List<Modelo> retrieveJoin(String atributo, String valor) {
         List<Modelo> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery(" Select mo From Modelo mo JOIN FETCH mo.marca_id"
+        modelos = entityManager.createQuery(" Select mo From Modelo mo JOIN FETCH mo.marca"
         /*linha 56*/        + " where mo." + atributo + " like '%" + valor + "%'",Modelo.class).getResultList();
         return modelos;
     }
