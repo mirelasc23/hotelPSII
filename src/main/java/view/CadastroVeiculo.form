@@ -122,16 +122,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jSeparator1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jTextField1" min="-2" pref="56" max="-2" attributes="0"/>
+                          <Component id="jTextFieldID" min="-2" pref="56" max="-2" attributes="0"/>
                           <EmptySpace pref="549" max="32767" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" pref="125" max="-2" attributes="0"/>
+                          <Component id="jComboBoxSituacao" min="-2" pref="125" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jComboBox3" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jComboBoxModelo" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -144,9 +144,9 @@
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jComboBox4" min="-2" pref="363" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxMarca" min="-2" pref="363" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField3" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldCor" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -156,7 +156,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField4" min="-2" pref="176" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldPlaca" min="-2" pref="176" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -197,13 +197,13 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxSituacao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jComboBox3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxModelo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -212,9 +212,9 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jComboBox4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxMarca" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldCor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldPlaca" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
@@ -243,7 +243,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="jTextFieldID">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -261,7 +261,7 @@
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="jComboBoxSituacao">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
@@ -283,24 +283,24 @@
             <Property name="text" type="java.lang.String" value="Situa&#xe7;&#xe3;o"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox3">
+        <Component class="javax.swing.JComboBox" name="jComboBoxModelo">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new DefaultComboBoxModel(service.ModeloService.Carregar().toArray())" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Modelo&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox4">
+        <Component class="javax.swing.JComboBox" name="jComboBoxMarca">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new DefaultComboBoxModel(service.MarcaService.Carregar().toArray())" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Marca&gt;"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -311,9 +311,9 @@
             <Property name="text" type="java.lang.String" value="Marca"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="jTextFieldCor">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="jTextFieldPlaca">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>

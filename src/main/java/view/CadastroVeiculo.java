@@ -5,9 +5,12 @@
  */
 package view;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import model.Marca;
+import model.Modelo;
 
 /**
  *
@@ -76,16 +79,16 @@ public class CadastroVeiculo extends javax.swing.JDialog {
         jPanelTitulo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanelDados = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxSituacao = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBoxModelo = new javax.swing.JComboBox<>();
+        jComboBoxMarca = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jTextFieldCor = new javax.swing.JTextField();
+        jTextFieldPlaca = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -138,11 +141,15 @@ public class CadastroVeiculo extends javax.swing.JDialog {
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Modelo");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
-        jComboBox1.setSelectedIndex(-1);
+        jComboBoxSituacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+        jComboBoxSituacao.setSelectedIndex(-1);
 
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Situação");
+
+        jComboBoxModelo.setModel(new DefaultComboBoxModel(service.ModeloService.Carregar().toArray()));
+
+        jComboBoxMarca.setModel(new DefaultComboBoxModel(service.MarcaService.Carregar().toArray()));
 
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Marca");
@@ -204,14 +211,14 @@ public class CadastroVeiculo extends javax.swing.JDialog {
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1)
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 549, Short.MAX_VALUE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBoxSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4))
-                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBoxModelo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelDadosLayout.createSequentialGroup()
@@ -222,16 +229,16 @@ public class CadastroVeiculo extends javax.swing.JDialog {
                                 .addComponent(jLabel3)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanelDadosLayout.createSequentialGroup()
-                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3)))
+                                .addComponent(jTextFieldCor)))
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelDadosLayout.createSequentialGroup()
                                 .addGap(154, 154, 154)
                                 .addComponent(jLabel6))
                             .addGroup(jPanelDadosLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -259,12 +266,12 @@ public class CadastroVeiculo extends javax.swing.JDialog {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -272,9 +279,9 @@ public class CadastroVeiculo extends javax.swing.JDialog {
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
@@ -425,10 +432,10 @@ public class CadastroVeiculo extends javax.swing.JDialog {
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<Marca> jComboBoxMarca;
+    private javax.swing.JComboBox<Modelo> jComboBoxModelo;
+    private javax.swing.JComboBox<String> jComboBoxSituacao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -445,9 +452,9 @@ public class CadastroVeiculo extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTableDados;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextFieldCor;
+    private javax.swing.JTextField jTextFieldID;
+    private javax.swing.JTextField jTextFieldPlaca;
     // End of variables declaration//GEN-END:variables
 }

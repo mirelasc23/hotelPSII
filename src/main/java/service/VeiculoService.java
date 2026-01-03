@@ -14,10 +14,6 @@ public class VeiculoService{
         return VeiculoDAO.getInstance().retrieveAll();
     }
     
-    public static List<String> CarregarCheckBox() {
-        return VeiculoDAO.getInstance().retrieveCheckBox();
-    }
-
     public static Veiculo Carregar(int id) {
         return VeiculoDAO.getInstance().retrieve(id);
     }
