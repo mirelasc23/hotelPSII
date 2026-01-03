@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 
 public class VeiculoDAO implements InterfaceDAO<Veiculo>{
@@ -57,6 +58,37 @@ private static VeiculoDAO INSTANCE;
                 + " where vei." + atributo + " like '%" + valor + "%'",Veiculo.class).getResultList();
         return modelos;
     }
+    
+    public List<Veiculo> retrieveJoin(String consulta) {
+                    List<Veiculo> modelos = new ArrayList<>();
+
+        // Mudamos o nome do parâmetro do ID para :idFiltro
+        String jpql = "SELECT v FROM Veiculo v JOIN v.modelo mo JOIN mo.marca ma" +
+                      "WHERE ma.id = :idFiltro OR ma.descricao LIKE :descFiltro";
+
+        try {
+            Query query = entityManager.createQuery(jpql, Veiculo.class);
+
+            // 1. Tenta converter a consulta para número. Se não for número, coloca um ID impossível (-1)
+            int idBusca;
+            try {
+                idBusca = Integer.parseInt(consulta);
+            } catch (NumberFormatException e) {
+                idBusca = -1; 
+            }
+
+            // 2. Define os parâmetros separadamente
+            query.setParameter("idFiltro", idBusca);
+            query.setParameter("descFiltro", "%" + consulta + "%");
+
+            modelos = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return modelos;
+        
+    }
+
 
     @Override
     public void update(Veiculo objeto) {
