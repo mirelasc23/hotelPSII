@@ -60,16 +60,14 @@ private static VeiculoDAO INSTANCE;
     }
     
     public List<Veiculo> retrieveJoin(String consulta) {
-                    List<Veiculo> modelos = new ArrayList<>();
+        List<Veiculo> modelos = new ArrayList<>();
 
-        // Mudamos o nome do parâmetro do ID para :idFiltro
         String jpql = "SELECT v FROM Veiculo v JOIN v.modelo mo JOIN mo.marca ma" +
                       "WHERE ma.id = :idFiltro OR ma.descricao LIKE :descFiltro";
 
         try {
             Query query = entityManager.createQuery(jpql, Veiculo.class);
 
-            // 1. Tenta converter a consulta para número. Se não for número, coloca um ID impossível (-1)
             int idBusca;
             try {
                 idBusca = Integer.parseInt(consulta);
@@ -77,7 +75,6 @@ private static VeiculoDAO INSTANCE;
                 idBusca = -1; 
             }
 
-            // 2. Define os parâmetros separadamente
             query.setParameter("idFiltro", idBusca);
             query.setParameter("descFiltro", "%" + consulta + "%");
 
@@ -86,9 +83,14 @@ private static VeiculoDAO INSTANCE;
             e.printStackTrace();
         }
         return modelos;
-        
     }
-
+    
+    public List<Veiculo> retrieveAll() {
+        List<Veiculo> modelos = new ArrayList<>();
+        modelos = entityManager.createQuery("Select mo From Modelo mo ORDER BY mo.id",Modelo.class).getResultList();
+        /*modelos = entityManager.createNativeQuery("SELECT * FROM hotel.modelo", Modelo.class).getResultList();*/
+        return modelos;
+    }
 
     @Override
     public void update(Veiculo objeto) {
