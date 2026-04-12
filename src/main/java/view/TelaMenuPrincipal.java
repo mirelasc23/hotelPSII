@@ -16,6 +16,7 @@ import controller.ControllerCadQuarto;
 import controller.ControllerCadServico;
 import controller.ControllerCadVagaEstacionamento;
 import controller.ControllerCadVeiculo;
+import controller.ControllerMovimentoCheck;
 import controller.JavaTest;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
@@ -340,6 +341,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemMovCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMovCheckActionPerformed
         // TODO add your handling code here:
         MovimentoCheck telaMovimentoCheck = new MovimentoCheck(null, true);
+        ControllerMovimentoCheck controllerMovimentoCheck = new ControllerMovimentoCheck(telaMovimentoCheck);
         telaMovimentoCheck.setVisible(true);
     }//GEN-LAST:event_jMenuItemMovCheckActionPerformed
 
