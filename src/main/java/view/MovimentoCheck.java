@@ -4,6 +4,7 @@
  */
 package view;
 
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -32,6 +33,8 @@ public class MovimentoCheck extends javax.swing.JDialog {
         //setMaximizedBounds(env.getMaximumWindowBounds());
         this.setSize(env.getMaximumWindowBounds().width, env.getMaximumWindowBounds().height);
         //this.setExtendedState(this.getExtendedState() | javax.swing.JFrame.MAXIMIZED_BOTH); // Funciona no Dialog também
+        setTitle("Check");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens/OK.png")));
 
     }
     
@@ -1391,7 +1394,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
                                     .addComponent(jLabelSexo2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton4)
-                                .addGap(265, 265, 265))
+                                .addGap(286, 286, 286))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelFone6)
@@ -1855,7 +1858,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanelDados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1374, Short.MAX_VALUE)
                         .addComponent(jPanelBotoes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1955,7 +1958,6 @@ public class MovimentoCheck extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 MovimentoCheck dialog = new MovimentoCheck(new javax.swing.JFrame(), true);
-                dialog.setTitle("Check");
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
