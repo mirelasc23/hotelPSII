@@ -87,7 +87,7 @@ private static VeiculoDAO INSTANCE;
     
     public List<Veiculo> retrieveAll() {
         List<Veiculo> modelos = new ArrayList<>();
-        modelos = entityManager.createQuery("Select mo From Modelo mo ORDER BY mo.id",Modelo.class).getResultList();
+        modelos = entityManager.createQuery("Select mo From Veiculo mo ORDER BY mo.id",Veiculo.class).getResultList();
         /*modelos = entityManager.createNativeQuery("SELECT * FROM hotel.modelo", Modelo.class).getResultList();*/
         return modelos;
     }

@@ -61,6 +61,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItemSair = new javax.swing.JMenuItem();
         jMenuMovimentos = new javax.swing.JMenu();
+        jMenuItemMovCheck = new javax.swing.JMenuItem();
         jMenuRelatorios = new javax.swing.JMenu();
         jMenuAjuda = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -192,6 +193,16 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenuMovimentos.setBackground(new java.awt.Color(204, 204, 204));
         jMenuMovimentos.setForeground(new java.awt.Color(102, 102, 102));
         jMenuMovimentos.setText("Movimentos");
+
+        jMenuItemMovCheck.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, 0));
+        jMenuItemMovCheck.setText("Check");
+        jMenuItemMovCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMovCheckActionPerformed(evt);
+            }
+        });
+        jMenuMovimentos.add(jMenuItemMovCheck);
+
         jMenuPrincipal.add(jMenuMovimentos);
 
         jMenuRelatorios.setBackground(new java.awt.Color(204, 204, 204));
@@ -326,6 +337,12 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, utilities.Utilities.validaDataFuturaString(f, LocalDate.now()));*/
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItemMovCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMovCheckActionPerformed
+        // TODO add your handling code here:
+        MovimentoCheck telaMovimentoCheck = new MovimentoCheck(null, true);
+        telaMovimentoCheck.setVisible(true);
+    }//GEN-LAST:event_jMenuItemMovCheckActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -371,6 +388,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemHospede;
     private javax.swing.JMenuItem jMenuItemMarca;
     private javax.swing.JMenuItem jMenuItemModelo;
+    private javax.swing.JMenuItem jMenuItemMovCheck;
     private javax.swing.JMenuItem jMenuItemProduto;
     private javax.swing.JMenuItem jMenuItemQuarto;
     private javax.swing.JMenuItem jMenuItemSair;
