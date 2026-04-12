@@ -1043,6 +1043,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Next.png"))); // NOI18N
+        jButton1.setActionCommand("0");
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1070,14 +1071,17 @@ public class MovimentoCheck extends javax.swing.JDialog {
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
+        jButton2.setActionCommand("0");
         jButton2.setBorderPainted(false);
 
         jButton3.setBackground(new java.awt.Color(204, 204, 204));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
+        jButton3.setActionCommand("0");
         jButton3.setBorderPainted(false);
 
         jButton4.setBackground(new java.awt.Color(204, 204, 204));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
+        jButton4.setActionCommand("0");
         jButton4.setBorderPainted(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1087,14 +1091,17 @@ public class MovimentoCheck extends javax.swing.JDialog {
 
         jButton5.setBackground(new java.awt.Color(204, 204, 204));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
+        jButton5.setActionCommand("0");
         jButton5.setBorderPainted(false);
 
         jButton6.setBackground(new java.awt.Color(204, 204, 204));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
+        jButton6.setActionCommand("0");
         jButton6.setBorderPainted(false);
 
         jButton7.setBackground(new java.awt.Color(204, 204, 204));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        jButton7.setActionCommand("0");
         jButton7.setBorderPainted(false);
 
         jLabelCNPJ3.setForeground(new java.awt.Color(102, 102, 102));
@@ -1141,6 +1148,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
 
         jButton8.setBackground(new java.awt.Color(204, 204, 204));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Hourglass.png"))); // NOI18N
+        jButton8.setActionCommand("0");
         jButton8.setBorderPainted(false);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1150,6 +1158,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
 
         jButton9.setBackground(new java.awt.Color(204, 204, 204));
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Hourglass.png"))); // NOI18N
+        jButton9.setActionCommand("0");
         jButton9.setBorderPainted(false);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1854,11 +1863,11 @@ public class MovimentoCheck extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1331, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
         );
 
         pack();

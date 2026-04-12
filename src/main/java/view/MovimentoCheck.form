@@ -26,12 +26,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="1331" max="32767" attributes="0"/>
+          <Component id="jScrollPane1" alignment="0" pref="920" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="776" max="32767" attributes="0"/>
+          <Component id="jScrollPane1" alignment="0" pref="540" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -1626,6 +1626,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagens/Next.png"/>
                     </Property>
+                    <Property name="actionCommand" type="java.lang.String" value="0"/>
                     <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
@@ -1685,6 +1686,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagens/Create.png"/>
                     </Property>
+                    <Property name="actionCommand" type="java.lang.String" value="0"/>
                     <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -1696,6 +1698,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagens/Create.png"/>
                     </Property>
+                    <Property name="actionCommand" type="java.lang.String" value="0"/>
                     <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -1707,6 +1710,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagens/Create.png"/>
                     </Property>
+                    <Property name="actionCommand" type="java.lang.String" value="0"/>
                     <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
@@ -1721,6 +1725,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagens/Create.png"/>
                     </Property>
+                    <Property name="actionCommand" type="java.lang.String" value="0"/>
                     <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -1732,6 +1737,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagens/Create.png"/>
                     </Property>
+                    <Property name="actionCommand" type="java.lang.String" value="0"/>
                     <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -1743,6 +1749,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagens/Delete.png"/>
                     </Property>
+                    <Property name="actionCommand" type="java.lang.String" value="0"/>
                     <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -1834,6 +1841,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagens/Hourglass.png"/>
                     </Property>
+                    <Property name="actionCommand" type="java.lang.String" value="0"/>
                     <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
@@ -1848,6 +1856,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagens/Hourglass.png"/>
                     </Property>
+                    <Property name="actionCommand" type="java.lang.String" value="0"/>
                     <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
