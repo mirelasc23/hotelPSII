@@ -34,7 +34,7 @@ public class ControllerMovimentoCheck implements ActionListener {
             //this.telaMovimentoCheck.getjComboBoxFiltrarPor().setEnabled(false);
             //this.telaMovimentoCheck.getjTextFieldValor().setEnabled(false);
 
-        } else if (e.getSource() == this.telaMovimentoCheck.getjButtonGravar()) {
+        }/* else if (e.getSource() == this.telaMovimentoCheck.getjButtonGravar()) {
             if (this.telaMovimentoCheck.getjTextFieldDescricao().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
                 this.telaMovimentoCheck.getjTextFieldDescricao().requestFocus();
@@ -92,7 +92,7 @@ public class ControllerMovimentoCheck implements ActionListener {
                 
                 this.telaMovimentoCheck.getjComboBoxStatusReserva().setSelectedIndex(index_status);  
             }
-        } else if (e.getSource() == this.telaMovimentoCheck.getjButtonCancelar()) {
+        }*/ else if (e.getSource() == this.telaMovimentoCheck.getjButtonCancelar()) {
             utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), true);
             utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), false);
         } else if (e.getSource() == this.telaMovimentoCheck.getjButtonSair()) {
