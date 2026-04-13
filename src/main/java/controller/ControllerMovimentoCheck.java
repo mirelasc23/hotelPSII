@@ -155,7 +155,31 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
                     Hospede hospede = new Hospede();
                     hospede = service.HospedeService.Carregar(codigo);
                     
-                    this.telaMovimentoCheck.getjTextFieldIDHospede().setText(codigo + "");
+                    this.telaMovimentoCheck.getjTextFieldNome().setText(hospede.getNome());
+                    this.telaMovimentoCheck.getjTextFieldNome().setEnabled(false);
+                    
+                    this.telaMovimentoCheck.getjFormattedTextFieldFone1().setText(hospede.getFone1());
+                    this.telaMovimentoCheck.getjFormattedTextFieldFone1().setEnabled(false);
+                    
+                    this.telaMovimentoCheck.getjFormattedTextFieldFone2().setText(hospede.getFone2());
+                    this.telaMovimentoCheck.getjFormattedTextFieldFone2().setEnabled(false);
+                    
+                    this.telaMovimentoCheck.getjTextFieldEmail1().setText(hospede.getEmail());
+                    this.telaMovimentoCheck.getjTextFieldEmail1().setEnabled(false);
+                    
+                    /*if(this.telaMovimentoCheck.getjCheckBoxPresenca().isEnabled()){
+                        this.telaMovimentoCheck.getjTextFieldNome().setText(hospede.getNome());
+                        this.telaMovimentoCheck.getjTextFieldNome().setEnabled(false);
+
+                        this.telaMovimentoCheck.getjFormattedTextFieldFone1().setText(hospede.getFone1());
+                        this.telaMovimentoCheck.getjFormattedTextFieldFone1().setEnabled(false);
+
+                        this.telaMovimentoCheck.getjFormattedTextFieldFone2().setText(hospede.getFone2());
+                        this.telaMovimentoCheck.getjFormattedTextFieldFone2().setEnabled(false);
+
+                        this.telaMovimentoCheck.getjTextFieldEmail1().setText(hospede.getEmail());
+                        this.telaMovimentoCheck.getjTextFieldEmail1().setEnabled(false);
+                    }*/
                 }
             }
         }
