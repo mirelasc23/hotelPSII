@@ -10,6 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
+import model.Hospede;
 import model.Servico;
 import org.w3c.dom.events.MouseEvent;
 import view.BuscaHospede;
@@ -134,12 +135,28 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
     @Override
     public void mousePressed(java.awt.event.MouseEvent evt) {
         if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDHospede()) {
-            if (evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
+            if (this.telaMovimentoCheck.getjTextFieldIDHospede().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
                 System.out.println("Clique Duplo Detectado no MousePressed!");
                 // Sua lógica de busca aqui
+                
+                codigo = 0;
+                
                 BuscaHospede telaBuscaHospede = new BuscaHospede(null, true);
                 ControllerBuscaHospede2 controllerBuscaHospede = new ControllerBuscaHospede2(telaBuscaHospede);
                 telaBuscaHospede.setVisible(true);
+                
+                if (codigo != 0) {
+                    utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
+                    utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
+
+                    this.telaMovimentoCheck.getjTextFieldIDHospede().setText(codigo + "");
+                    this.telaMovimentoCheck.getjTextFieldIDHospede().setEnabled(false);
+
+                    Hospede hospede = new Hospede();
+                    hospede = service.HospedeService.Carregar(codigo);
+                    
+                    this.telaMovimentoCheck.getjTextFieldIDHospede().setText(codigo + "");
+                }
             }
         }
     }
