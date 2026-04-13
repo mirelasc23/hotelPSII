@@ -297,7 +297,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                         String data = sdf.format(hoje);
                         
-                        this.telaMovimentoCheck.getjTextFieldCopaValor().setText(hospede.getObs());
+                        this.telaMovimentoCheck.getjTextFieldCopaValor().setText(String.valueOf(hospede.getValor()*Float.parseFloat(this.telaMovimentoCheck.getjTextFieldCopaQuantidade().getText())));
                         this.telaMovimentoCheck.getjTextFieldCopaValor().setEnabled(false);
 
                     }

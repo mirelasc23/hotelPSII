@@ -555,12 +555,60 @@ public class MovimentoCheck extends javax.swing.JDialog {
         this.jTextFieldCopaValor = jTextFieldObs8;
     }
 
+    public JTextField getjTextFieldCopaQuantidade() {
+        return jTextFieldCopaQuantidade;
+    }
+
+    public void setjTextFieldCopaQuantidade(JTextField jTextFieldObs9) {
+        this.jTextFieldCopaQuantidade = jTextFieldObs9;
+    }
+
+    public JFormattedTextField getjFormattedTextFieldCopaData() {
+        return jFormattedTextFieldCopaData;
+    }
+
+    public void setjFormattedTextFieldCopaData(JFormattedTextField jFormattedTextFieldCopaData) {
+        this.jFormattedTextFieldCopaData = jFormattedTextFieldCopaData;
+    }
+
+    public JFormattedTextField getjFormattedTextFieldFone1Hospede1() {
+        return jFormattedTextFieldFone1Hospede1;
+    }
+
+    public void setjFormattedTextFieldFone1Hospede1(JFormattedTextField jFormattedTextFieldFone1Hospede1) {
+        this.jFormattedTextFieldFone1Hospede1 = jFormattedTextFieldFone1Hospede1;
+    }
+
+    public JFormattedTextField getjFormattedTextFieldHospede1Cpf() {
+        return jFormattedTextFieldHospede1Cpf;
+    }
+
+    public void setjFormattedTextFieldHospede1Cpf(JFormattedTextField jFormattedTextFieldHospede1Cpf) {
+        this.jFormattedTextFieldHospede1Cpf = jFormattedTextFieldHospede1Cpf;
+    }
+
+    public JFormattedTextField getjFormattedTextFieldHospede1DataNascimento() {
+        return jFormattedTextFieldHospede1DataNascimento;
+    }
+
+    public void setjFormattedTextFieldHospede1DataNascimento(JFormattedTextField jFormattedTextFieldHospede1DataNascimento) {
+        this.jFormattedTextFieldHospede1DataNascimento = jFormattedTextFieldHospede1DataNascimento;
+    }
+
+    public JFormattedTextField getjFormattedTextFieldHospede2Cpf() {
+        return jFormattedTextFieldHospede2Cpf;
+    }
+
+    public void setjFormattedTextFieldHospede2Cpf(JFormattedTextField jFormattedTextFieldHospede2Cpf) {
+        this.jFormattedTextFieldHospede2Cpf = jFormattedTextFieldHospede2Cpf;
+    }
+
     public JTextField getjTextFieldCopaDescricao() {
         return jTextFieldCopaDescricao;
     }
 
-    public void setjTextFieldCopaDescricao(JTextField jTextFieldObs9) {
-        this.jTextFieldCopaDescricao = jTextFieldObs9;
+    public void setjTextFieldCopaDescricao(JTextField jTextFieldCopaDescricao) {
+        this.jTextFieldCopaDescricao = jTextFieldCopaDescricao;
     }
 
     public JTextField getjTextFieldObsReserva() {
@@ -700,7 +748,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
         jLabelIdVaga4 = new javax.swing.JLabel();
         jTextFieldCopaValor = new javax.swing.JTextField();
         jLabelObs8 = new javax.swing.JLabel();
-        jTextFieldCopaDescricao = new javax.swing.JTextField();
+        jTextFieldCopaQuantidade = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -730,6 +778,8 @@ public class MovimentoCheck extends javax.swing.JDialog {
         jFormattedTextFieldHospede2DataNascimento = new javax.swing.JFormattedTextField();
         jLabelCNPJ4 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
+        jTextFieldCopaDescricao = new javax.swing.JTextField();
+        jLabelObs9 = new javax.swing.JLabel();
         jPanelBotoes = new javax.swing.JPanel();
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
@@ -841,7 +891,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
         jLabelObsReserva.setText("Obs");
 
         try {
-            jFormattedTextFieldCpfCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+            jFormattedTextFieldCpfCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -1097,7 +1147,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
         jLabelIdVaga4.setText("Valor");
 
         jLabelObs8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabelObs8.setText("Descrição");
+        jLabelObs8.setText("Quantidade");
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
@@ -1233,6 +1283,9 @@ public class MovimentoCheck extends javax.swing.JDialog {
                 jButton10ActionPerformed(evt);
             }
         });
+
+        jLabelObs9.setForeground(new java.awt.Color(102, 102, 102));
+        jLabelObs9.setText("Descrição");
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
@@ -1405,7 +1458,11 @@ public class MovimentoCheck extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelObs8)
-                                    .addComponent(jTextFieldCopaDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldCopaQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelObs9)
+                                    .addComponent(jTextFieldCopaDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelIdVaga4)
@@ -1873,9 +1930,13 @@ public class MovimentoCheck extends javax.swing.JDialog {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jTextFieldIDCopa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldCopaDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldCopaQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jFormattedTextFieldCopaData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jButton2)))
+                                    .addComponent(jButton2)
+                                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                                        .addComponent(jLabelObs9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldCopaDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanelDadosLayout.createSequentialGroup()
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2207,6 +2268,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelObs6;
     private javax.swing.JLabel jLabelObs7;
     private javax.swing.JLabel jLabelObs8;
+    private javax.swing.JLabel jLabelObs9;
     private javax.swing.JLabel jLabelObsReserva;
     private javax.swing.JLabel jLabelSexo2;
     private javax.swing.JLabel jLabelSexo3;
@@ -2233,6 +2295,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jTextFieldCopaDescricao;
+    private javax.swing.JTextField jTextFieldCopaQuantidade;
     private javax.swing.JTextField jTextFieldCopaValor;
     private javax.swing.JTextField jTextFieldEmail1;
     private javax.swing.JTextField jTextFieldEmailHospede1;
