@@ -138,7 +138,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
                 System.out.println("Clique Duplo Detectado no MousePressed!");
                 // Sua lógica de busca aqui
                 BuscaHospede telaBuscaHospede = new BuscaHospede(null, true);
-                ControllerBuscaHospede controllerBuscaHospede = new ControllerBuscaHospede(telaBuscaHospede);
+                ControllerBuscaHospede2 controllerBuscaHospede = new ControllerBuscaHospede2(telaBuscaHospede);
                 telaBuscaHospede.setVisible(true);
             }
         }
