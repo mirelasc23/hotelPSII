@@ -3,6 +3,8 @@ package controller;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,9 +24,10 @@ import view.BuscaServico;
 import view.CadastroServico;
 import view.MovimentoCheck;
 
-public class ControllerMovimentoCheck implements ActionListener, MouseListener{
+public class ControllerMovimentoCheck implements ActionListener, MouseListener, KeyListener{
     MovimentoCheck telaMovimentoCheck;
     public static int codigo;
+    public static float total;
 
     public ControllerMovimentoCheck(MovimentoCheck telaMovimentoCheck) {
         this.telaMovimentoCheck = telaMovimentoCheck;
@@ -35,6 +38,8 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
         this.telaMovimentoCheck.getjButtonSair().addActionListener(this);
         this.telaMovimentoCheck.getjTextFieldIDHospede().addMouseListener(this);
         //this.telaMovimentoCheck.getjTextFieldIDHospede().addKeyEvent(this);
+        this.telaMovimentoCheck.getjTextFieldCopaQuantidade().addKeyListener(this);
+        this.telaMovimentoCheck.getjTextFieldOSValor().addKeyListener(this);
         this.telaMovimentoCheck.getjTextFieldIDVaga().addMouseListener(this);
         this.telaMovimentoCheck.getjTextFieldIDQuarto().addMouseListener(this);
         this.telaMovimentoCheck.getjTextFieldIDOs().addMouseListener(this);
@@ -48,6 +53,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaMovimentoCheck.getjButtonNovo()) {
             
+            
             Date hoje = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             String data = sdf.format(hoje);
@@ -59,10 +65,12 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
             this.telaMovimentoCheck.getjFormattedTextFieldDataCadastro().setText(data);
             this.telaMovimentoCheck.getjFormattedTextFieldDataCadastro().setEnabled(false);
             
-            //this.telaMovimentoCheck.getjTextFieldIDReserva().setEnabled(false);
+            this.telaMovimentoCheck.getjTextFieldIDReserva().setEnabled(false);
             this.telaMovimentoCheck.getjComboBoxStatusReserva().setSelectedIndex(0);
             this.telaMovimentoCheck.getjComboBoxStatusReserva().setEnabled(false);
             this.telaMovimentoCheck.getjComboBoxStatusReserva().setEnabled(false);
+            
+            total = 0;
             //this.telaMovimentoCheck.getjComboBoxFiltrarPor().setEnabled(false);
             //this.telaMovimentoCheck.getjTextFieldValor().setEnabled(false);
 
@@ -241,6 +249,9 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
                     
                     this.telaMovimentoCheck.getjTextFieldQuarto1Valor().setText("R$ 130.00");
                     this.telaMovimentoCheck.getjTextFieldQuarto1Valor().setEnabled(false);
+                    total += 130;
+                    this.telaMovimentoCheck.getjTextFieldValorReserva().setText("R$ 130.00");
+                    this.telaMovimentoCheck.getjTextFieldValorDespesas().setText(String.valueOf("R$ " + String.format("%.2f", total)));
                     
                 }
             }
@@ -272,35 +283,37 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
                     this.telaMovimentoCheck.getjTextFieldOSObs().setEnabled(false);
                     
                     this.telaMovimentoCheck.getjTextFieldOSValor().setText("R$ 35,00");                    
+                    total += 35;
+                    this.telaMovimentoCheck.getjTextFieldValorServiços().setText("R$ 35,00");
+                    this.telaMovimentoCheck.getjTextFieldValorDespesas().setText(String.valueOf("R$ " + String.format("%.2f", total)));
                 }
-            }else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDCopa()) {
-                if (this.telaMovimentoCheck.getjTextFieldIDCopa().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
-                    codigo = 0;
+            }
+        }else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDCopa()) {
+            if (this.telaMovimentoCheck.getjTextFieldIDCopa().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
+                codigo = 0;
 
-                    BuscaProdutoCopa telaBuscaHospede = new BuscaProdutoCopa(null, true);
-                    ControllerBuscaProdutoCopa2 controllerBuscaHospede = new ControllerBuscaProdutoCopa2(telaBuscaHospede);
-                    telaBuscaHospede.setVisible(true);
+                BuscaProdutoCopa telaBuscaHospede = new BuscaProdutoCopa(null, true);
+                ControllerBuscaProdutoCopa2 controllerBuscaHospede = new ControllerBuscaProdutoCopa2(telaBuscaHospede);
+                telaBuscaHospede.setVisible(true);
 
-                    if (codigo != 0) {
-                        this.telaMovimentoCheck.getjTextFieldIDCopa().setText(codigo + "");
+                if (codigo != 0) {
+                    this.telaMovimentoCheck.getjTextFieldIDCopa().setText(codigo + "");
 
-                        ProdutoCopa hospede = new ProdutoCopa();
-                        hospede = service.ProdutoCopaService.Carregar(codigo);
+                    ProdutoCopa hospede = new ProdutoCopa();
+                    hospede = service.ProdutoCopaService.Carregar(codigo);
 
-                        this.telaMovimentoCheck.getjTextFieldCopaDescricao().setText(hospede.getDescricao());
-                        this.telaMovimentoCheck.getjTextFieldCopaDescricao().setEnabled(false);
+                    this.telaMovimentoCheck.getjTextFieldCopaDescricao().setText(hospede.getDescricao());
+                    this.telaMovimentoCheck.getjTextFieldCopaDescricao().setEnabled(false);
 
-                        this.telaMovimentoCheck.getjTextFieldCopaValor().setText(hospede.getObs());
-                        this.telaMovimentoCheck.getjTextFieldCopaValor().setEnabled(false);
-                        
-                        Date hoje = new Date();
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                        String data = sdf.format(hoje);
-                        
-                        this.telaMovimentoCheck.getjTextFieldCopaValor().setText(String.valueOf(hospede.getValor()*Float.parseFloat(this.telaMovimentoCheck.getjTextFieldCopaQuantidade().getText())));
-                        this.telaMovimentoCheck.getjTextFieldCopaValor().setEnabled(false);
+                    //this.telaMovimentoCheck.getjTextFieldCopaValor().setText(hospede.getObs());
+                    //this.telaMovimentoCheck.getjTextFieldCopaValor().setEnabled(false);
 
-                    }
+                    Date hoje = new Date();
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    String data = sdf.format(hoje);
+
+                    
+
                 }
             }
         }
@@ -319,4 +332,112 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
     public void mouseExited(java.awt.event.MouseEvent e) {
         //this.telaMovimentoCheck.getjTextFieldIDHospede().setBorder(this.telaMovimentoCheck.getjTextFieldEmail1().getBorder());
     }
+
+    @Override
+    public void keyTyped(KeyEvent evt) {/*
+        if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldCopaQuantidade() && 
+            evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+            try {
+                // 1. Pega a quantidade digitada
+                String textoQtd = this.telaMovimentoCheck.getjTextFieldCopaQuantidade().getText();
+                float quantidade = Float.parseFloat(textoQtd);
+
+                // 2. Garante que temos o produto correto (usando o código que foi selecionado no clique)
+                ProdutoCopa produto = service.ProdutoCopaService.Carregar(codigo);
+
+                if (produto != null) {
+                    // 3. Calcula
+                    float total = quantidade * produto.getValor();
+
+                    // 4. Atualiza o campo (formatado)
+                    this.telaMovimentoCheck.getjTextFieldCopaValor().setEnabled(true);
+                    this.telaMovimentoCheck.getjTextFieldCopaValor().setText(String.format("%.2f", total));
+                    this.telaMovimentoCheck.getjTextFieldCopaValor().setEnabled(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Selecione um produto primeiro!");
+                }
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Quantidade inválida! Digite apenas números.");
+            }
+        }
+    */}
+
+    /*@Override
+    public void keyPressed(KeyEvent evt) {
+        if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldCopaQuantidade()) {
+            float total = Float.parseFloat(this.telaMovimentoCheck.getjTextFieldCopaQuantidade().getText()) * service.ProdutoCopaService.Carregar(codigo).getValor();
+            JOptionPane.showConfirmDialog(null, "1 - " + total);
+            
+            if (this.telaMovimentoCheck.getjTextFieldCopaQuantidade().isEnabled() && evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                total = Float.parseFloat(this.telaMovimentoCheck.getjTextFieldCopaQuantidade().getText()) * service.ProdutoCopaService.Carregar(codigo).getValor();
+                JOptionPane.showConfirmDialog(null, "2 - " + total);
+                this.telaMovimentoCheck.getjTextFieldCopaValor().setText("R$ " + total);
+            }
+        }
+    }*/
+    
+    @Override
+    public void keyPressed(KeyEvent evt) {
+        // Verifica se o evento veio do campo de quantidade E se a tecla foi ENTER
+        if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldCopaQuantidade() && 
+            evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+            try {
+                // 1. Pega a quantidade digitada
+                String textoQtd = this.telaMovimentoCheck.getjTextFieldCopaQuantidade().getText();
+                float quantidade = Float.parseFloat(textoQtd);
+
+                // 2. Garante que temos o produto correto (usando o código que foi selecionado no clique)
+                ProdutoCopa produto = service.ProdutoCopaService.Carregar(codigo);
+
+                if (produto != null) {
+                    // 3. Calcula
+                    float total = quantidade * produto.getValor();
+
+                    // 4. Atualiza o campo (formatado)
+                    this.telaMovimentoCheck.getjTextFieldCopaValor().setEnabled(true);
+                    this.telaMovimentoCheck.getjTextFieldCopaValor().setText(String.format("%.2f", total));
+                    this.telaMovimentoCheck.getjTextFieldCopaValor().setEnabled(false);
+                    
+                    total += Float.parseFloat(this.telaMovimentoCheck.getjTextFieldCopaValor().getText());
+                    this.telaMovimentoCheck.getjTextFieldValorProduto().setText(String.valueOf("R$ " + String.format("%.2f", Float.parseFloat(this.telaMovimentoCheck.getjTextFieldCopaValor().getText()))));
+                    this.telaMovimentoCheck.getjTextFieldValorDespesas().setText(String.valueOf("R$ " + String.format("%.2f", total)));
+                } else {
+                    JOptionPane.showMessageDialog(null, "Selecione um produto primeiro!");
+                }
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Quantidade inválida! Digite apenas números.");
+            }
+        } else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldOSValor()&& 
+            evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+            try {
+                // 1. Pega a quantidade digitada
+                String textoQtd = this.telaMovimentoCheck.getjTextFieldCopaQuantidade().getText();
+                float quantidade = Float.parseFloat(textoQtd);
+
+                // 2. Garante que temos o produto correto (usando o código que foi selecionado no clique)
+                ProdutoCopa produto = service.ProdutoCopaService.Carregar(codigo);
+
+                if (produto != null) {
+                    total -= 35;
+                    total += Float.parseFloat(this.telaMovimentoCheck.getjTextFieldOSValor().getText());
+                    this.telaMovimentoCheck.getjTextFieldValorServiços().setText(String.valueOf("R$ " + String.format("%.2f", Float.parseFloat(this.telaMovimentoCheck.getjTextFieldOSValor().getText()))));
+                    this.telaMovimentoCheck.getjTextFieldValorDespesas().setText(String.valueOf("R$ " + String.format("%.2f", total)));
+                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "Selecione um produto primeiro!");
+                }
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Valor inválido!");
+            }
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
 }

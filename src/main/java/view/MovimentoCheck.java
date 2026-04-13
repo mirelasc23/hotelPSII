@@ -275,28 +275,28 @@ public class MovimentoCheck extends javax.swing.JDialog {
         this.jFormattedTextFieldFone1Hospede1 = jFormattedTextFieldFone6;
     }
 
-    public JTextField getjTextField1() {
-        return jTextField1;
+    public JTextField getjTextFieldValorReserva() {
+        return jTextFieldValorReserva;
     }
 
-    public void setjTextField1(JTextField jTextField1) {
-        this.jTextField1 = jTextField1;
+    public void setjTextFieldValorReserva(JTextField jTextField1) {
+        this.jTextFieldValorReserva = jTextField1;
     }
 
-    public JTextField getjTextField2() {
-        return jTextField2;
+    public JTextField getjTextFieldValorServiços() {
+        return jTextFieldValorServiços;
     }
 
-    public void setjTextField2(JTextField jTextField2) {
-        this.jTextField2 = jTextField2;
+    public void setjTextFieldValorServiços(JTextField jTextField2) {
+        this.jTextFieldValorServiços = jTextField2;
     }
 
-    public JTextField getjTextField3() {
-        return jTextField3;
+    public JTextField getjTextFieldValorProduto() {
+        return jTextFieldValorProduto;
     }
 
-    public void setjTextField3(JTextField jTextField3) {
-        this.jTextField3 = jTextField3;
+    public void setjTextFieldValorProduto(JTextField jTextField3) {
+        this.jTextFieldValorProduto = jTextField3;
     }
 
     public JTextField getjTextField4() {
@@ -323,12 +323,12 @@ public class MovimentoCheck extends javax.swing.JDialog {
         this.jTextField6 = jTextField6;
     }
 
-    public JTextField getjTextField7() {
-        return jTextField7;
+    public JTextField getjTextFieldValorDespesas() {
+        return jTextFieldValorDespesas;
     }
 
-    public void setjTextField7(JTextField jTextField7) {
-        this.jTextField7 = jTextField7;
+    public void setjTextFieldValorDespesas(JTextField jTextField7) {
+        this.jTextFieldValorDespesas = jTextField7;
     }
 
     public JTextField getjTextField8() {
@@ -727,9 +727,9 @@ public class MovimentoCheck extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jTextFieldValorReserva = new javax.swing.JTextField();
+        jTextFieldValorServiços = new javax.swing.JTextField();
+        jTextFieldValorProduto = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
@@ -737,7 +737,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        jTextFieldValorDespesas = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -1079,9 +1079,9 @@ public class MovimentoCheck extends javax.swing.JDialog {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("PRODUTOS ADICIONAIS");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldValorReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldValorReservaActionPerformed(evt);
             }
         });
 
@@ -1148,6 +1148,17 @@ public class MovimentoCheck extends javax.swing.JDialog {
 
         jLabelObs8.setForeground(new java.awt.Color(102, 102, 102));
         jLabelObs8.setText("Quantidade");
+
+        jTextFieldCopaQuantidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCopaQuantidadeActionPerformed(evt);
+            }
+        });
+        jTextFieldCopaQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldCopaQuantidadeKeyPressed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
@@ -1454,11 +1465,11 @@ public class MovimentoCheck extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelIdHospede4)
-                                    .addComponent(jFormattedTextFieldCopaData, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jFormattedTextFieldCopaData, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(9, 9, 9)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelObs8)
-                                    .addComponent(jTextFieldCopaQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldCopaQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelObs8))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelObs9)
@@ -1478,12 +1489,12 @@ public class MovimentoCheck extends javax.swing.JDialog {
                                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                                     .addComponent(jLabel8))
-                                .addGap(34, 34, 34)
-                                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField7)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField1))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextFieldValorReserva, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldValorServiços)
+                                    .addComponent(jTextFieldValorProduto)
+                                    .addComponent(jTextFieldValorDespesas))
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1894,22 +1905,22 @@ public class MovimentoCheck extends javax.swing.JDialog {
                                 .addGroup(jPanelDadosLayout.createSequentialGroup()
                                     .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel2)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTextFieldValorReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel3)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldValorServiços, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel6))
                                     .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanelDadosLayout.createSequentialGroup()
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(jLabel4)
-                                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jTextFieldValorProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(jLabel8)
-                                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jTextFieldValorDespesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(jPanelDadosLayout.createSequentialGroup()
                                             .addGap(6, 6, 6)
                                             .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1922,11 +1933,10 @@ public class MovimentoCheck extends javax.swing.JDialog {
                                             .addGap(22, 22, 22)
                                             .addComponent(jTextFieldCopaValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanelDadosLayout.createSequentialGroup()
-                                        .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jLabelIdReserva4)
-                                                .addComponent(jLabelIdHospede4))
-                                            .addComponent(jLabelObs8, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabelIdReserva4)
+                                            .addComponent(jLabelIdHospede4)
+                                            .addComponent(jLabelObs8))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jTextFieldIDCopa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2062,9 +2072,9 @@ public class MovimentoCheck extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxSexoStatus6ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldValorReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldValorReservaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextFieldValorReservaActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
@@ -2114,6 +2124,19 @@ public class MovimentoCheck extends javax.swing.JDialog {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jTextFieldCopaQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCopaQuantidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCopaQuantidadeActionPerformed
+
+    private void jTextFieldCopaQuantidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCopaQuantidadeKeyPressed
+        // TODO add your handling code here:
+        // Verifica se a tecla pressionada foi o Enter
+        /*if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            // Chama o método de busca que você já tem no seu JButton
+            //setjtextfiel;
+        }*/
+    }//GEN-LAST:event_jTextFieldCopaQuantidadeKeyPressed
 
     public JCheckBox getjCheckBoxPresenca() {
         return jCheckBoxPresenca;
@@ -2285,13 +2308,9 @@ public class MovimentoCheck extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jTextFieldCopaDescricao;
@@ -2323,6 +2342,10 @@ public class MovimentoCheck extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldQuarto1Descricao;
     private javax.swing.JTextField jTextFieldQuarto1Obs;
     private javax.swing.JTextField jTextFieldQuarto1Valor;
+    private javax.swing.JTextField jTextFieldValorDespesas;
+    private javax.swing.JTextField jTextFieldValorProduto;
+    private javax.swing.JTextField jTextFieldValorReserva;
+    private javax.swing.JTextField jTextFieldValorServiços;
     // End of variables declaration//GEN-END:variables
 }
 
