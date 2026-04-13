@@ -395,6 +395,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                 if (produto != null) {
                     // 3. Calcula
                     float total = quantidade * produto.getValor();
+                    JOptionPane.showMessageDialog(null, produto);
 
                     // 4. Atualiza o campo (formatado)
                     this.telaMovimentoCheck.getjTextFieldCopaValor().setEnabled(true);
@@ -408,7 +409,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     JOptionPane.showMessageDialog(null, "Selecione um produto primeiro!");
                 }
 
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {//estoura execption
                 JOptionPane.showMessageDialog(null, "Quantidade inválida! Digite apenas números.");
             }
         } else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldOSValor()&& 
@@ -423,6 +424,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                 ProdutoCopa produto = service.ProdutoCopaService.Carregar(codigo);
 
                 if (produto != null) {
+                    JOptionPane.showMessageDialog(null, produto);
                     total -= 35;
                     total += Float.parseFloat(this.telaMovimentoCheck.getjTextFieldOSValor().getText());
                     this.telaMovimentoCheck.getjTextFieldValorServiços().setText(String.valueOf("R$ " + String.format("%.2f", Float.parseFloat(this.telaMovimentoCheck.getjTextFieldOSValor().getText()))));
@@ -432,7 +434,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     JOptionPane.showMessageDialog(null, "Selecione um produto primeiro!");
                 }
 
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {//estoura execption
                 JOptionPane.showMessageDialog(null, "Valor inválido!");
             }
         }
