@@ -12,6 +12,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import model.Servico;
 import org.w3c.dom.events.MouseEvent;
+import view.BuscaHospede;
 import view.BuscaServico;
 import view.CadastroServico;
 import view.MovimentoCheck;
@@ -122,12 +123,12 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
     
     @Override
     public void mouseClicked(java.awt.event.MouseEvent evt) {
-        if(evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDHospede()){
+        /*if(evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDHospede()){
             if (evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
                 JOptionPane.showMessageDialog(null, "Clique Duplo");
                 System.out.println("Clique Duplo Detectado!");
             }
-        }
+        }*/
     }
 
     @Override
@@ -136,6 +137,9 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
             if (evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
                 System.out.println("Clique Duplo Detectado no MousePressed!");
                 // Sua lógica de busca aqui
+                BuscaHospede telaBuscaHospede = new BuscaHospede(null, true);
+                ControllerBuscaHospede controllerBuscaHospede = new ControllerBuscaHospede(telaBuscaHospede);
+                telaBuscaHospede.setVisible(true);
             }
         }
     }

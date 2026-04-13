@@ -97,6 +97,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastros.add(jMenuItemFuncionario);
 
+        jMenuItemHospede.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItemHospede.setBackground(new java.awt.Color(204, 204, 204));
         jMenuItemHospede.setForeground(new java.awt.Color(102, 102, 102));
         jMenuItemHospede.setText("Hóspede");
@@ -108,6 +109,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenuCadastros.add(jMenuItemHospede);
         jMenuCadastros.add(jSeparator1);
 
+        jMenuItemQuarto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItemQuarto.setBackground(new java.awt.Color(204, 204, 204));
         jMenuItemQuarto.setForeground(new java.awt.Color(102, 102, 102));
         jMenuItemQuarto.setText("Quarto");
@@ -128,6 +130,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastros.add(jMenuItemServico);
 
+        jMenuItemProduto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItemProduto.setBackground(new java.awt.Color(204, 204, 204));
         jMenuItemProduto.setForeground(new java.awt.Color(102, 102, 102));
         jMenuItemProduto.setText("Produto");
@@ -139,6 +142,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenuCadastros.add(jMenuItemProduto);
         jMenuCadastros.add(jSeparator3);
 
+        jMenuItemVagaEstacionamento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItemVagaEstacionamento.setBackground(new java.awt.Color(204, 204, 204));
         jMenuItemVagaEstacionamento.setForeground(new java.awt.Color(102, 102, 102));
         jMenuItemVagaEstacionamento.setText("Estacionamento");
@@ -149,6 +153,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastros.add(jMenuItemVagaEstacionamento);
 
+        jMenuItemVeiculo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItemVeiculo.setBackground(new java.awt.Color(204, 204, 204));
         jMenuItemVeiculo.setForeground(new java.awt.Color(102, 102, 102));
         jMenuItemVeiculo.setText("Veículo");
@@ -180,6 +185,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenuCadastros.add(jMenuItemMarca);
         jMenuCadastros.add(jSeparator2);
 
+        jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
         jMenuItemSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         jMenuItemSair.setText("Sair");
         jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {

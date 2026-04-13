@@ -150,7 +150,7 @@ public class ControllerCadHospedes implements ActionListener{
                 this.telaCadastroHospedes.getjTextFieldNomeFantasia().requestFocus();
                 */
             
-            
+             
             codigo = 0;
 
             BuscaHospede telaBuscaHospede = new BuscaHospede(null, true);
