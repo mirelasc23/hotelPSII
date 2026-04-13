@@ -11,10 +11,12 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import model.Hospede;
+import model.ProdutoCopa;
 import model.Quarto;
 import model.Servico;
 import org.w3c.dom.events.MouseEvent;
 import view.BuscaHospede;
+import view.BuscaProdutoCopa;
 import view.BuscaQuarto;
 import view.BuscaServico;
 import view.CadastroServico;
@@ -32,6 +34,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
         this.telaMovimentoCheck.getjButtonCancelar().addActionListener(this);
         this.telaMovimentoCheck.getjButtonSair().addActionListener(this);
         this.telaMovimentoCheck.getjTextFieldIDHospede().addMouseListener(this);
+        //this.telaMovimentoCheck.getjTextFieldIDHospede().addKeyEvent(this);
         this.telaMovimentoCheck.getjTextFieldIDVaga().addMouseListener(this);
         this.telaMovimentoCheck.getjTextFieldIDQuarto().addMouseListener(this);
         this.telaMovimentoCheck.getjTextFieldIDOs().addMouseListener(this);
@@ -50,6 +53,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
             String data = sdf.format(hoje);
             
             utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
+            utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelDados(), false);
             utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
             
             this.telaMovimentoCheck.getjFormattedTextFieldDataCadastro().setText(data);
@@ -157,7 +161,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
                     //utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
 
                     this.telaMovimentoCheck.getjTextFieldIDHospede().setText(codigo + "");
-                    this.telaMovimentoCheck.getjTextFieldIDHospede().setEnabled(false);
+                    //this.telaMovimentoCheck.getjTextFieldIDHospede().setEnabled(false);
 
                     Hospede hospede = new Hospede();
                     hospede = service.HospedeService.Carregar(codigo);
@@ -186,11 +190,16 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
 
                         this.telaMovimentoCheck.getjTextFieldEmail1().setText(hospede.getEmail());
                         this.telaMovimentoCheck.getjTextFieldEmail1().setEnabled(false);
+                        
+                        this.telaMovimentoCheck.getjFormattedTextFieldCpfCnpj().setText(hospede.getCpf());
+                        this.telaMovimentoCheck.getjFormattedTextFieldCpfCnpj().setEnabled(false);
+                        
+                        //this.telaMovimentoCheck.getjFormattedTextFieldDataNascimento().setText(hospede.getna());
+                        //this.telaMovimentoCheck.getjFormattedTextFieldDataNascimento().setEnabled(false);
                     }
                 }
             }
-        } 
-        else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDQuarto()) {
+        } else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDQuarto()) {
             if (this.telaMovimentoCheck.getjTextFieldIDQuarto().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
                 //System.out.println("Clique Duplo Detectado no MousePressed!-quarto");
                 
@@ -206,7 +215,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
                     //utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
 
                     this.telaMovimentoCheck.getjTextFieldIDQuarto().setText(codigo + "");
-                    this.telaMovimentoCheck.getjTextFieldIDQuarto().setEnabled(false);
+                    //this.telaMovimentoCheck.getjTextFieldIDQuarto().setEnabled(false);
 
                     Quarto hospede = new Quarto();
                     hospede = service.QuartoService.Carregar(codigo);
@@ -223,6 +232,75 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
                     this.telaMovimentoCheck.getjTextFieldQuarto1Andar().setText(hospede.getAndar()+"");
                     this.telaMovimentoCheck.getjTextFieldQuarto1Andar().setEnabled(false);
                     
+                    this.telaMovimentoCheck.getjCheckBoxAnimais().setSelected(hospede.isFlagAnimais());
+                    this.telaMovimentoCheck.getjCheckBoxAnimais().setEnabled(false);
+                    this.telaMovimentoCheck.getjCheckBoxBebes().setSelected(hospede.isFlagBebe());
+                    this.telaMovimentoCheck.getjCheckBoxBebes().setEnabled(false);
+                    this.telaMovimentoCheck.getjCheckBoxFumante().setSelected(hospede.isFlagFumante());
+                    this.telaMovimentoCheck.getjCheckBoxFumante().setEnabled(false);
+                    
+                    this.telaMovimentoCheck.getjTextFieldQuarto1Valor().setText("R$ 130.00");
+                    this.telaMovimentoCheck.getjTextFieldQuarto1Valor().setEnabled(false);
+                    
+                }
+            }
+        }else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDOs()) {
+            if (this.telaMovimentoCheck.getjTextFieldIDOs().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
+                //System.out.println("Clique Duplo Detectado no MousePressed!-quarto");
+                
+                codigo = 0;
+                
+                BuscaServico telaBuscaHospede = new BuscaServico(null, true);
+                ControllerBuscaServico2 controllerBuscaHospede = new ControllerBuscaServico2(telaBuscaHospede);
+                telaBuscaHospede.setVisible(true);
+                //JOptionPane.showMessageDialog(null, "clique duplo quarto");
+                        
+                if (codigo != 0) {
+                    //utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
+                    //utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
+
+                    this.telaMovimentoCheck.getjTextFieldIDOs().setText(codigo + "");
+                    //this.telaMovimentoCheck.getjTextFieldIDOs().setEnabled(false);
+
+                    Servico hospede = new Servico();
+                    hospede = service.ServicoService.Carregar(codigo);
+                    
+                    this.telaMovimentoCheck.getjTextFieldOSDescricao().setText(hospede.getDescricao());
+                    this.telaMovimentoCheck.getjTextFieldOSDescricao().setEnabled(false);
+                    
+                    this.telaMovimentoCheck.getjTextFieldOSObs().setText(hospede.getObs());
+                    this.telaMovimentoCheck.getjTextFieldOSObs().setEnabled(false);
+                    
+                    this.telaMovimentoCheck.getjTextFieldOSValor().setText("R$ 35,00");                    
+                }
+            }else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDCopa()) {
+                if (this.telaMovimentoCheck.getjTextFieldIDCopa().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
+                    codigo = 0;
+
+                    BuscaProdutoCopa telaBuscaHospede = new BuscaProdutoCopa(null, true);
+                    ControllerBuscaProdutoCopa2 controllerBuscaHospede = new ControllerBuscaProdutoCopa2(telaBuscaHospede);
+                    telaBuscaHospede.setVisible(true);
+
+                    if (codigo != 0) {
+                        this.telaMovimentoCheck.getjTextFieldIDCopa().setText(codigo + "");
+
+                        ProdutoCopa hospede = new ProdutoCopa();
+                        hospede = service.ProdutoCopaService.Carregar(codigo);
+
+                        this.telaMovimentoCheck.getjTextFieldCopaDescricao().setText(hospede.getDescricao());
+                        this.telaMovimentoCheck.getjTextFieldCopaDescricao().setEnabled(false);
+
+                        this.telaMovimentoCheck.getjTextFieldCopaValor().setText(hospede.getObs());
+                        this.telaMovimentoCheck.getjTextFieldCopaValor().setEnabled(false);
+                        
+                        Date hoje = new Date();
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        String data = sdf.format(hoje);
+                        
+                        this.telaMovimentoCheck.getjTextFieldCopaValor().setText(hospede.getObs());
+                        this.telaMovimentoCheck.getjTextFieldCopaValor().setEnabled(false);
+
+                    }
                 }
             }
         }
