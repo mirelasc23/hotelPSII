@@ -11,9 +11,11 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import model.Hospede;
+import model.Quarto;
 import model.Servico;
 import org.w3c.dom.events.MouseEvent;
 import view.BuscaHospede;
+import view.BuscaQuarto;
 import view.BuscaServico;
 import view.CadastroServico;
 import view.MovimentoCheck;
@@ -30,6 +32,10 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
         this.telaMovimentoCheck.getjButtonCancelar().addActionListener(this);
         this.telaMovimentoCheck.getjButtonSair().addActionListener(this);
         this.telaMovimentoCheck.getjTextFieldIDHospede().addMouseListener(this);
+        this.telaMovimentoCheck.getjTextFieldIDVaga().addMouseListener(this);
+        this.telaMovimentoCheck.getjTextFieldIDQuarto().addMouseListener(this);
+        this.telaMovimentoCheck.getjTextFieldIDOs().addMouseListener(this);
+        this.telaMovimentoCheck.getjTextFieldIDCopa().addMouseListener(this);
         utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), true);
         utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelDados(), true);
         utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), false);
@@ -136,7 +142,6 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
     public void mousePressed(java.awt.event.MouseEvent evt) {
         if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDHospede()) {
             if (this.telaMovimentoCheck.getjTextFieldIDHospede().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
-                System.out.println("Clique Duplo Detectado no MousePressed!");
                 // Sua lógica de busca aqui
                 
                 codigo = 0;
@@ -145,9 +150,11 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
                 ControllerBuscaHospede2 controllerBuscaHospede = new ControllerBuscaHospede2(telaBuscaHospede);
                 telaBuscaHospede.setVisible(true);
                 
+                //System.out.println("Clique Duplo Detectado no MousePressed!");
+                
                 if (codigo != 0) {
-                    utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
-                    utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
+                    //utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
+                    //utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
 
                     this.telaMovimentoCheck.getjTextFieldIDHospede().setText(codigo + "");
                     this.telaMovimentoCheck.getjTextFieldIDHospede().setEnabled(false);
@@ -167,7 +174,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
                     this.telaMovimentoCheck.getjTextFieldEmail1().setText(hospede.getEmail());
                     this.telaMovimentoCheck.getjTextFieldEmail1().setEnabled(false);
                     
-                    /*if(this.telaMovimentoCheck.getjCheckBoxPresenca().isEnabled()){
+                    if(this.telaMovimentoCheck.getjCheckBoxPresenca().isEnabled()){
                         this.telaMovimentoCheck.getjTextFieldNome().setText(hospede.getNome());
                         this.telaMovimentoCheck.getjTextFieldNome().setEnabled(false);
 
@@ -179,7 +186,43 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener{
 
                         this.telaMovimentoCheck.getjTextFieldEmail1().setText(hospede.getEmail());
                         this.telaMovimentoCheck.getjTextFieldEmail1().setEnabled(false);
-                    }*/
+                    }
+                }
+            }
+        } 
+        else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDQuarto()) {
+            if (this.telaMovimentoCheck.getjTextFieldIDQuarto().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
+                //System.out.println("Clique Duplo Detectado no MousePressed!-quarto");
+                
+                codigo = 0;
+                
+                BuscaQuarto telaBuscaHospede = new BuscaQuarto(null, true);
+                ControllerBuscaQuarto2 controllerBuscaHospede = new ControllerBuscaQuarto2(telaBuscaHospede);
+                telaBuscaHospede.setVisible(true);
+                //JOptionPane.showMessageDialog(null, "clique duplo quarto");
+                        
+                if (codigo != 0) {
+                    //utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
+                    //utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
+
+                    this.telaMovimentoCheck.getjTextFieldIDQuarto().setText(codigo + "");
+                    this.telaMovimentoCheck.getjTextFieldIDQuarto().setEnabled(false);
+
+                    Quarto hospede = new Quarto();
+                    hospede = service.QuartoService.Carregar(codigo);
+                    
+                    this.telaMovimentoCheck.getjTextFieldQuarto1Descricao().setText(hospede.getDescricao());
+                    this.telaMovimentoCheck.getjTextFieldQuarto1Descricao().setEnabled(false);
+                    
+                    this.telaMovimentoCheck.getjTextFieldQuarto1Obs().setText(hospede.getObs());
+                    this.telaMovimentoCheck.getjTextFieldQuarto1Obs().setEnabled(false);
+                    
+                    this.telaMovimentoCheck.getjTextFieldQuarto1Capacidade().setText(hospede.getCapacidadeHospedes() + "");
+                    this.telaMovimentoCheck.getjTextFieldQuarto1Capacidade().setEnabled(false);
+                    
+                    this.telaMovimentoCheck.getjTextFieldQuarto1Andar().setText(hospede.getAndar()+"");
+                    this.telaMovimentoCheck.getjTextFieldQuarto1Andar().setEnabled(false);
+                    
                 }
             }
         }
