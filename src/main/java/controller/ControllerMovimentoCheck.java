@@ -1,14 +1,22 @@
 package controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
 import model.Servico;
+import org.w3c.dom.events.MouseEvent;
 import view.BuscaServico;
 import view.CadastroServico;
 import view.MovimentoCheck;
 
-public class ControllerMovimentoCheck implements ActionListener {
+public class ControllerMovimentoCheck implements ActionListener, MouseListener{
     MovimentoCheck telaMovimentoCheck;
     public static int codigo;
 
@@ -19,17 +27,29 @@ public class ControllerMovimentoCheck implements ActionListener {
         this.telaMovimentoCheck.getjButtonBuscar().addActionListener(this);
         this.telaMovimentoCheck.getjButtonCancelar().addActionListener(this);
         this.telaMovimentoCheck.getjButtonSair().addActionListener(this);
+        this.telaMovimentoCheck.getjTextFieldIDHospede().addMouseListener(this);
         utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), true);
+        utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelDados(), true);
         utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), false);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaMovimentoCheck.getjButtonNovo()) {
+            
+            Date hoje = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String data = sdf.format(hoje);
+            
             utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
             utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
-            this.telaMovimentoCheck.getjTextFieldIDReserva().setEnabled(false);
+            
+            this.telaMovimentoCheck.getjFormattedTextFieldDataCadastro().setText(data);
+            this.telaMovimentoCheck.getjFormattedTextFieldDataCadastro().setEnabled(false);
+            
+            //this.telaMovimentoCheck.getjTextFieldIDReserva().setEnabled(false);
             this.telaMovimentoCheck.getjComboBoxStatusReserva().setSelectedIndex(0);
+            this.telaMovimentoCheck.getjComboBoxStatusReserva().setEnabled(false);
             this.telaMovimentoCheck.getjComboBoxStatusReserva().setEnabled(false);
             //this.telaMovimentoCheck.getjComboBoxFiltrarPor().setEnabled(false);
             //this.telaMovimentoCheck.getjTextFieldValor().setEnabled(false);
@@ -98,6 +118,39 @@ public class ControllerMovimentoCheck implements ActionListener {
         } else if (e.getSource() == this.telaMovimentoCheck.getjButtonSair()) {
             this.telaMovimentoCheck.dispose();
         }
+    }
+    
+    @Override
+    public void mouseClicked(java.awt.event.MouseEvent evt) {
+        if(evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDHospede()){
+            if (evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
+                JOptionPane.showMessageDialog(null, "Clique Duplo");
+                System.out.println("Clique Duplo Detectado!");
+            }
+        }
+    }
 
+    @Override
+    public void mousePressed(java.awt.event.MouseEvent evt) {
+        if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDHospede()) {
+            if (evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
+                System.out.println("Clique Duplo Detectado no MousePressed!");
+                // Sua lógica de busca aqui
+            }
+        }
+    }
+
+    @Override
+    public void mouseReleased(java.awt.event.MouseEvent e) {}
+
+    @Override
+    public void mouseEntered(java.awt.event.MouseEvent e) {
+        //Border bordaHover = BorderFactory.createLineBorder(Color.BLUE, 2);
+        //this.telaMovimentoCheck.getjTextFieldIDHospede().setBorder(bordaHover);
+    }
+
+    @Override
+    public void mouseExited(java.awt.event.MouseEvent e) {
+        //this.telaMovimentoCheck.getjTextFieldIDHospede().setBorder(this.telaMovimentoCheck.getjTextFieldEmail1().getBorder());
     }
 }
