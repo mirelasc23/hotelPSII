@@ -4,8 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Marca;
 import model.Modelo;
 import model.Veiculo;
 import view.CadastroVeiculo;
@@ -132,10 +134,52 @@ public class ControllerCadVeiculo implements ActionListener{
                     this.telaCadastroVeiculo.getjComboBoxMarca().setEnabled(false);
                 }
             }
-        }/*
-        else if(e.get() == this.telaCadastroVeiculo.getjComboBoxModelo()){
-            
-        }*/
+        } else if(e.getSource() == this.telaCadastroVeiculo.getjComboBoxMarca()){
+            if(this.telaCadastroVeiculo.isTelaInstanciada()){
+                //JOptionPane.showMessageDialog(null, "if_1: "+this.telaCadastroVeiculo.isTelaInstanciada());
+                if(!this.telaCadastroVeiculo.isAtualizando()){
+                    JOptionPane.showMessageDialog(null, "if_2: "+this.telaCadastroVeiculo.isTelaInstanciada());
+                    //this.telaCadastroVeiculo.setAtualizando(true);
+
+                    Marca marcaSelecionada = (Marca)this.telaCadastroVeiculo.getjComboBoxMarca().getSelectedItem();
+                    JOptionPane.showMessageDialog(null, "marca: " + marcaSelecionada);
+                    
+                    /*List<Modelo> modelosCadastrados = new ArrayList<>();
+                    modelosCadastrados = service.ModeloService.ConsultaJoin(this.telaCadastroVeiculo.getjTextFieldValor().getText());*/
+                    
+                    /*Modelo[] modelosCadastrados;
+                    modelosCadastrados = service.ModeloService.ConsultaJoin(this.telaCadastroVeiculo.getjTextFieldValor().getText()).toArray();
+                    
+                    this.telaCadastroVeiculo.getjComboBoxModelo().setModel(new DefaultComboBoxModel<>(modelosCadastrados.toArray()));*/
+                    //JOptionPane.showMessageDialog(null, modeloSelecionado);
+                    //this.telaCadastroVeiculo.getjComboBoxMarca().setSelectedItem(modeloSelecionado.getMarca());
+
+                    
+                    //----------------CORRECAO DO CODIGO - INICIO--------------------
+                    // 1. Obtém a lista do service
+                    //List<Modelo> listaModelos = service.ModeloService.ConsultaJoin(this.telaCadastroVeiculo.getjTextFieldValor().getText());
+                    List<Modelo> listaModelos = service.ModeloService.ConsultaJoin(marcaSelecionada.toString());
+
+                    // 2. Converte a List<Modelo> para Modelo[] (Array Tipado)
+                    Modelo[] arrayModelos = listaModelos.toArray(new Modelo[0]);
+                    JOptionPane.showMessageDialog(null, arrayModelos);
+
+                    // 3. Cria o modelo para o JComboBox usando Generics <Modelo>
+                    DefaultComboBoxModel<Modelo> model = new DefaultComboBoxModel<>(arrayModelos);
+
+                    // 4. Aplica ao componente
+                    this.telaCadastroVeiculo.getjComboBoxModelo().setModel(model);
+                    
+                    //----------------CORRECAO DO CODIGO - FIM--------------------
+                    
+                    
+                    //JOptionPane.showMessageDialog(null, modeloSelecionado);
+                    //this.telaCadastroVeiculo.getjComboBoxMarca().setSelectedItem(modeloSelecionado.getMarca());
+
+                    this.telaCadastroVeiculo.getjComboBoxMarca().setEnabled(false);
+                }
+            }
+        }
         
     }
 }
