@@ -106,8 +106,14 @@ public class ControllerCadVeiculo implements ActionListener{
         }
         
         //LISTENERS PARA TROCA JCOMBOBOX
-        else if(e.getSource() == this.telaCadastroVeiculo.getjButtonSair()){
-           this.telaCadastroVeiculo.dispose();
+        else if(e.getSource() == this.telaCadastroVeiculo.getjComboBoxModelo()){
+           this.telaCadastroVeiculo.setAtualizando(true);
+           
+           String modeloSelecionado_STR = (String)this.telaCadastroVeiculo.getjComboBoxModelo().getSelectedItem();
+           Modelo modeloSelecionado = (Modelo)this.telaCadastroVeiculo.getjComboBoxModelo().getSelectedItem();
+           this.telaCadastroVeiculo.getjComboBoxMarca().setSelectedItem(modeloSelecionado.getMarca());
+           
+           this.telaCadastroVeiculo.getjComboBoxMarca().setEnabled(false);
         }
         
     }
