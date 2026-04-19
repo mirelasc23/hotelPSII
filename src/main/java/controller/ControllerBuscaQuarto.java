@@ -67,7 +67,7 @@ public class ControllerBuscaQuarto implements ActionListener{
                     }
                 } else if(telaBuscaQuarto.getjComboBoxFiltrarPor().getSelectedIndex() == 2){
                     List<Quarto> quartos = new ArrayList<>();
-                    quartos = service.QuartoService.Carregar("capacidade_hospedes", this.telaBuscaQuarto.getjTextFieldValor().getText());
+                    quartos = service.QuartoService.Carregar("capacidadeHospedes", this.telaBuscaQuarto.getjTextFieldValor().getText());
                                         
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaQuarto.getjTableDados().getModel();
                     tabela.setRowCount(0);
