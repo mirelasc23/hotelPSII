@@ -50,10 +50,10 @@ public class ControllerCadVeiculo implements ActionListener{
             this.telaCadastroVeiculo.getjTextFieldValor().setEnabled(false);
             
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonGravar()){
-            this.telaCadastroVeiculo.setTelaInstanciada(false);
+            /*this.telaCadastroVeiculo.setTelaInstanciada(false);
             utilities.Utilities.ativaDesativaBotoes(this.telaCadastroVeiculo.getjPanelBotoes(), true);
             utilities.Utilities.limpaComponentes(this.telaCadastroVeiculo.getjPanelDados(), false);
-            this.telaCadastroVeiculo.setTelaInstanciada(true);
+            this.telaCadastroVeiculo.setTelaInstanciada(true);*/
             
             if (this.telaCadastroVeiculo.getjComboBoxModelo().getSelectedIndex() == -1) {
                 JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
@@ -71,6 +71,7 @@ public class ControllerCadVeiculo implements ActionListener{
                 if (this.telaCadastroVeiculo.getjTextFieldID().getText().trim().equalsIgnoreCase("")) {
                     //inclusao
                     veiculo.setStatus('A');
+                    JOptionPane.showMessageDialog(null, "criar: \n"+veiculo);
                     service.VeiculoService.Criar(veiculo);
                 } else {
                     char status;
@@ -84,12 +85,14 @@ public class ControllerCadVeiculo implements ActionListener{
 
                     veiculo.setStatus(status);
                     veiculo.setId(Integer.parseInt(this.telaCadastroVeiculo.getjTextFieldID().getText()));
+                    JOptionPane.showMessageDialog(null, "ATUALIZAR: \n"+veiculo);
                     service.VeiculoService.Atualizar(veiculo);
                 }
                 this.telaCadastroVeiculo.setTelaInstanciada(false);
                 utilities.Utilities.ativaDesativaBotoes(this.telaCadastroVeiculo.getjPanelBotoes(), true);
                 utilities.Utilities.limpaComponentes(this.telaCadastroVeiculo.getjPanelDados(), false);
                 this.telaCadastroVeiculo.setTelaInstanciada(true);
+                this.telaCadastroVeiculo.setAtualizando(false);
             }
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonBuscar()){
             this.telaCadastroVeiculo.getjComboBoxFiltrarPor().setEnabled(true);
