@@ -23,6 +23,8 @@ public class ControllerCadVeiculo implements ActionListener{
         this.telaCadastroVeiculo.getjButtonSair().addActionListener(this);
         this.telaCadastroVeiculo.getjButtonFiltrar().addActionListener(this);
         this.telaCadastroVeiculo.getjButtonCarregar().addActionListener(this);
+        this.telaCadastroVeiculo.getjComboBoxModelo().addActionListener(this);
+        this.telaCadastroVeiculo.getjComboBoxMarca().addActionListener(this);
         
         utilities.Utilities.ativaDesativaBotoes(this.telaCadastroVeiculo.getjPanelBotoes(), true);
         utilities.Utilities.limpaComponentes(this.telaCadastroVeiculo.getjPanelDados(), false);
@@ -100,6 +102,11 @@ public class ControllerCadVeiculo implements ActionListener{
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonFiltrar()){
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonCarregar()){
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonSair()){
+           this.telaCadastroVeiculo.dispose();
+        }
+        
+        //LISTENERS PARA TROCA JCOMBOBOX
+        else if(e.getSource() == this.telaCadastroVeiculo.getjButtonSair()){
            this.telaCadastroVeiculo.dispose();
         }
         

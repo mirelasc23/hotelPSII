@@ -19,6 +19,7 @@ import model.Modelo;
  * @author aluno
  */
 public class CadastroVeiculo extends javax.swing.JDialog {
+    private boolean atualizando = false;
 
     /**
      * Creates new form TemplateCadastros2025
@@ -91,9 +92,15 @@ public class CadastroVeiculo extends javax.swing.JDialog {
     public void setjTextFieldValor(JTextField jTextFieldValor) {
         this.jTextFieldValor = jTextFieldValor;
     }
-    
-    
 
+    public boolean isAtualizando() {
+        return atualizando;
+    }
+
+    public void setAtualizando(boolean atualizando) {
+        this.atualizando = atualizando;
+    }
+    
     public JButton getjButtonBuscar() {
         return jButtonBuscar;
     }

@@ -29,3 +29,65 @@ public class JavaTest {
         }
     }
 }
+/*
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class TelaCadastroVeiculo extends JFrame {
+    
+    private JComboBox<String> cbMarca;
+    private JComboBox<String> cbModelo;
+    
+    // Flag para evitar loops de eventos
+    private boolean isUpdating = false;
+
+    public TelaCadastroVeiculo() {
+        // ... inicialização dos componentes ...
+
+        cbMarca.addActionListener(e -> {
+            if (isUpdating) return; // Se já estamos atualizando, não faz nada
+            atualizarModelos();
+        });
+
+        cbModelo.addActionListener(e -> {
+            if (isUpdating) return;
+            atualizarMarcas();
+        });
+    }
+
+    private void atualizarModelos() {
+        isUpdating = true; // Inicia bloqueio
+        
+        String marcaSelecionada = (String) cbMarca.getSelectedItem();
+        // Lógica: buscar modelos no seu banco de dados ou lista
+        String[] novosModelos = buscarModelosPorMarca(marcaSelecionada);
+        
+        cbModelo.setModel(new DefaultComboBoxModel<>(novosModelos));
+        
+        isUpdating = false; // Libera o bloqueio
+    }
+
+    private void atualizarMarcas() {
+        isUpdating = true; // Inicia bloqueio
+        
+        String modeloSelecionado = (String) cbModelo.getSelectedItem();
+        // Lógica: identificar a marca daquele modelo
+        String novaMarca = buscarMarcaPorModelo(modeloSelecionado);
+        
+        cbMarca.setSelectedItem(novaMarca);
+        
+        isUpdating = false; // Libera o bloqueio
+    }
+    
+    // Métodos auxiliares (Substitua pela sua lógica de dados)
+    private String[] buscarModelosPorMarca(String marca) {
+        // Exemplo: return dao.listarModelos(marca);
+        return new String[] {"Modelo A", "Modelo B"};
+    }
+    
+    private String buscarMarcaPorModelo(String modelo) {
+        // Exemplo: return dao.getMarca(modelo);
+        return "Toyota";
+    }
+}*/
