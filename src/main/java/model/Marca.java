@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -62,5 +63,35 @@ public class Marca implements Serializable{
 //                + "Desc. = " + this.getDescricao()
 //                + "Status= " + this.getStatus();
     }
+
+    @Override
+    public int hashCode() {
+        //int hash = 7;
+        //return hash;
+        return getClass().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        /*if (this == obj) {
+            return true;
+        }*/
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Marca other = (Marca) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.descricao, other.descricao)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 
 }

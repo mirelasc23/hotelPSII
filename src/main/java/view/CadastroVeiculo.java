@@ -19,6 +19,7 @@ import model.Modelo;
  * @author aluno
  */
 public class CadastroVeiculo extends javax.swing.JDialog {
+    private boolean telaInstanciada;
     private boolean atualizando = false;
 
     /**
@@ -26,7 +27,10 @@ public class CadastroVeiculo extends javax.swing.JDialog {
      */
     public CadastroVeiculo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.setTelaInstanciada(false);
         initComponents();
+        carregarDadosIniciais();
+        this.setTelaInstanciada(true);
     }
 
     public JComboBox<String> getjComboBoxFiltrarPor() {
@@ -141,6 +145,13 @@ public class CadastroVeiculo extends javax.swing.JDialog {
         return jTableDados;
     }
 
+    public boolean isTelaInstanciada() {
+        return telaInstanciada;
+    }
+
+    public void setTelaInstanciada(boolean telaInstanciada) {
+        this.telaInstanciada = telaInstanciada;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -221,10 +232,6 @@ public class CadastroVeiculo extends javax.swing.JDialog {
 
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Situação");
-
-        jComboBoxModelo.setModel(new DefaultComboBoxModel(service.ModeloService.Carregar().toArray()));
-
-        jComboBoxMarca.setModel(new DefaultComboBoxModel(service.MarcaService.Carregar().toArray()));
 
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Marca");
@@ -595,4 +602,13 @@ public class CadastroVeiculo extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldPlaca;
     private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
+
+    private void carregarDadosIniciais() {
+        this.setAtualizando(true); 
+    
+        jComboBoxModelo.setModel(new DefaultComboBoxModel(service.ModeloService.Carregar().toArray()));
+        jComboBoxMarca.setModel(new DefaultComboBoxModel(service.MarcaService.Carregar().toArray()));
+
+        this.setAtualizando(false);
+    }
 }
