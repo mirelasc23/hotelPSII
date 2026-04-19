@@ -53,16 +53,18 @@ public class ControllerCadVagaEstacionamento implements ActionListener{
 
                 if (this.telaCadastroVagaEstacionamento.getjTextFieldID().getText().trim().equalsIgnoreCase("")) {
                     //inclusao
-                    vagaEstacionamento.setStatus('A');
+                    vagaEstacionamento.setStatus('L');
                     service.VagaEstacionamentoService.Criar(vagaEstacionamento);
                 } else {
                     char status;
                     if(this.telaCadastroVagaEstacionamento.getjComboBoxSituacao().getSelectedIndex() == 0){
-                        status = 'l';
+                        status = 'L';
                     }else if(this.telaCadastroVagaEstacionamento.getjComboBoxSituacao().getSelectedIndex() == 1){
-                        status = 'o';
+                        status = 'O';
+                    }else if(this.telaCadastroVagaEstacionamento.getjComboBoxSituacao().getSelectedIndex() == 2){
+                        status = 'M';
                     }else {
-                        status = 'm';
+                        status = 'I';
                     }
 
                     vagaEstacionamento.setStatus(status);
@@ -110,8 +112,10 @@ public class ControllerCadVagaEstacionamento implements ActionListener{
                     index_status = 0;
                 }else if(vaga.getStatus()== 'o' || vaga.getStatus()== 'O'){
                     index_status = 1;
-                }else{
+                }else if(vaga.getStatus()== 'M' || vaga.getStatus()== 'm'){
                     index_status = 2;
+                }else{
+                    index_status = 3;
                 }
                 this.telaCadastroVagaEstacionamento.getjComboBoxSituacao().setSelectedIndex(index_status);
                 
