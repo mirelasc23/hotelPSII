@@ -14,11 +14,9 @@ public class ControllerCadVeiculo implements ActionListener{
         this.telaCadastroVeiculo.getjButtonBuscar().addActionListener(this);
         this.telaCadastroVeiculo.getjButtonCancelar().addActionListener(this);
         this.telaCadastroVeiculo.getjButtonSair().addActionListener(this);
+        
         utilities.Utilities.ativaDesativaBotoes(this.telaCadastroVeiculo.getjPanelBotoes(), true);
         utilities.Utilities.limpaComponentes(this.telaCadastroVeiculo.getjPanelDados(), false);
-        
-        //Desenvolver as setagens de situação inicial dos componentes:  ||quais botões estarão ativos
-        
     }
 
     @Override
