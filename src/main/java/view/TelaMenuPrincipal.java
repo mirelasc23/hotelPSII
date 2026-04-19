@@ -88,7 +88,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastros.add(jMenuItemFornecedor);
 
-        jMenuItemFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItemFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItemFuncionario.setBackground(new java.awt.Color(204, 204, 204));
         jMenuItemFuncionario.setForeground(new java.awt.Color(102, 102, 102));
         jMenuItemFuncionario.setText("Funcionário");
