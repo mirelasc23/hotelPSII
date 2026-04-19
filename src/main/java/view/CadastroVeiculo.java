@@ -209,7 +209,7 @@ public class CadastroVeiculo extends javax.swing.JDialog {
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Modelo");
 
-        jComboBoxSituacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+        jComboBoxSituacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Estacionado", "Inativo" }));
         jComboBoxSituacao.setSelectedIndex(-1);
 
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
