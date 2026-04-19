@@ -87,6 +87,17 @@ public class ControllerBuscaQuarto implements ActionListener{
                         tabela.addRow(new Object[] {quarto.getId(), quarto.getIdentificacao(), quarto.getCapacidadeHospedes(), quarto.getMetragem()});
                         //JOptionPane.showMessageDialog(null, ++i);
                     }
+                } else if(telaBuscaQuarto.getjComboBoxFiltrarPor().getSelectedIndex() == 4){
+                    List<Quarto> quartos = new ArrayList<>();
+                    quartos = service.QuartoService.Carregar("status", this.telaBuscaQuarto.getjTextFieldValor().getText());
+                                        
+                    DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaQuarto.getjTableDados().getModel();
+                    tabela.setRowCount(0);
+                    int i=0;
+                    for (Quarto quarto : quartos) {
+                        tabela.addRow(new Object[] {quarto.getId(), quarto.getIdentificacao(), quarto.getCapacidadeHospedes(), quarto.getMetragem()});
+                        //JOptionPane.showMessageDialog(null, ++i);
+                    }
                 }
             }
         } else if(evento.getSource() == this.telaBuscaQuarto.getjButtonFechar()){

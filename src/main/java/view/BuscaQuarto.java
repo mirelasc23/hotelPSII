@@ -152,7 +152,7 @@ public class BuscaQuarto extends javax.swing.JDialog {
             }
         });
 
-        jComboBoxFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Identificação", "Capacidade", "Metragem" }));
+        jComboBoxFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Identificação", "Capacidade", "Metragem", "Status" }));
 
         jButtonCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Load.png"))); // NOI18N
         jButtonCarregar.setText("Carregar");
