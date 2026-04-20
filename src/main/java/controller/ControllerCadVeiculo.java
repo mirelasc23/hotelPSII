@@ -26,7 +26,6 @@ public class ControllerCadVeiculo implements ActionListener{
         this.telaCadastroVeiculo.getjButtonFiltrar().addActionListener(this);
         this.telaCadastroVeiculo.getjButtonCarregar().addActionListener(this);
         this.telaCadastroVeiculo.getjComboBoxModelo().addActionListener(this);
-        //this.telaCadastroVeiculo.getjComboBoxModelo().addItemListener(this);
         this.telaCadastroVeiculo.getjComboBoxMarca().addActionListener(this);
         
         this.telaCadastroVeiculo.setTelaInstanciada(false);
@@ -117,6 +116,39 @@ public class ControllerCadVeiculo implements ActionListener{
             this.telaCadastroVeiculo.setTelaInstanciada(true);
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonFiltrar()){
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonCarregar()){
+            if(telaCadastroVeiculo.getjTableDados().getRowCount() == 0){
+                JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
+            } else {
+                this.telaCadastroVeiculo.setTelaInstanciada(false);
+                utilities.Utilities.ativaDesativaBotoes(this.telaCadastroVeiculo.getjPanelBotoes(), false);
+                utilities.Utilities.limpaComponentes(this.telaCadastroVeiculo.getjPanelDados(), true);
+                this.telaCadastroVeiculo.setTelaInstanciada(true);
+            
+                int codigo = (int)this.telaCadastroVeiculo.getjTableDados().getValueAt(this.telaCadastroVeiculo.getjTableDados().getSelectedRow(), 0);
+                
+                Veiculo veiculo = service.VeiculoService.Carregar(codigo);
+                this.telaCadastroVeiculo.getjTextFieldID().setText(codigo + "");
+                this.telaCadastroVeiculo.getjTextFieldID().setEnabled(false);
+                
+                this.telaCadastroVeiculo.getjTextFieldPlaca().setText(veiculo.getPlaca());
+                this.telaCadastroVeiculo.getjTextFieldCor().setText(veiculo.getCor());
+                this.telaCadastroVeiculo.getjComboBoxModelo().setSelectedItem(veiculo.getModelo());
+                
+                int index_status;
+                if(veiculo.getStatus()== 'A' || veiculo.getStatus()== 'a'){
+                    index_status = 0;
+                }else if(veiculo.getStatus()== 'E' || veiculo.getStatus()== 'e'){
+                    index_status = 1;
+                }else{
+                    index_status = 2;
+                }
+                this.telaCadastroVeiculo.getjComboBoxSituacao().setSelectedIndex(index_status);
+                
+                this.telaCadastroVeiculo.getjComboBoxModelo().requestFocus();
+                this.telaCadastroVeiculo.getjComboBoxFiltrarPor().setEnabled(false);
+                this.telaCadastroVeiculo.getjTextFieldValor().setEnabled(false);
+            }
+            
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonSair()){
            this.telaCadastroVeiculo.dispose();
         }
