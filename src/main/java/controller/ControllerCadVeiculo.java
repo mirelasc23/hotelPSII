@@ -128,16 +128,22 @@ public class ControllerCadVeiculo implements ActionListener{
                     tabela.addRow(new Object[] {veiculo.getId(), veiculo.getModelo(), veiculo.getModelo().getMarca(), veiculo.getCor(), veiculo.getPlaca(), veiculo.getStatus()});
                 }else if(telaCadastroVeiculo.getjComboBoxFiltrarPor().getSelectedIndex() == 1){
                     List<Veiculo> veiculos = new ArrayList<>();
-                    veiculos = service.VeiculoService.Carregar("modelo", this.telaCadastroVeiculo.getjTextFieldValor().getText());
+                    veiculos = service.VeiculoService.ConsultaJoin("modelo", this.telaCadastroVeiculo.getjTextFieldValor().getText());
                     
                     DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVeiculo.getjTableDados().getModel();
                     tabela.setRowCount(0);
                     for (Veiculo veiculo : veiculos) {
                         tabela.addRow(new Object[] {veiculo.getId(), veiculo.getModelo(), veiculo.getModelo().getMarca(), veiculo.getCor(), veiculo.getPlaca(), veiculo.getStatus()});
                     }
+                }else if(telaCadastroVeiculo.getjComboBoxFiltrarPor().getSelectedIndex() == 2){
+                    List<Veiculo> veiculos = new ArrayList<>();
+                    veiculos = service.VeiculoService.ConsultaJoin("marca", this.telaCadastroVeiculo.getjTextFieldValor().getText());
                     
-                    
-                    //falta config marca e modelo (busca)
+                    DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVeiculo.getjTableDados().getModel();
+                    tabela.setRowCount(0);
+                    for (Veiculo veiculo : veiculos) {
+                        tabela.addRow(new Object[] {veiculo.getId(), veiculo.getModelo(), veiculo.getModelo().getMarca(), veiculo.getCor(), veiculo.getPlaca(), veiculo.getStatus()});
+                    }                    
                 }else if(telaCadastroVeiculo.getjComboBoxFiltrarPor().getSelectedIndex() == 3){
                     List<Veiculo> veiculos = new ArrayList<>();
                     veiculos = service.VeiculoService.Carregar("cor", this.telaCadastroVeiculo.getjTextFieldValor().getText());

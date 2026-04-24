@@ -22,8 +22,8 @@ public class VeiculoService{
         return VeiculoDAO.getInstance().retrieve(atributo, valor);
     }
     
-    public static List<Veiculo> ConsultaJoin(String consulta) {
-        return VeiculoDAO.getInstance().retrieveJoin(consulta);
+    public static List<Veiculo> ConsultaJoin(String parametro, String consulta) {
+        return VeiculoDAO.getInstance().retrieveJoin(parametro, consulta);
     }
 
     public static void Atualizar(Veiculo objeto) {
