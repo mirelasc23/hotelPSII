@@ -82,11 +82,11 @@ public class Modelo implements Serializable{
 //                + "\nMarca  = " + this.getMarca().getDescricao()
 //                + "\nStatus = " + this.getStatus();
     }
-
+/*
     @Override
     public int hashCode() {
         /*int hash = 3;
-        return hash;*/
+        return hash;*
         return getClass().hashCode();
     }
 
@@ -94,7 +94,7 @@ public class Modelo implements Serializable{
     public boolean equals(Object obj) {
         /*if (this == obj) {
             return true;
-        }*/
+        }*
         if (obj == null) {
             return false;
         }
@@ -109,7 +109,7 @@ public class Modelo implements Serializable{
             return false;
         }
         return true;
-    }
+    }*/
     
     
 

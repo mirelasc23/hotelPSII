@@ -115,6 +115,27 @@ public class ControllerCadVeiculo implements ActionListener{
             utilities.Utilities.limpaComponentes(this.telaCadastroVeiculo.getjPanelDados(), false);
             this.telaCadastroVeiculo.setTelaInstanciada(true);
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonFiltrar()){
+            if(this.telaCadastroVeiculo.getjTextFieldValor().getText().trim().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
+            } else {
+                this.telaCadastroVeiculo.getjTableDados().setEnabled(true);
+                if(telaCadastroVeiculo.getjComboBoxFiltrarPor().getSelectedIndex() == 0){
+                    Veiculo veiculo = new Veiculo();
+                    veiculo = service.VeiculoService.Carregar(Integer.parseInt(this.telaCadastroVeiculo.getjTextFieldValor().getText()));
+                    
+                    DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVeiculo.getjTableDados().getModel();
+                    tabela.setRowCount(0);
+                    tabela.addRow(new Object[] {veiculo.getId(), veiculo.getModelo(), veiculo.getModelo().getMarca(), veiculo.getCor(), veiculo.getPlaca(), veiculo.getStatus()});
+                }else if(telaCadastroVeiculo.getjComboBoxFiltrarPor().getSelectedIndex() == 1){
+                    List<Veiculo> veiculos = new ArrayList<>();
+                    veiculos = service.VeiculoService.Carregar("modelo", this.telaCadastroVeiculo.getjTextFieldValor().getText());
+                    
+                    DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVeiculo.getjTableDados().getModel();
+                    tabela.setRowCount(0);
+                    for (Veiculo veiculo : veiculos) {
+                        tabela.addRow(new Object[] {veiculo.getId(), veiculo.getModelo(), veiculo.getModelo().getMarca(), veiculo.getCor(), veiculo.getPlaca(), veiculo.getStatus()});
+                    
+            }
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonCarregar()){
             if(telaCadastroVeiculo.getjTableDados().getRowCount() == 0){
                 JOptionPane.showMessageDialog(null, "A busca não retornou nada.");
@@ -132,7 +153,8 @@ public class ControllerCadVeiculo implements ActionListener{
                 
                 this.telaCadastroVeiculo.getjTextFieldPlaca().setText(veiculo.getPlaca());
                 this.telaCadastroVeiculo.getjTextFieldCor().setText(veiculo.getCor());
-                this.telaCadastroVeiculo.getjComboBoxModelo().setSelectedItem(veiculo.getModelo());
+                this.telaCadastroVeiculo.getjComboBoxModelo().setSelectedIndex(veiculo.getModelo().getId()-1);
+                this.telaCadastroVeiculo.getjComboBoxMarca().setSelectedIndex(veiculo.getModelo().getMarca().getId()-1);
                 
                 int index_status;
                 if(veiculo.getStatus()== 'A' || veiculo.getStatus()== 'a'){
