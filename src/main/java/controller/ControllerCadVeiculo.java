@@ -70,7 +70,7 @@ public class ControllerCadVeiculo implements ActionListener{
                 if (this.telaCadastroVeiculo.getjTextFieldID().getText().trim().equalsIgnoreCase("")) {
                     //inclusao
                     veiculo.setStatus('A');
-                    JOptionPane.showMessageDialog(null, "criar: \n"+veiculo);
+                    //JOptionPane.showMessageDialog(null, "criar: \n"+veiculo);
                     service.VeiculoService.Criar(veiculo);
                 } else {
                     char status;
@@ -84,7 +84,7 @@ public class ControllerCadVeiculo implements ActionListener{
 
                     veiculo.setStatus(status);
                     veiculo.setId(Integer.parseInt(this.telaCadastroVeiculo.getjTextFieldID().getText()));
-                    JOptionPane.showMessageDialog(null, "ATUALIZAR: \n"+veiculo);
+                    //JOptionPane.showMessageDialog(null, "ATUALIZAR: \n"+veiculo);
                     service.VeiculoService.Atualizar(veiculo);
                 }
                 this.telaCadastroVeiculo.setTelaInstanciada(false);
@@ -99,7 +99,7 @@ public class ControllerCadVeiculo implements ActionListener{
             
             List<Veiculo> veiculos = new ArrayList<>();
             veiculos = service.VeiculoService.Carregar();
-            JOptionPane.showMessageDialog(null, veiculos);
+            //JOptionPane.showMessageDialog(null, veiculos);
             DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVeiculo.getjTableDados().getModel();
             tabela.setRowCount(0);
             for (Veiculo veiculo : veiculos) {
@@ -162,6 +162,15 @@ public class ControllerCadVeiculo implements ActionListener{
                     for (Veiculo veiculo : veiculos) {
                         tabela.addRow(new Object[] {veiculo.getId(), veiculo.getModelo(), veiculo.getModelo().getMarca(), veiculo.getCor(), veiculo.getPlaca(), veiculo.getStatus()});
                     }
+                }else if(telaCadastroVeiculo.getjComboBoxFiltrarPor().getSelectedIndex() == 5){
+                    List<Veiculo> veiculos = new ArrayList<>();
+                    veiculos = service.VeiculoService.Carregar("status", this.telaCadastroVeiculo.getjTextFieldValor().getText());
+                    
+                    DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVeiculo.getjTableDados().getModel();
+                    tabela.setRowCount(0);
+                    for (Veiculo veiculo : veiculos) {
+                        tabela.addRow(new Object[] {veiculo.getId(), veiculo.getModelo(), veiculo.getModelo().getMarca(), veiculo.getCor(), veiculo.getPlaca(), veiculo.getStatus()});
+                    }
                 }
             }
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonCarregar()){
@@ -212,8 +221,8 @@ public class ControllerCadVeiculo implements ActionListener{
 
                     //String modeloSelecionado_STR = (String)this.telaCadastroVeiculo.getjComboBoxModelo().getSelectedItem();
                     Modelo modeloSelecionado = (Modelo)this.telaCadastroVeiculo.getjComboBoxModelo().getSelectedItem();
-                    JOptionPane.showMessageDialog(null, modeloSelecionado);
-                    JOptionPane.showMessageDialog(null, "marca: " + modeloSelecionado.getMarca());
+                    //JOptionPane.showMessageDialog(null, modeloSelecionado);
+                    //JOptionPane.showMessageDialog(null, "marca: " + modeloSelecionado.getMarca());
                     this.telaCadastroVeiculo.getjComboBoxMarca().setSelectedItem(modeloSelecionado.getMarca());
 
                     this.telaCadastroVeiculo.getjComboBoxMarca().setEnabled(false);
@@ -223,11 +232,11 @@ public class ControllerCadVeiculo implements ActionListener{
             if(this.telaCadastroVeiculo.isTelaInstanciada()){
                 //JOptionPane.showMessageDialog(null, "if_1: "+this.telaCadastroVeiculo.isTelaInstanciada());
                 if(!this.telaCadastroVeiculo.isAtualizando()){
-                    JOptionPane.showMessageDialog(null, "if_2: "+this.telaCadastroVeiculo.isTelaInstanciada());
+                    //JOptionPane.showMessageDialog(null, "if_2: "+this.telaCadastroVeiculo.isTelaInstanciada());
                     //this.telaCadastroVeiculo.setAtualizando(true);
 
                     Marca marcaSelecionada = (Marca)this.telaCadastroVeiculo.getjComboBoxMarca().getSelectedItem();
-                    JOptionPane.showMessageDialog(null, "marca: " + marcaSelecionada);
+                    //JOptionPane.showMessageDialog(null, "marca: " + marcaSelecionada);
                     
                     /*List<Modelo> modelosCadastrados = new ArrayList<>();
                     modelosCadastrados = service.ModeloService.ConsultaJoin(this.telaCadastroVeiculo.getjTextFieldValor().getText());*/
@@ -247,7 +256,7 @@ public class ControllerCadVeiculo implements ActionListener{
 
                     // 2. Converte a List<Modelo> para Modelo[] (Array Tipado)
                     Modelo[] arrayModelos = listaModelos.toArray(new Modelo[0]);
-                    JOptionPane.showMessageDialog(null, arrayModelos);
+                    //JOptionPane.showMessageDialog(null, arrayModelos);
 
                     // 3. Cria o modelo para o JComboBox usando Generics <Modelo>
                     DefaultComboBoxModel<Modelo> model = new DefaultComboBoxModel<>(arrayModelos);

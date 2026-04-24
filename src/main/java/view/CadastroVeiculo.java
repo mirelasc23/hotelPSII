@@ -285,8 +285,7 @@ public class CadastroVeiculo extends javax.swing.JDialog {
             }
         });
 
-        jComboBoxFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "MODELO", "MARCA", "COR", "PLACA" }));
-        jComboBoxFiltrarPor.setSelectedIndex(-1);
+        jComboBoxFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Modelo", "Marca", "Cor", "Placa", "Status" }));
 
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("Valor");

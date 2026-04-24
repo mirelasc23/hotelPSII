@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 
 public class VeiculoDAO implements InterfaceDAO<Veiculo>{
@@ -73,18 +73,18 @@ private static VeiculoDAO INSTANCE;
                       "WHERE ma.id = :idFiltro OR ma.descricao LIKE :descFiltro";
             //jpql.concat(busca);   || não funciona neste caso, pois ele cria uma nova string, mas nao altera a original
             jpql+=busca;
-            JOptionPane.showMessageDialog(null, "definiu marca");
-            JOptionPane.showMessageDialog(null, "jpql = " + jpql);
+            //JOptionPane.showMessageDialog(null, "definiu marca");
+            //JOptionPane.showMessageDialog(null, "jpql = " + jpql);
             
         } else if(parametro.equals("modelo")){
             busca = " v.modelo mo " +
                       "WHERE mo.id = :idFiltro OR mo.descricao LIKE :descFiltro";
             jpql+=busca;
-            JOptionPane.showMessageDialog(null, "definiu modelo");
-            JOptionPane.showMessageDialog(null, "jpql = " + jpql);
+            //JOptionPane.showMessageDialog(null, "definiu modelo");
+            //JOptionPane.showMessageDialog(null, "jpql = " + jpql);
         } else{
-            JOptionPane.showMessageDialog(null, "não definiu modelo, nem marca");
-            JOptionPane.showMessageDialog(null, "jpql = " + jpql);
+            //JOptionPane.showMessageDialog(null, "não definiu modelo, nem marca");
+            //JOptionPane.showMessageDialog(null, "jpql = " + jpql);
             
         }
         
