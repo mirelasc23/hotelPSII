@@ -134,7 +134,8 @@ public class ControllerCadVeiculo implements ActionListener{
                     tabela.setRowCount(0);
                     for (Veiculo veiculo : veiculos) {
                         tabela.addRow(new Object[] {veiculo.getId(), veiculo.getModelo(), veiculo.getModelo().getMarca(), veiculo.getCor(), veiculo.getPlaca(), veiculo.getStatus()});
-                    
+                    }
+                }
             }
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonCarregar()){
             if(telaCadastroVeiculo.getjTableDados().getRowCount() == 0){
@@ -237,6 +238,5 @@ public class ControllerCadVeiculo implements ActionListener{
                 }
             }
         }
-        
     }
 }
