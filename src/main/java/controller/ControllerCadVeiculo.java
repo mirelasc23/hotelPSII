@@ -135,6 +135,27 @@ public class ControllerCadVeiculo implements ActionListener{
                     for (Veiculo veiculo : veiculos) {
                         tabela.addRow(new Object[] {veiculo.getId(), veiculo.getModelo(), veiculo.getModelo().getMarca(), veiculo.getCor(), veiculo.getPlaca(), veiculo.getStatus()});
                     }
+                    
+                    
+                    //falta config marca e modelo (busca)
+                }else if(telaCadastroVeiculo.getjComboBoxFiltrarPor().getSelectedIndex() == 3){
+                    List<Veiculo> veiculos = new ArrayList<>();
+                    veiculos = service.VeiculoService.Carregar("cor", this.telaCadastroVeiculo.getjTextFieldValor().getText());
+                    
+                    DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVeiculo.getjTableDados().getModel();
+                    tabela.setRowCount(0);
+                    for (Veiculo veiculo : veiculos) {
+                        tabela.addRow(new Object[] {veiculo.getId(), veiculo.getModelo(), veiculo.getModelo().getMarca(), veiculo.getCor(), veiculo.getPlaca(), veiculo.getStatus()});
+                    }
+                }else if(telaCadastroVeiculo.getjComboBoxFiltrarPor().getSelectedIndex() == 4){
+                    List<Veiculo> veiculos = new ArrayList<>();
+                    veiculos = service.VeiculoService.Carregar("placa", this.telaCadastroVeiculo.getjTextFieldValor().getText());
+                    
+                    DefaultTableModel tabela = (DefaultTableModel) this.telaCadastroVeiculo.getjTableDados().getModel();
+                    tabela.setRowCount(0);
+                    for (Veiculo veiculo : veiculos) {
+                        tabela.addRow(new Object[] {veiculo.getId(), veiculo.getModelo(), veiculo.getModelo().getMarca(), veiculo.getCor(), veiculo.getPlaca(), veiculo.getStatus()});
+                    }
                 }
             }
         }else if(e.getSource() == this.telaCadastroVeiculo.getjButtonCarregar()){
