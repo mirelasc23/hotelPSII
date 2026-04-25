@@ -980,7 +980,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
         jLabelSexo2.setForeground(new java.awt.Color(102, 102, 102));
         jLabelSexo2.setText("Status");
 
-        jComboBoxVeiculoStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+        jComboBoxVeiculoStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Estacionado", "Inativo" }));
 
         jLabelIdReserva3.setForeground(new java.awt.Color(102, 102, 102));
         jLabelIdReserva3.setText("OS");
@@ -1433,12 +1433,15 @@ public class MovimentoCheck extends javax.swing.JDialog {
                                     .addComponent(jComboBoxVeiculoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldVeiculoObs, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelObs4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabelObs4)
+                                    .addComponent(jTextFieldVeiculoObs, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelSexo2)
-                                    .addComponent(jComboBoxVeiculoStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addComponent(jLabelSexo2))
+                                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBoxVeiculoStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonAddVaga))
                             .addComponent(jSeparator2)
@@ -1978,6 +1981,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
 
         jButtonSair.setBackground(new java.awt.Color(204, 204, 204));
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
+        jButtonSair.setMnemonic(KeyEvent.VK_ESCAPE);
         jButtonSair.setText("Sair");
         jButtonSair.setActionCommand("1");
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {

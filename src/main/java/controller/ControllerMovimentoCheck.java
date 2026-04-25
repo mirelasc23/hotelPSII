@@ -93,13 +93,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             //this.telaMovimentoCheck.getjTextFieldValor().setEnabled(false);
 
         } else if (e.getSource() == this.telaMovimentoCheck.getjButtonGravar()) {
-            OrdemServico os = new OrdemServico();
-            os.setDataHoraCadastro(this.telaMovimentoCheck.getjFormattedTextFieldDataCadastro().getText());
-            os.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
-            Servico servico = service.ServicoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDOs().getText()));
-            Quarto quarto = service.QuartoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDQuarto().getText()));
-        
-            
+            salvarPorEtapa();
             /*if (this.telaMovimentoCheck.getjTextFieldDescricao().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
                 this.telaMovimentoCheck.getjTextFieldDescricao().requestFocus();
@@ -430,6 +424,16 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     
                     this.telaMovimentoCheck.getjTextFieldVeiculoObs().setText("obs_veiculo => fora do BD");
                     this.telaMovimentoCheck.getjTextFieldVeiculoObs().setEnabled(false);
+                    
+                    int index_status;
+                    if(veiculo.getStatus()== 'A' || veiculo.getStatus()== 'a'){
+                        index_status = 0;
+                    }else if(veiculo.getStatus()== 'E' || veiculo.getStatus()== 'e'){
+                        index_status = 1;
+                    }else{
+                        index_status = 2;
+                    }
+                    this.telaMovimentoCheck.getjComboBoxVeiculoStatus().setSelectedIndex(index_status);
                 }
             }
         }
@@ -561,4 +565,39 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
 
     @Override
     public void keyReleased(KeyEvent e) {}
+
+    private void salvarPorEtapa() {        
+            //VALIDAÇÕES DE ETAPA:
+            
+            //RESERVA 
+            //--hospede_responsavel 
+            //--quarto 
+            //--data_prevista_inicio 
+            //--data_prevista_termino 
+            //--data_checkin [vazio]
+            if(!this.telaMovimentoCheck.getjTextFieldIDHospede().getText().trim().equalsIgnoreCase("") &&
+                    !this.telaMovimentoCheck.getjTextFieldIDQuarto().getText().trim().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
+                this.telaMovimentoCheck.getjTextFieldNomeHospede1().requestFocus();
+            }
+            
+            //CHECKIN 
+            //--hospedes_presentes
+            
+            if(this.telaMovimentoCheck.getjTextFieldNomeHospede1().getText().trim().equalsIgnoreCase("") ||
+                    !this.telaMovimentoCheck.getjCheckBoxPresenca().isEnabled()){
+                JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
+                this.telaMovimentoCheck.getjTextFieldNomeHospede1().requestFocus();
+            }else{
+                
+            }
+
+            
+            OrdemServico os = new OrdemServico();
+            os.setDataHoraCadastro(this.telaMovimentoCheck.getjFormattedTextFieldDataCadastro().getText());
+            os.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
+            Servico servico = service.ServicoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDOs().getText()));
+            Quarto quarto = service.QuartoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDQuarto().getText()));
+        
+    }
 }
