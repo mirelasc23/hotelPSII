@@ -92,28 +92,28 @@ public class MovimentoCheck extends javax.swing.JDialog {
         this.jCheckBoxFumante = jCheckBoxFumante;
     }
 
-    public JComboBox<String> getjComboBoxSexoStatus1() {
-        return jComboBoxSexoStatus1;
+    public JComboBox<String> getjComboBoxVeiculoStatus() {
+        return jComboBoxVeiculoStatus;
     }
 
-    public void setjComboBoxSexoStatus1(JComboBox<String> jComboBoxSexoStatus1) {
-        this.jComboBoxSexoStatus1 = jComboBoxSexoStatus1;
+    public void setjComboBoxVeiculoStatus(JComboBox<String> jComboBoxSexoStatus1) {
+        this.jComboBoxVeiculoStatus = jComboBoxSexoStatus1;
     }
 
-    public JComboBox<String> getjComboBoxSexoStatus2() {
-        return jComboBoxSexoStatus2;
+    public JComboBox<String> getjComboBoxVeiculoMarca() {
+        return jComboBoxVeiculoMarca;
     }
 
-    public void setjComboBoxSexoStatus2(JComboBox<String> jComboBoxSexoStatus2) {
-        this.jComboBoxSexoStatus2 = jComboBoxSexoStatus2;
+    public void setjComboBoxVeiculoMarca(JComboBox<String> jComboBoxSexoStatus2) {
+        this.jComboBoxVeiculoMarca = jComboBoxSexoStatus2;
     }
 
-    public JComboBox<String> getjComboBoxSexoStatus3() {
-        return jComboBoxSexoStatus3;
+    public JComboBox<String> getjComboBoxVeiculoModelo() {
+        return jComboBoxVeiculoModelo;
     }
 
-    public void setjComboBoxSexoStatus3(JComboBox<String> jComboBoxSexoStatus3) {
-        this.jComboBoxSexoStatus3 = jComboBoxSexoStatus3;
+    public void setjComboBoxVeiculoModelo(JComboBox<String> jComboBoxSexoStatus3) {
+        this.jComboBoxVeiculoModelo = jComboBoxSexoStatus3;
     }
 
     public JComboBox<String> getjComboBoxSexoStatus6() {
@@ -372,12 +372,12 @@ public class MovimentoCheck extends javax.swing.JDialog {
         this.jTextFieldQuarto1Andar = jTextFieldIDHospede1;
     }
 
-    public JTextField getjTextFieldIDHospede2() {
-        return jTextFieldIDHospede2;
+    public JTextField getjTextFieldVeiculoPlaca() {
+        return jTextFieldVeiculoPlaca;
     }
 
-    public void setjTextFieldIDHospede2(JTextField jTextFieldIDHospede2) {
-        this.jTextFieldIDHospede2 = jTextFieldIDHospede2;
+    public void setjTextFieldVeiculoPlaca(JTextField jTextFieldIDHospede2) {
+        this.jTextFieldVeiculoPlaca = jTextFieldIDHospede2;
     }
 
     public JTextField getjTextFieldIDQuartos() {
@@ -396,12 +396,12 @@ public class MovimentoCheck extends javax.swing.JDialog {
         this.jTextFieldQuarto1Capacidade = jTextFieldIDQuartos1;
     }
 
-    public JTextField getjTextFieldIDQuartos2() {
-        return jTextFieldIDQuartos2;
+    public JTextField getjTextFieldVeiculoCor() {
+        return jTextFieldVeiculoCor;
     }
 
-    public void setjTextFieldIDQuartos2(JTextField jTextFieldIDQuartos2) {
-        this.jTextFieldIDQuartos2 = jTextFieldIDQuartos2;
+    public void setjTextFieldVeiculoCor(JTextField jTextFieldIDQuartos2) {
+        this.jTextFieldVeiculoCor = jTextFieldIDQuartos2;
     }
 
     public JTextField getjTextFieldIDReserva() {
@@ -500,12 +500,12 @@ public class MovimentoCheck extends javax.swing.JDialog {
         this.jTextFieldQuarto1Descricao = jTextFieldObs3;
     }
 
-    public JTextField getjTextFieldObs4() {
-        return jTextFieldObs4;
+    public JTextField getjTextFieldVeiculoObs() {
+        return jTextFieldVeiculoObs;
     }
 
-    public void setjTextFieldObs4(JTextField jTextFieldObs4) {
-        this.jTextFieldObs4 = jTextFieldObs4;
+    public void setjTextFieldVeiculoObs(JTextField jTextFieldObs4) {
+        this.jTextFieldVeiculoObs = jTextFieldObs4;
     }
 
     public JTextField getjTextFieldOSDescricao() {
@@ -674,10 +674,10 @@ public class MovimentoCheck extends javax.swing.JDialog {
         jTextFieldQuarto1Valor = new javax.swing.JTextField();
         jLabelObs3 = new javax.swing.JLabel();
         jTextFieldQuarto1Descricao = new javax.swing.JTextField();
-        jTextFieldObs4 = new javax.swing.JTextField();
+        jTextFieldVeiculoObs = new javax.swing.JTextField();
         jLabelObs4 = new javax.swing.JLabel();
-        jTextFieldIDQuartos2 = new javax.swing.JTextField();
-        jTextFieldIDHospede2 = new javax.swing.JTextField();
+        jTextFieldVeiculoCor = new javax.swing.JTextField();
+        jTextFieldVeiculoPlaca = new javax.swing.JTextField();
         jTextFieldIDVaga = new javax.swing.JTextField();
         jLabelIdReserva2 = new javax.swing.JLabel();
         jLabelIdHospede2 = new javax.swing.JLabel();
@@ -686,9 +686,9 @@ public class MovimentoCheck extends javax.swing.JDialog {
         jLabelObs5 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jLabelSexo2 = new javax.swing.JLabel();
-        jComboBoxSexoStatus1 = new javax.swing.JComboBox<>();
-        jComboBoxSexoStatus2 = new javax.swing.JComboBox<>();
-        jComboBoxSexoStatus3 = new javax.swing.JComboBox<>();
+        jComboBoxVeiculoStatus = new javax.swing.JComboBox<>();
+        jComboBoxVeiculoMarca = new javax.swing.JComboBox<>();
+        jComboBoxVeiculoModelo = new javax.swing.JComboBox<>();
         jLabelIdReserva3 = new javax.swing.JLabel();
         jTextFieldIDOs = new javax.swing.JTextField();
         jLabelIdHospede3 = new javax.swing.JLabel();
@@ -734,7 +734,6 @@ public class MovimentoCheck extends javax.swing.JDialog {
         jButtonAddOS = new javax.swing.JButton();
         jButtonAddVaga = new javax.swing.JButton();
         jButtonAddQuarto = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jButtonRemHospede = new javax.swing.JButton();
         jLabelCNPJ3 = new javax.swing.JLabel();
         jFormattedTextFieldHospede1Cpf = new javax.swing.JFormattedTextField();
@@ -981,14 +980,14 @@ public class MovimentoCheck extends javax.swing.JDialog {
         jLabelSexo2.setForeground(new java.awt.Color(102, 102, 102));
         jLabelSexo2.setText("Status");
 
-        jComboBoxSexoStatus1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+        jComboBoxVeiculoStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
 
-        jComboBoxSexoStatus2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+        jComboBoxVeiculoMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
 
-        jComboBoxSexoStatus3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
-        jComboBoxSexoStatus3.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxVeiculoModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+        jComboBoxVeiculoModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxSexoStatus3ActionPerformed(evt);
+                jComboBoxVeiculoModeloActionPerformed(evt);
             }
         });
 
@@ -1165,11 +1164,6 @@ public class MovimentoCheck extends javax.swing.JDialog {
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(204, 204, 204));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
-        jButton6.setActionCommand("0");
-        jButton6.setBorderPainted(false);
-
         jButtonRemHospede.setBackground(new java.awt.Color(204, 204, 204));
         jButtonRemHospede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
         jButtonRemHospede.setActionCommand("0");
@@ -1345,7 +1339,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
                                         .addComponent(jFormattedTextFieldHospede1Cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonRemHospede)
-                                .addContainerGap())
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanelDadosLayout.createSequentialGroup()
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
@@ -1358,10 +1352,9 @@ public class MovimentoCheck extends javax.swing.JDialog {
                                         .addComponent(jFormattedTextFieldHospede2Cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonAddHospede)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton6))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addGap(26, 26, 26)
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelIdReserva4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextFieldIDCopa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1423,40 +1416,40 @@ public class MovimentoCheck extends javax.swing.JDialog {
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelDadosLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldIDVaga, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelIdReserva2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabelIdReserva2, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldIDVaga, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabelIdReserva5, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                                     .addComponent(jTextFieldIDVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldIDHospede2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldVeiculoPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabelIdHospede2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelIdQuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldIDQuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldVeiculoCor, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelIdVaga2)
-                                    .addComponent(jComboBoxSexoStatus2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBoxVeiculoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                                         .addComponent(jLabelObs5)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jComboBoxSexoStatus3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jComboBoxVeiculoModelo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelObs4)
-                                    .addComponent(jTextFieldObs4, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldVeiculoObs, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelSexo2)
-                                    .addComponent(jComboBoxSexoStatus1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBoxVeiculoStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonAddVaga))
                             .addComponent(jSeparator2)
@@ -1580,7 +1573,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelDadosLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
+                                .addGap(26, 26, 26)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabelIdReserva3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jTextFieldIDOs, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1757,9 +1750,6 @@ public class MovimentoCheck extends javax.swing.JDialog {
                                     .addComponent(jLabelNomeFantasia1)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jTextFieldNomeHospede2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanelDadosLayout.createSequentialGroup()
-                                    .addGap(11, 11, 11)
-                                    .addComponent(jButton6))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
                                     .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabelDataCadastro7)
@@ -1818,31 +1808,13 @@ public class MovimentoCheck extends javax.swing.JDialog {
                             .addComponent(jLabelIdReserva5)
                             .addComponent(jLabelObs5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldIDVeiculo)
-                            .addComponent(jTextFieldIDHospede2)
-                            .addComponent(jTextFieldIDQuartos2)
-                            .addComponent(jComboBoxSexoStatus2)
-                            .addComponent(jComboBoxSexoStatus3)))
-                    .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelDadosLayout.createSequentialGroup()
-                                .addComponent(jLabelSexo2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jComboBoxSexoStatus1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldObs4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
-                                    .addComponent(jButtonAddVaga)
-                                    .addGap(12, 12, 12))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelObs4)
-                                    .addGroup(jPanelDadosLayout.createSequentialGroup()
-                                        .addComponent(jLabelIdReserva2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextFieldIDVaga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jComboBoxVeiculoMarca)
+                            .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextFieldIDVeiculo)
+                                .addComponent(jTextFieldVeiculoPlaca)
+                                .addComponent(jTextFieldVeiculoCor)
+                                .addComponent(jComboBoxVeiculoModelo))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1850,7 +1822,24 @@ public class MovimentoCheck extends javax.swing.JDialog {
                             .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabelIdQuartos2)
                                 .addComponent(jLabelIdHospede2)))
-                        .addGap(28, 28, 28)))
+                        .addGap(28, 28, 28))
+                    .addGroup(jPanelDadosLayout.createSequentialGroup()
+                        .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButtonAddVaga, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
+                                    .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelObs4)
+                                        .addComponent(jLabelIdReserva2))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldIDVaga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelDadosLayout.createSequentialGroup()
+                                .addComponent(jLabelSexo2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jComboBoxVeiculoStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldVeiculoObs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2104,9 +2093,9 @@ public class MovimentoCheck extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldIDVagaActionPerformed
 
-    private void jComboBoxSexoStatus3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSexoStatus3ActionPerformed
+    private void jComboBoxVeiculoModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxVeiculoModeloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxSexoStatus3ActionPerformed
+    }//GEN-LAST:event_jComboBoxVeiculoModeloActionPerformed
 
     private void jTextFieldIDCopaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIDCopaActionPerformed
         // TODO add your handling code here:
@@ -2244,7 +2233,6 @@ public class MovimentoCheck extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonAddCopaProduto;
@@ -2262,11 +2250,11 @@ public class MovimentoCheck extends javax.swing.JDialog {
     private javax.swing.JCheckBox jCheckBoxBebes;
     private javax.swing.JCheckBox jCheckBoxFumante;
     private javax.swing.JCheckBox jCheckBoxPresenca;
-    private javax.swing.JComboBox<String> jComboBoxSexoStatus1;
-    private javax.swing.JComboBox<String> jComboBoxSexoStatus2;
-    private javax.swing.JComboBox<String> jComboBoxSexoStatus3;
     private javax.swing.JComboBox<String> jComboBoxSexoStatus6;
     private javax.swing.JComboBox<String> jComboBoxStatusReserva;
+    private javax.swing.JComboBox<String> jComboBoxVeiculoMarca;
+    private javax.swing.JComboBox<String> jComboBoxVeiculoModelo;
+    private javax.swing.JComboBox<String> jComboBoxVeiculoStatus;
     private javax.swing.JFormattedTextField jFormattedTextFieldCopaData;
     private javax.swing.JFormattedTextField jFormattedTextFieldCpfCnpj;
     private javax.swing.JFormattedTextField jFormattedTextFieldDataCadastro;
@@ -2370,11 +2358,9 @@ public class MovimentoCheck extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldEmailHospede2;
     private javax.swing.JTextField jTextFieldIDCopa;
     private javax.swing.JTextField jTextFieldIDHospede;
-    private javax.swing.JTextField jTextFieldIDHospede2;
     private javax.swing.JTextField jTextFieldIDOs;
     private javax.swing.JTextField jTextFieldIDQuarto;
     private javax.swing.JTextField jTextFieldIDQuartos;
-    private javax.swing.JTextField jTextFieldIDQuartos2;
     private javax.swing.JTextField jTextFieldIDReserva;
     private javax.swing.JTextField jTextFieldIDVaga;
     private javax.swing.JTextField jTextFieldIDVagas;
@@ -2385,7 +2371,6 @@ public class MovimentoCheck extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldOSDescricao;
     private javax.swing.JTextField jTextFieldOSObs;
     private javax.swing.JTextField jTextFieldOSValor;
-    private javax.swing.JTextField jTextFieldObs4;
     private javax.swing.JTextField jTextFieldObsReserva;
     private javax.swing.JTextField jTextFieldQuarto1Andar;
     private javax.swing.JTextField jTextFieldQuarto1Capacidade;
@@ -2396,6 +2381,9 @@ public class MovimentoCheck extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldValorProduto;
     private javax.swing.JTextField jTextFieldValorReserva;
     private javax.swing.JTextField jTextFieldValorServiços;
+    private javax.swing.JTextField jTextFieldVeiculoCor;
+    private javax.swing.JTextField jTextFieldVeiculoObs;
+    private javax.swing.JTextField jTextFieldVeiculoPlaca;
     // End of variables declaration//GEN-END:variables
 }
 

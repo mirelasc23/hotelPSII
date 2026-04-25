@@ -190,13 +190,12 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jButtonAddHospede" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabelIdReserva4" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jTextFieldIDCopa" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
@@ -272,10 +271,10 @@
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextFieldIDVaga" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="jLabelIdReserva2" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jLabelIdReserva2" pref="40" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldIDVaga" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -284,18 +283,18 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextFieldIDHospede2" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldVeiculoPlaca" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
                                               <Component id="jLabelIdHospede2" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabelIdQuartos2" min="-2" pref="62" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldIDQuartos2" min="-2" pref="83" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldVeiculoCor" min="-2" pref="83" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabelIdVaga2" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jComboBoxSexoStatus2" min="-2" pref="118" max="-2" attributes="0"/>
+                                              <Component id="jComboBoxVeiculoMarca" min="-2" pref="118" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -303,17 +302,17 @@
                                                   <Component id="jLabelObs5" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               </Group>
-                                              <Component id="jComboBoxSexoStatus3" max="32767" attributes="0"/>
+                                              <Component id="jComboBoxVeiculoModelo" max="32767" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabelObs4" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldObs4" min="-2" pref="400" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldVeiculoObs" min="-2" pref="400" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabelSexo2" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jComboBoxSexoStatus1" min="-2" pref="72" max="-2" attributes="0"/>
+                                              <Component id="jComboBoxVeiculoStatus" min="-2" pref="72" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jButtonAddVaga" min="-2" max="-2" attributes="0"/>
@@ -481,7 +480,7 @@
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jSeparator5" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="jLabelIdReserva3" alignment="0" max="32767" attributes="0"/>
                                               <Component id="jTextFieldIDOs" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
@@ -720,10 +719,6 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jTextFieldNomeHospede2" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
-                                          </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="jLabelDataCadastro7" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -804,40 +799,15 @@
                                       <Component id="jLabelObs5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jTextFieldIDVeiculo" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldIDHospede2" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldIDQuartos2" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="jComboBoxSexoStatus2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBoxSexoStatus3" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelSexo2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jComboBoxSexoStatus1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldObs4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jButtonAddVaga" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                              <Component id="jLabelObs4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabelIdReserva2" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jTextFieldIDVaga" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                      <Component id="jComboBoxVeiculoMarca" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jTextFieldIDVeiculo" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldVeiculoPlaca" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldVeiculoCor" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="jComboBoxVeiculoModelo" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -849,6 +819,30 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jButtonAddVaga" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabelObs4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabelIdReserva2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jTextFieldIDVaga" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelSexo2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jComboBoxVeiculoStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldVeiculoObs" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1321,7 +1315,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldQuarto1Descricao">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldObs4">
+                <Component class="javax.swing.JTextField" name="jTextFieldVeiculoObs">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelObs4">
                   <Properties>
@@ -1331,9 +1325,9 @@
                     <Property name="text" type="java.lang.String" value="Obs"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldIDQuartos2">
+                <Component class="javax.swing.JTextField" name="jTextFieldVeiculoCor">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldIDHospede2">
+                <Component class="javax.swing.JTextField" name="jTextFieldVeiculoPlaca">
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldIDVaga">
                   <Events>
@@ -1390,7 +1384,7 @@
                     <Property name="text" type="java.lang.String" value="Status"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxSexoStatus1">
+                <Component class="javax.swing.JComboBox" name="jComboBoxVeiculoStatus">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="2">
@@ -1403,7 +1397,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxSexoStatus2">
+                <Component class="javax.swing.JComboBox" name="jComboBoxVeiculoMarca">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="2">
@@ -1416,7 +1410,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxSexoStatus3">
+                <Component class="javax.swing.JComboBox" name="jComboBoxVeiculoModelo">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="2">
@@ -1426,7 +1420,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxSexoStatus3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxVeiculoModeloActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1754,18 +1748,6 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddQuartoActionPerformed"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton6">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagens/Create.png"/>
-                    </Property>
-                    <Property name="actionCommand" type="java.lang.String" value="0"/>
-                    <Property name="borderPainted" type="boolean" value="false"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonRemHospede">
                   <Properties>

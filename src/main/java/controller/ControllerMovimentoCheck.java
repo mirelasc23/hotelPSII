@@ -19,6 +19,7 @@ import model.ProdutoCopa;
 import model.Quarto;
 import model.Servico;
 import model.VagaEstacionamento;
+import model.Veiculo;
 import org.w3c.dom.events.MouseEvent;
 import view.BuscaHospede;
 import view.BuscaProdutoCopa;
@@ -54,6 +55,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
         this.telaMovimentoCheck.getjTextFieldCopaQuantidade().addKeyListener(this);
         this.telaMovimentoCheck.getjTextFieldOSValor().addKeyListener(this);
         this.telaMovimentoCheck.getjTextFieldIDVaga().addMouseListener(this);
+        this.telaMovimentoCheck.getjTextFieldIDVeiculo().addMouseListener(this);
         this.telaMovimentoCheck.getjTextFieldIDQuarto().addMouseListener(this);
         this.telaMovimentoCheck.getjTextFieldIDOs().addMouseListener(this);
         this.telaMovimentoCheck.getjTextFieldIDCopa().addMouseListener(this);
@@ -393,9 +395,10 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     //utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
                     //utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
 
-                    this.telaMovimentoCheck.getjTextFieldIDOs().setText(codigo + "");
+                    this.telaMovimentoCheck.getjTextFieldIDVeiculo().setText(codigo + "");
                     //this.telaMovimentoCheck.getjTextFieldIDOs().setEnabled(false);
 
+                    /*
                     Servico hospede = new Servico();
                     hospede = service.ServicoService.Carregar(codigo);
                     
@@ -408,7 +411,19 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     this.telaMovimentoCheck.getjTextFieldOSValor().setText("R$ 35,00");                    
                     total += 35;
                     this.telaMovimentoCheck.getjTextFieldValorServicos().setText("R$ 35,00");
-                    this.telaMovimentoCheck.getjTextFieldValorDespesas().setText(String.valueOf("R$ " + String.format("%.2f", total)));
+                    this.telaMovimentoCheck.getjTextFieldValorDespesas().setText(String.valueOf("R$ " + String.format("%.2f", total)));*/
+                    
+                    Veiculo veiculo = new Veiculo();
+                    veiculo = service.VeiculoService.Carregar(codigo);
+                    
+                    this.telaMovimentoCheck.getjTextFieldVeiculoPlaca().setText(veiculo.getPlaca());
+                    this.telaMovimentoCheck.getjTextFieldVeiculoPlaca().setEnabled(false);
+                    
+                    this.telaMovimentoCheck.getjTextFieldVeiculoCor().setText(veiculo.getCor());
+                    this.telaMovimentoCheck.getjTextFieldVeiculoCor().setEnabled(false);
+                    
+                    this.telaMovimentoCheck.getjTextFieldVeiculoObs().setText("obs_veiculo => fora do BD");
+                    this.telaMovimentoCheck.getjTextFieldVeiculoObs().setEnabled(false);
                 }
             }
         }
