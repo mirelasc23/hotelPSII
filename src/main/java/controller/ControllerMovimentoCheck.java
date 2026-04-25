@@ -422,6 +422,12 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     this.telaMovimentoCheck.getjTextFieldVeiculoCor().setText(veiculo.getCor());
                     this.telaMovimentoCheck.getjTextFieldVeiculoCor().setEnabled(false);
                     
+                    this.telaMovimentoCheck.getjComboBoxVeiculoMarca().setText(veiculo.getModelo().getMarca().toString());
+                    this.telaMovimentoCheck.getjComboBoxVeiculoMarca().setEnabled(false);
+                    
+                    this.telaMovimentoCheck.getjComboBoxVeiculoModelo().setText(veiculo.getModelo().toString());
+                    this.telaMovimentoCheck.getjComboBoxVeiculoModelo().setEnabled(false);
+                    
                     this.telaMovimentoCheck.getjTextFieldVeiculoObs().setText("obs_veiculo => fora do BD");
                     this.telaMovimentoCheck.getjTextFieldVeiculoObs().setEnabled(false);
                 }
