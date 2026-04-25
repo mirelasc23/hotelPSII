@@ -99,7 +99,7 @@ public class ControllerCadVagaEstacionamento2 implements ActionListener{
             
                 ControllerMovimentoCheck.codigo = (int)this.telaCadastroVagaEstacionamento.getjTableDados().getValueAt(this.telaCadastroVagaEstacionamento.getjTableDados().getSelectedRow(), 0);
                 
-                VagaEstacionamento vaga = service.VagaEstacionamentoService.Carregar(ControllerMovimentoCheck.codigo);
+                /*VagaEstacionamento vaga = service.VagaEstacionamentoService.Carregar(ControllerMovimentoCheck.codigo);
                 this.telaCadastroVagaEstacionamento.getjTextFieldID().setText(ControllerMovimentoCheck.codigo + "");
                 this.telaCadastroVagaEstacionamento.getjTextFieldID().setEnabled(false);
                 
@@ -117,7 +117,8 @@ public class ControllerCadVagaEstacionamento2 implements ActionListener{
                 
                 this.telaCadastroVagaEstacionamento.getjTextFieldDescricao().requestFocus();
                 this.telaCadastroVagaEstacionamento.getjComboBoxFIltrarPor().setEnabled(false);
-                this.telaCadastroVagaEstacionamento.getjTextFieldValor().setEnabled(false);
+                this.telaCadastroVagaEstacionamento.getjTextFieldValor().setEnabled(false);*/
+                this.telaCadastroVagaEstacionamento.dispose();
                 
             }
         }else if(e.getSource() == this.telaCadastroVagaEstacionamento.getjButtonFiltrar()){

@@ -18,6 +18,7 @@ import model.OrdemServico;
 import model.ProdutoCopa;
 import model.Quarto;
 import model.Servico;
+import model.VagaEstacionamento;
 import org.w3c.dom.events.MouseEvent;
 import view.BuscaHospede;
 import view.BuscaProdutoCopa;
@@ -36,6 +37,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
 
     public ControllerMovimentoCheck(MovimentoCheck telaMovimentoCheck) {
         this.telaMovimentoCheck = telaMovimentoCheck;
+        
         this.telaMovimentoCheck.getjButtonNovo().addActionListener(this);
         this.telaMovimentoCheck.getjButtonGravar().addActionListener(this);
         this.telaMovimentoCheck.getjButtonBuscar().addActionListener(this);
@@ -46,6 +48,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
         this.telaMovimentoCheck.getjButtonAddOS().addActionListener(this);
         this.telaMovimentoCheck.getjButtonAddQuarto().addActionListener(this);
         this.telaMovimentoCheck.getjButtonAddVaga().addActionListener(this);
+        
         this.telaMovimentoCheck.getjTextFieldIDHospede().addMouseListener(this);
         //this.telaMovimentoCheck.getjTextFieldIDHospede().addKeyEvent(this);
         this.telaMovimentoCheck.getjTextFieldCopaQuantidade().addKeyListener(this);
@@ -54,6 +57,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
         this.telaMovimentoCheck.getjTextFieldIDQuarto().addMouseListener(this);
         this.telaMovimentoCheck.getjTextFieldIDOs().addMouseListener(this);
         this.telaMovimentoCheck.getjTextFieldIDCopa().addMouseListener(this);
+        
         utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), true);
         utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelDados(), true);
         utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), false);
@@ -354,36 +358,25 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             }
         } else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDVaga()) {
             if (this.telaMovimentoCheck.getjTextFieldIDVaga().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
-                //System.out.println("Clique Duplo Detectado no MousePressed!-quarto");
+                //System.out.println("Clique Duplo Detectado no MousePressed!-vaga");
                 
                 codigo = 0;
                 
                 CadastroVagaEstacionamento telaBuscaHospede = new CadastroVagaEstacionamento(null, true);
                 ControllerCadVagaEstacionamento2 controllerBuscaHospede = new ControllerCadVagaEstacionamento2(telaBuscaHospede);
                 telaBuscaHospede.setVisible(true);
-                //JOptionPane.showMessageDialog(null, "clique duplo quarto");
-                        
-                /*if (codigo != 0) {
-                    //utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
-                    //utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
+                
+                if (codigo != 0) {
+                    //this.telaMovimentoCheck.getjTextFieldIDVaga().setText(codigo + "");
 
-                    this.telaMovimentoCheck.getjTextFieldIDOs().setText(codigo + "");
-                    //this.telaMovimentoCheck.getjTextFieldIDOs().setEnabled(false);
+                    VagaEstacionamento vaga = new VagaEstacionamento();
+                    vaga = service.VagaEstacionamentoService.Carregar(codigo);
+                    
+                    this.telaMovimentoCheck.getjTextFieldIDVaga().setText(vaga.getDescricao().substring(0, 6));
+                    this.telaMovimentoCheck.getjTextFieldIDVaga().setEnabled(false);
 
-                    Servico hospede = new Servico();
-                    hospede = service.ServicoService.Carregar(codigo);
                     
-                    this.telaMovimentoCheck.getjTextFieldOSDescricao().setText(hospede.getDescricao());
-                    this.telaMovimentoCheck.getjTextFieldOSDescricao().setEnabled(false);
-                    
-                    this.telaMovimentoCheck.getjTextFieldOSObs().setText(hospede.getObs());
-                    this.telaMovimentoCheck.getjTextFieldOSObs().setEnabled(false);
-                    
-                    this.telaMovimentoCheck.getjTextFieldOSValor().setText("R$ 35,00");                    
-                    total += 35;
-                    this.telaMovimentoCheck.getjTextFieldValorServiços().setText("R$ 35,00");
-                    this.telaMovimentoCheck.getjTextFieldValorDespesas().setText(String.valueOf("R$ " + String.format("%.2f", total)));
-                }*/
+                }
             }
         }else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDVeiculo()) {
             if (this.telaMovimentoCheck.getjTextFieldIDVeiculo().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
