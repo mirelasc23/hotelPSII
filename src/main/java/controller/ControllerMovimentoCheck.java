@@ -570,8 +570,8 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             //VALIDAÇÕES DE ETAPA:
             
             //RESERVA 
-            //--hospede_responsavel 
-            //--quarto 
+            //--hospede_responsavel     || usuario
+            //--quarto                  || 
             //--data_prevista_inicio 
             //--data_prevista_termino 
             //--data_checkin [vazio]
@@ -588,6 +588,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     !this.telaMovimentoCheck.getjCheckBoxPresenca().isEnabled()){
                 JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
                 this.telaMovimentoCheck.getjTextFieldNomeHospede1().requestFocus();
+                //
             }else{
                 
             }
