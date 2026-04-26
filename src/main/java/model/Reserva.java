@@ -2,15 +2,15 @@ package model;
 
 public class Reserva {
     private int id;
-    private String dataHoraInicio, dataPrevistaEntrada, dataPrevistaSaida, obs;
+    private String dataHoraReserva, dataPrevistaEntrada, dataPrevistaSaida, obs;
     private char status;
 
     public Reserva() {
     }
 
-    public Reserva(int id, String dataHoraInicio, String dataPrevistaEntrada, String dataPrevistaSaida, String obs, char status) {
+    public Reserva(int id, String dataHoraReserva, String dataPrevistaEntrada, String dataPrevistaSaida, String obs, char status) {
         this.id = id;
-        this.dataHoraInicio = dataHoraInicio;
+        this.dataHoraReserva = dataHoraReserva;
         this.dataPrevistaEntrada = dataPrevistaEntrada;
         this.dataPrevistaSaida = dataPrevistaSaida;
         this.obs = obs;
@@ -21,7 +21,7 @@ public class Reserva {
     @Override
     public String toString() {
         return "Reserva " + id + ": " + status
-                + "\n DataHora Inicio: " + dataHoraInicio + " "
+                + "\n DataHora Reserva: " + dataHoraReserva + " "
                 + "\n Data Prevista de Entrada: " + dataPrevistaEntrada + " "
                 + "\n Data Prevista de Saída: " + dataPrevistaSaida + " "
                 + "\n Obs.: " + obs ;
@@ -35,12 +35,12 @@ public class Reserva {
         this.id = id;
     }
 
-    public String getDataHoraInicio() {
-        return dataHoraInicio;
+    public String getDataHoraReserva() {
+        return dataHoraReserva;
     }
 
-    public void setDataHoraInicio(String dataHoraInicio) {
-        this.dataHoraInicio = dataHoraInicio;
+    public void setDataHoraReserva(String dataHoraReserva) {
+        this.dataHoraReserva = dataHoraReserva;
     }
 
     public String getDataPrevistaEntrada() {

@@ -17,6 +17,8 @@ import model.Hospede;
 import model.OrdemServico;
 import model.ProdutoCopa;
 import model.Quarto;
+import model.Reserva;
+import model.ReservaQuarto;
 import model.Servico;
 import model.VagaEstacionamento;
 import model.Veiculo;
@@ -582,10 +584,41 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                 this.telaMovimentoCheck.getjTextFieldNomeHospede1().requestFocus();
             }*/
             if(!this.telaMovimentoCheck.getjTextFieldIDHospede().getText().trim().equalsIgnoreCase("") &&
-                    !this.telaMovimentoCheck.getjTextFieldIDQuarto().getText().trim().equalsIgnoreCase("")){
+                    !this.telaMovimentoCheck.getjTextFieldIDQuarto().getText().trim().equalsIgnoreCase("")&&
+                    !this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText().contains("  /  /    ")&&
+                    !this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText().contains("  /  /    ")){
                 if(this.telaMovimentoCheck.getjTextFieldIDReserva().getText().trim().equalsIgnoreCase("")){
-                //JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
+                    Reserva reserva = new Reserva();
+                    ReservaQuarto reservaQuarto = new ReservaQuarto();
+                    
+                    Date hoje = new Date();
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    String data = sdf.format(hoje);
+                    this.telaMovimentoCheck.getjFormattedTextFieldDataCheckIn().setText(data);
+                    reserva.setDataHoraReserva(data);
+                    
+                    reserva.setDataPrevistaEntrada(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText());
+                    reservaQuarto.setDataHoraInicio(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText());
+                    reserva.setDataPrevistaSaida(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText());
+                    reservaQuarto.setDataHoraFim(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText());
+                    reserva.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
+                    
+                    char status;
+                    if(this.telaMovimentoCheck.getjComboBoxStatusReserva().getSelectedIndex() == 0){
+                        status = 'A';
+                    }else{
+                        status = 'I';
+                    }
+
+                    reserva.setStatus(status);
+                    reservaQuarto.setStatus(status);
+                    reserva.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
+                    reservaQuarto.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
+                    
                     JOptionPane.showMessageDialog(null, "Salva Reserva");
+                    
+                    /*JOptionPane.showMessageDialog(null, "\""+this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText()+"\"");
+                    JOptionPane.showMessageDialog(null, "\""+this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText()+"\"");*/
                 }else{
                     JOptionPane.showMessageDialog(null, "Atualiza Reserva");
                 }
@@ -602,6 +635,9 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     this.telaMovimentoCheck.getjFormattedTextFieldDataCheckIn().setText(data);
                     //
                 }
+            }else{
+                JOptionPane.showMessageDialog(null, "Faltou Atributos obrigatórios!!!");
+                
             }
             
             
