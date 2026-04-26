@@ -575,30 +575,43 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             //--data_prevista_inicio 
             //--data_prevista_termino 
             //--data_checkin [vazio]
+            /*if(!this.telaMovimentoCheck.getjTextFieldIDHospede().getText().trim().equalsIgnoreCase("") &&
+                    !this.telaMovimentoCheck.getjTextFieldIDQuarto().getText().trim().equalsIgnoreCase("")){
+                //JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
+                JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
+                this.telaMovimentoCheck.getjTextFieldNomeHospede1().requestFocus();
+            }*/
             if(!this.telaMovimentoCheck.getjTextFieldIDHospede().getText().trim().equalsIgnoreCase("") &&
                     !this.telaMovimentoCheck.getjTextFieldIDQuarto().getText().trim().equalsIgnoreCase("")){
-                JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
-                this.telaMovimentoCheck.getjTextFieldNomeHospede1().requestFocus();
-            }
-            
-            //CHECKIN 
-            //--hospedes_presentes
-            
-            if(this.telaMovimentoCheck.getjTextFieldNomeHospede1().getText().trim().equalsIgnoreCase("") ||
-                    !this.telaMovimentoCheck.getjCheckBoxPresenca().isEnabled()){
-                JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
-                this.telaMovimentoCheck.getjTextFieldNomeHospede1().requestFocus();
-                //
-            }else{
-                
-            }
+                if(this.telaMovimentoCheck.getjTextFieldIDReserva().getText().trim().equalsIgnoreCase("")){
+                //JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
+                    JOptionPane.showMessageDialog(null, "Salva Reserva");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Atualiza Reserva");
+                }
+                //this.telaMovimentoCheck.getjTextFieldNomeHospede1().requestFocus();
+                //CHECKIN 
+                //--hospedes_presentes
 
+                if(!this.telaMovimentoCheck.getjTextFieldNomeHospede1().getText().trim().equalsIgnoreCase("") ||
+                        !this.telaMovimentoCheck.getjCheckBoxPresenca().isEnabled()){
+                    JOptionPane.showMessageDialog(null, "Define Check-In");
+                    Date hoje = new Date();
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    String data = sdf.format(hoje);
+                    this.telaMovimentoCheck.getjFormattedTextFieldDataCheckIn().setText(data);
+                    //
+                }
+            }
             
+            
+
+            /*
             OrdemServico os = new OrdemServico();
             os.setDataHoraCadastro(this.telaMovimentoCheck.getjFormattedTextFieldDataCadastro().getText());
             os.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
             Servico servico = service.ServicoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDOs().getText()));
-            Quarto quarto = service.QuartoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDQuarto().getText()));
+            Quarto quarto = service.QuartoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDQuarto().getText()));*/
         
     }
 }
