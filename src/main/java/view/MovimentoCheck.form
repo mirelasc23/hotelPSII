@@ -778,10 +778,7 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="jCheckBoxFumante" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jCheckBoxBebes" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="jCheckBoxBebes" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="jTextFieldQuarto1Obs" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -828,14 +825,16 @@
                                       <Component id="jTextFieldIDVaga" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabelObs5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelObs4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                                               <Component id="jLabelIdQuartos2" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabelIdHospede2" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabelIdReserva5" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabelIdVaga2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabelObs5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelObs4" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>

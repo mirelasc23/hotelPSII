@@ -30,13 +30,18 @@ public class ReservaQuarto {
     private String obs;
     @Column
     private char status;
+    
+    
     /*@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "quarto_id")*/
+    @JoinColumn(name = "quarto_id")/
     @JoinTable(
         name = "reserva_quarto_quarto", // Nome da tabela auxiliar
         joinColumns = @JoinColumn(name = "id"), // Coluna desta entidade
         inverseJoinColumns = @JoinColumn(name = "id") // Coluna da outra entidade
-    )
+    )*/
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "quarto_id") // Deve ser exatamente o nome da coluna no seu DB
     private Quarto quarto;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reserva_id")

@@ -1831,9 +1831,7 @@ public class MovimentoCheck extends javax.swing.JDialog {
                                         .addComponent(jCheckBoxAnimais)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jCheckBoxFumante))
-                                    .addGroup(jPanelDadosLayout.createSequentialGroup()
-                                        .addComponent(jCheckBoxBebes)
-                                        .addGap(25, 25, 25)))
+                                    .addComponent(jCheckBoxBebes))
                                 .addComponent(jTextFieldQuarto1Obs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1867,14 +1865,15 @@ public class MovimentoCheck extends javax.swing.JDialog {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jTextFieldIDVaga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanelDadosLayout.createSequentialGroup()
-                            .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabelObs5)
-                                .addComponent(jLabelObs4)
-                                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabelIdQuartos2)
                                     .addComponent(jLabelIdHospede2)
                                     .addComponent(jLabelIdReserva5)
-                                    .addComponent(jLabelIdVaga2)))
+                                    .addComponent(jLabelIdVaga2))
+                                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelObs5)
+                                    .addComponent(jLabelObs4)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jComboBoxVeiculoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2120,7 +2119,8 @@ public class MovimentoCheck extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Tela de Pagamento");
+        JOptionPane.showMessageDialog(null, "Efetuando Check-Out!"
+                + "\n Redirecionando à Tela de Pagamento");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonAddVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddVagaActionPerformed

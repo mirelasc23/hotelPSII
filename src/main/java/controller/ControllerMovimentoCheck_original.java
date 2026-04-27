@@ -168,6 +168,7 @@ public class ControllerMovimentoCheck_original implements ActionListener, MouseL
             }
         } else if (e.getSource() == this.telaMovimentoCheck.getjButtonCancelar()) {
             utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), true);
+            utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelDados(), true);
             utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), false);
         } else if (e.getSource() == this.telaMovimentoCheck.getjButtonSair()) {
             this.telaMovimentoCheck.dispose();
@@ -695,6 +696,7 @@ public class ControllerMovimentoCheck_original implements ActionListener, MouseL
             }
             
             utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), true);
+            utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelDados(), true);
             utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), false);
 
             /*

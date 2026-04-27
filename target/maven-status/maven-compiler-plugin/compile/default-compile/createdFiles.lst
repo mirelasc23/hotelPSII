@@ -121,6 +121,7 @@ view\CadastroVeiculo.class
 view\BuscaFuncionario.class
 view\BuscaMarca$3.class
 view\BuscaProdutoCopa$2.class
+service\ReservaQuartoService.class
 model\Check.class
 view\CadastroProdutoCopa$4.class
 view\TelaMenuPrincipal$2.class
@@ -158,6 +159,7 @@ view\CadastroVeiculo$8.class
 model\ProdutoCopa.class
 view\CadastroModelo$2.class
 view\TelaMenuPrincipal.class
+controller\ControllerMovimentoCheck_original.class
 view\MovimentoCheck$25.class
 view\CadastroFuncionarios$4.class
 view\BuscaQuarto.class
