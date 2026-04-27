@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -35,6 +36,8 @@ import view.CadastroVeiculo;
 import view.MovimentoCheck;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ControllerMovimentoCheck implements ActionListener, MouseListener, KeyListener{
     MovimentoCheck telaMovimentoCheck;
@@ -101,43 +104,44 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
         } else if (e.getSource() == this.telaMovimentoCheck.getjButtonGravar()) {
             if(!this.telaMovimentoCheck.getjTextFieldIDHospede().getText().trim().equalsIgnoreCase("") &&
                     !this.telaMovimentoCheck.getjTextFieldIDQuarto().getText().trim().equalsIgnoreCase(""))
-            salvarPorEtapa();
-            /*if (this.telaMovimentoCheck.getjTextFieldDescricao().getText().trim().equalsIgnoreCase("")) {
+            try {
+                salvarPorEtapa();
+                /*if (this.telaMovimentoCheck.getjTextFieldDescricao().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
                 this.telaMovimentoCheck.getjTextFieldDescricao().requestFocus();
-            } else {
+                } else {
                 Servico servico = new Servico();
 
                 servico.setDescricao(this.telaMovimentoCheck.getjTextFieldDescricao().getText());
                 servico.setObs(this.telaMovimentoCheck.getjTextAreaObs().getText());
 
                 if (this.telaMovimentoCheck.getjTextFieldID().getText().trim().equalsIgnoreCase("")) {
-                    //inclusao
-                    servico.setStatus('A');
-                    service.ServicoService.Criar(servico);
+                //inclusao
+                servico.setStatus('A');
+                service.ServicoService.Criar(servico);
                 } else {
-                    servico.setId(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldID().getText()));
-                    char status;
-                    if(this.telaMovimentoCheck.getjComboBoxSituacao().getSelectedIndex() == 0){
-                        status = 'A';
-                    }else{
-                        status = 'I';
-                    }
-
-                    servico.setStatus(status);
-                    service.ServicoService.Atualizar(servico);
+                servico.setId(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldID().getText()));
+                char status;
+                if(this.telaMovimentoCheck.getjComboBoxSituacao().getSelectedIndex() == 0){
+                status = 'A';
+                }else{
+                status = 'I';
+                }
+                
+                servico.setStatus(status);
+                service.ServicoService.Atualizar(servico);
                 }
                 utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), true);
                 utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), false);
-            }
-        } else if (e.getSource() == this.telaMovimentoCheck.getjButtonBuscar()) {
-            codigo = 0;
-
-            BuscaServico telaBuscaServico = new BuscaServico(null, true);
-            ControllerBuscaServico controllerBuscaServico = new ControllerBuscaServico(telaBuscaServico);
-            telaBuscaServico.setVisible(true);
-            
-            if (codigo != 0) {
+                }
+                } else if (e.getSource() == this.telaMovimentoCheck.getjButtonBuscar()) {
+                codigo = 0;
+                
+                BuscaServico telaBuscaServico = new BuscaServico(null, true);
+                ControllerBuscaServico controllerBuscaServico = new ControllerBuscaServico(telaBuscaServico);
+                telaBuscaServico.setVisible(true);
+                
+                if (codigo != 0) {
                 utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
                 utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
 
@@ -152,13 +156,16 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                 
                 int index_status;
                 if(servico.getStatus() == 'a' || servico.getStatus() == 'A' ){
-                    index_status = 0;
+                index_status = 0;
                 }else{
-                    index_status = 1;
+                index_status = 1;
                 }
                 
-                this.telaMovimentoCheck.getjComboBoxStatusReserva().setSelectedIndex(index_status);  
-            }*/
+                this.telaMovimentoCheck.getjComboBoxStatusReserva().setSelectedIndex(index_status);
+                }*/
+            } catch (ParseException ex) {
+                Logger.getLogger(ControllerMovimentoCheck.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (e.getSource() == this.telaMovimentoCheck.getjButtonCancelar()) {
             utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), true);
             utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), false);
@@ -574,7 +581,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
     @Override
     public void keyReleased(KeyEvent e) {}
 
-    private void salvarPorEtapa() {        
+    private void salvarPorEtapa() throws ParseException {        
             //VALIDAÇÕES DE ETAPA:
             if(!this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText().contains("  /  /    ")&&
                     !this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText().contains("  /  /    ")){
@@ -587,7 +594,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
 
                 try {
                     // Defina o formato que está vindo da tela
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
                     // Converte a String para java.util.Date
                     Date dataEntrada = sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText());
@@ -604,7 +611,8 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     e.printStackTrace(); // Trata erro de formatação caso o usuário digite uma data inválida
                 }
                 
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat sdfDataHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
                 reserva.setDataPrevistaEntrada(sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText()));
                 reserva.setDataPrevistaSaida(sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText()));
@@ -642,7 +650,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                 
                 if(this.telaMovimentoCheck.getjTextFieldIDReserva().getText().trim().equalsIgnoreCase("")){
                     Date hoje = new Date();
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+                    //SimpleDateFormat sdfDataHora = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
                     String data = sdf.format(hoje);
                     this.telaMovimentoCheck.getjFormattedTextFieldDataCheckIn().setText(data);
                     
@@ -650,10 +658,11 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
 
                     // 2. Converta a String para LocalDateTime
                     //LocalDateTime dataFormatada = LocalDateTime.parse(data, formatte;r);
-                    LocalDateTime dataFormatada = LocalDateTime.parse(data, formatter);
+                    //LocalDateTime dataFormatada = LocalDateTime.parse(data, formatter);
 
                     // 3. Crie a entidade e set o objeto de data, não a string
-                    reserva.setDataHoraReserva(dataFormatada);
+                    //reserva.setDataHoraReserva(dataFormatada);
+                    reserva.setDataHoraReserva(hoje);
                     
                     //reserva.setDataHoraReserva(data);
                     
@@ -682,7 +691,11 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                 String data = sdf.format(hoje);
                 this.telaMovimentoCheck.getjFormattedTextFieldDataCheckIn().setText(data);
                 //
+                
             }
+            
+            utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), true);
+            utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), false);
 
             /*
             OrdemServico os = new OrdemServico();
