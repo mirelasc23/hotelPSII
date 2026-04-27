@@ -621,6 +621,8 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     reservaQuarto.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
                     reservaQuarto.setQuarto(service.QuartoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDQuarto().getText())));
                     
+                    service.ReservaQuartoService.Criar(reservaQuarto);
+                    
                 JOptionPane.showMessageDialog(null, "ReservaQuarto: " + reservaQuarto);
                 
                 if(this.telaMovimentoCheck.getjTextFieldIDReserva().getText().trim().equalsIgnoreCase("")){
