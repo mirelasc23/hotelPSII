@@ -1,21 +1,56 @@
 package model;
 
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class ReservaQuarto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String dataHoraInicio, dataHoraFim, obs;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_hora_inicio")
+    private Date dataHoraInicio;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_hora_fim")
+    private Date dataHoraFim;
+    @Column
+    private String obs;
+    @Column
     private char status;
+    /*@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "quarto_id")*/
+    @JoinTable(
+        name = "reserva_quarto_quarto", // Nome da tabela auxiliar
+        joinColumns = @JoinColumn(name = "id"), // Coluna desta entidade
+        inverseJoinColumns = @JoinColumn(name = "id") // Coluna da outra entidade
+    )
     private Quarto quarto;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reserva_id")
     private Reserva reserva;
 
     public ReservaQuarto() {
     }
 
-    public ReservaQuarto(int id, String dataHoraInicio, String dataHoraFim, String obs, char status) {
+    public ReservaQuarto(int id, Date dataHoraInicio, Date dataHoraFim, String obs, char status, Quarto quarto, Reserva reserva) {
         this.id = id;
         this.dataHoraInicio = dataHoraInicio;
         this.dataHoraFim = dataHoraFim;
         this.obs = obs;
         this.status = status;
+        this.quarto = quarto;
+        this.reserva = reserva;
     }
 
     @Override
@@ -34,19 +69,19 @@ public class ReservaQuarto {
         this.id = id;
     }
 
-    public String getDataHoraInicio() {
+    public Date getDataHoraInicio() {
         return dataHoraInicio;
     }
 
-    public void setDataHoraInicio(String dataHoraInicio) {
+    public void setDataHoraInicio(Date dataHoraInicio) {
         this.dataHoraInicio = dataHoraInicio;
     }
 
-    public String getDataHoraFim() {
+    public Date getDataHoraFim() {
         return dataHoraFim;
     }
 
-    public void setDataHoraFim(String dataHoraFim) {
+    public void setDataHoraFim(Date dataHoraFim) {
         this.dataHoraFim = dataHoraFim;
     }
 

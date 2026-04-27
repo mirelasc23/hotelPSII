@@ -22,8 +22,6 @@ public class Modelo implements Serializable{
     @Column
     private char status;
 
-    /*@JoinColumn
-    @ManyToOne*/
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "marca_id")
     private Marca marca;
