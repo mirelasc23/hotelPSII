@@ -34,12 +34,12 @@ public class Reserva {
     @Column
     private char status;
     
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    /*@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
         name = "reserva_reserva_quarto", // Nome da tabela auxiliar
         joinColumns = @JoinColumn(name = "id"), // Coluna desta entidade
         inverseJoinColumns = @JoinColumn(name = "id") // Coluna da outra entidade
-    )
+    )*/
     private List<ReservaQuarto> reservaQuartos;
 
     public Reserva() {

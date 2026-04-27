@@ -135,8 +135,8 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             
             this.telaMovimentoCheck.getjCheckBoxAnimais().setEnabled(true);
             this.telaMovimentoCheck.getjCheckBoxAnimais().setText("");
-            this.telaMovimentoCheck.getjCheckBoxAnimais().setEnabled(true);
-            this.telaMovimentoCheck.getjCheckBoxAnimais().setText("");
+            this.telaMovimentoCheck.getjCheckBoxFumante().setEnabled(true);
+            this.telaMovimentoCheck.getjCheckBoxFumante().setText("");
             this.telaMovimentoCheck.getjCheckBoxBebes().setEnabled(true);
             this.telaMovimentoCheck.getjCheckBoxBebes().setText("");
         }else if (e.getSource() == this.telaMovimentoCheck.getjButtonAddHospede()) {
@@ -224,14 +224,12 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             }
         } else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDQuarto()) {
             if (this.telaMovimentoCheck.getjTextFieldIDQuarto().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
-                //System.out.println("Clique Duplo Detectado no MousePressed!-quarto");
                 
                 codigo = 0;
                 
                 BuscaQuarto telaBuscaHospede = new BuscaQuarto(null, true);
                 ControllerBuscaQuarto2 controllerBuscaHospede = new ControllerBuscaQuarto2(telaBuscaHospede);
                 telaBuscaHospede.setVisible(true);
-                //JOptionPane.showMessageDialog(null, "clique duplo quarto");
                         
                 if (codigo != 0) {
 
@@ -338,21 +336,15 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             }
         }else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDVeiculo()) {
             if (this.telaMovimentoCheck.getjTextFieldIDVeiculo().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
-                //System.out.println("Clique Duplo Detectado no MousePressed!-quarto");
                 
                 codigo = 0;
                 
                 CadastroVeiculo telaBuscaHospede = new CadastroVeiculo(null, true);
                 ControllerCadVeiculo2 controllerBuscaHospede = new ControllerCadVeiculo2(telaBuscaHospede);
                 telaBuscaHospede.setVisible(true);
-                //JOptionPane.showMessageDialog(null, "clique duplo quarto");
                         
                 if (codigo != 0) {
-                    //utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
-                    //utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
-
                     this.telaMovimentoCheck.getjTextFieldIDVeiculo().setText(codigo + "");
-                    //this.telaMovimentoCheck.getjTextFieldIDOs().setEnabled(false);
  
                     Veiculo veiculo = new Veiculo();
                     veiculo = service.VeiculoService.Carregar(codigo);
@@ -450,61 +442,68 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             //VALIDAÇÕES DE ETAPA:
             if(!this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText().contains("  /  /    ")&&
                     !this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText().contains("  /  /    ")){
-                //Reserva reserva = new Reserva();
 
                 try {
-                    // Defina o formato que está vindo da tela
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-                    // Converte a String para java.util.Date
                     Date dataEntrada = sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText());
                     Date dataSaida = sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText());
 
 
                 } catch (Exception e) {
-                    e.printStackTrace(); // Trata erro de formatação caso o usuário digite uma data inválida
+                    e.printStackTrace(); 
                 }
                 
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 SimpleDateFormat sdfDataHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
+                Reserva reserva = new Reserva();
+                ReservaQuarto reservaQuarto = new ReservaQuarto();
+                
                 char status;
                 if(this.telaMovimentoCheck.getjComboBoxStatusReserva().getSelectedIndex() == 0){
                     status = 'A';
                 }else{
                     status = 'I';
                 }
-                    ReservaQuarto reservaQuarto = new ReservaQuarto();
-                            
-                    reservaQuarto.setDataHoraInicio(sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText()));
-                    reservaQuarto.setDataHoraFim(sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText()));
-                    reservaQuarto.setStatus(status);
-                    reservaQuarto.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
-                    reservaQuarto.setQuarto(service.QuartoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDQuarto().getText())));
+
+                reservaQuarto.setDataHoraInicio(sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText()));
+                reservaQuarto.setDataHoraFim(sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText()));
+                reservaQuarto.setStatus(status);
+                reservaQuarto.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
+                
+                reserva.setDataPrevistaEntrada(reservaQuarto.getDataHoraInicio());
+                reserva.setDataPrevistaSaida(reservaQuarto.getDataHoraFim());
+                reserva.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
+                Date hoje = new Date();
+                reserva.setDataHoraReserva(hoje);
+                
+                reservaQuarto.setQuarto(service.QuartoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDQuarto().getText())));
+
+                if(this.telaMovimentoCheck.getjTextFieldIDReserva().getText().equals("")){
+                    service.ReservaService.Criar(reserva);
+                }else{
+                    reserva.setId(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDReserva().getText()));
+                }
                     
-                    service.ReservaQuartoService.Criar(reservaQuarto);
-                    
+                reservaQuarto.setReserva(reserva);
+                service.ReservaQuartoService.Criar(reservaQuarto);
+                
                 JOptionPane.showMessageDialog(null, "ReservaQuarto: " + reservaQuarto);
                 
                 if(this.telaMovimentoCheck.getjTextFieldIDReserva().getText().trim().equalsIgnoreCase("")){
-                    Date hoje = new Date();
+//                    Date hoje = new Date();
                     //SimpleDateFormat sdfDataHora = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
                     String data = sdf.format(hoje);
                     this.telaMovimentoCheck.getjFormattedTextFieldDataCheckIn().setText(data);
-                    
-
                     JOptionPane.showMessageDialog(null, "Salva Reserva");
-                    
                 }else{
                     JOptionPane.showMessageDialog(null, "Atualiza Reserva");
                 }
-
             }else{
                 JOptionPane.showMessageDialog(null, "Faltou Atributos obrigatórios!!!");
-                
             }
 
-            
             utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), true);
             utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelDados(), true);
             utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), false);

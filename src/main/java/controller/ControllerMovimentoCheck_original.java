@@ -644,7 +644,6 @@ public class ControllerMovimentoCheck_original implements ActionListener, MouseL
                     reservaQuarto.setQuarto(service.QuartoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDQuarto().getText())));
 
                     reserva.addQuartoComReserva(reservaQuarto);
-                /*}*/
 
                 JOptionPane.showMessageDialog(null, "Reserva: " + reserva);
                 JOptionPane.showMessageDialog(null, "ReservaQuarto: " + reservaQuarto);
