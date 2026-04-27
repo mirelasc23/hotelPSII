@@ -585,12 +585,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             //VALIDAÇÕES DE ETAPA:
             if(!this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText().contains("  /  /    ")&&
                     !this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText().contains("  /  /    ")){
-                Reserva reserva = new Reserva();
-                /*DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                DateTimeFormatter formatterDataHora = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss");*/
-
-
-                // ... dentro do seu método ...
+                //Reserva reserva = new Reserva();
 
                 try {
                     // Defina o formato que está vindo da tela
@@ -600,12 +595,6 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     Date dataEntrada = sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText());
                     Date dataSaida = sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText());
 
-                    //Reserva reserva = new Reserva();
-                    reserva.setDataPrevistaEntrada(dataEntrada);
-                    reserva.setDataPrevistaSaida(dataSaida);
-                    reserva.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
-
-                    // ... restante da lógica de salvar ...
 
                 } catch (Exception e) {
                     e.printStackTrace(); // Trata erro de formatação caso o usuário digite uma data inválida
@@ -614,22 +603,12 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 SimpleDateFormat sdfDataHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-                reserva.setDataPrevistaEntrada(sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText()));
-                reserva.setDataPrevistaSaida(sdf.parse(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText()));
-                reserva.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
-
                 char status;
                 if(this.telaMovimentoCheck.getjComboBoxStatusReserva().getSelectedIndex() == 0){
                     status = 'A';
                 }else{
                     status = 'I';
                 }
-
-                reserva.setStatus(status);
-
-                //verificar se fazer aqui ou vincular com o botao pressionado 
-                    //(ou componentização, se der)
-                /*for (Quarto quarto : quartos) {*/
                     ReservaQuarto reservaQuarto = new ReservaQuarto();
                     
                     //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -641,11 +620,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     reservaQuarto.setStatus(status);
                     reservaQuarto.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
                     reservaQuarto.setQuarto(service.QuartoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDQuarto().getText())));
-
-                    reserva.addQuartoComReserva(reservaQuarto);
-                /*}*/
-
-                JOptionPane.showMessageDialog(null, "Reserva: " + reserva);
+                    
                 JOptionPane.showMessageDialog(null, "ReservaQuarto: " + reservaQuarto);
                 
                 if(this.telaMovimentoCheck.getjTextFieldIDReserva().getText().trim().equalsIgnoreCase("")){
@@ -654,55 +629,20 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     String data = sdf.format(hoje);
                     this.telaMovimentoCheck.getjFormattedTextFieldDataCheckIn().setText(data);
                     
-                    //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-                    // 2. Converta a String para LocalDateTime
-                    //LocalDateTime dataFormatada = LocalDateTime.parse(data, formatte;r);
-                    //LocalDateTime dataFormatada = LocalDateTime.parse(data, formatter);
-
-                    // 3. Crie a entidade e set o objeto de data, não a string
-                    //reserva.setDataHoraReserva(dataFormatada);
-                    reserva.setDataHoraReserva(hoje);
-                    
-                    //reserva.setDataHoraReserva(data);
-                    
                     JOptionPane.showMessageDialog(null, "Salva Reserva");
-                    service.ReservaService.Criar(reserva);
                     
                 }else{
                     JOptionPane.showMessageDialog(null, "Atualiza Reserva");
-                    reserva.setId(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDReserva().getText()));
                 }
-                //this.telaMovimentoCheck.getjTextFieldNomeHospede1().requestFocus();
-                //CHECKIN 
-                //--hospedes_presentes
 
-                
             }else{
                 JOptionPane.showMessageDialog(null, "Faltou Atributos obrigatórios!!!");
                 
             }
-            
-            if(!this.telaMovimentoCheck.getjTextFieldNomeHospede1().getText().trim().equalsIgnoreCase("") || 
-                    !this.telaMovimentoCheck.getjCheckBoxPresenca().isEnabled()){
-                JOptionPane.showMessageDialog(null, "Define Check-In");
-                Date hoje = new Date();
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                String data = sdf.format(hoje);
-                this.telaMovimentoCheck.getjFormattedTextFieldDataCheckIn().setText(data);
-                //
-                
-            }
+
             
             utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), true);
             utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), false);
-
-            /*
-            OrdemServico os = new OrdemServico();
-            os.setDataHoraCadastro(this.telaMovimentoCheck.getjFormattedTextFieldDataCadastro().getText());
-            os.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
-            Servico servico = service.ServicoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDOs().getText()));
-            Quarto quarto = service.QuartoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDQuarto().getText()));*/
-        
     }
 }
