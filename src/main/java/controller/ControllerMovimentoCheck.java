@@ -98,71 +98,13 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             this.telaMovimentoCheck.getjComboBoxStatusReserva().setEnabled(false);
             
             total = 0;
-            //this.telaMovimentoCheck.getjComboBoxFiltrarPor().setEnabled(false);
-            //this.telaMovimentoCheck.getjTextFieldValor().setEnabled(false);
 
         } else if (e.getSource() == this.telaMovimentoCheck.getjButtonGravar()) {
             if(!this.telaMovimentoCheck.getjTextFieldIDHospede().getText().trim().equalsIgnoreCase("") &&
                     !this.telaMovimentoCheck.getjTextFieldIDQuarto().getText().trim().equalsIgnoreCase(""))
             try {
                 salvarPorEtapa();
-                /*if (this.telaMovimentoCheck.getjTextFieldDescricao().getText().trim().equalsIgnoreCase("")) {
-                JOptionPane.showMessageDialog(null, "Atributo Obrigatorio");
-                this.telaMovimentoCheck.getjTextFieldDescricao().requestFocus();
-                } else {
-                Servico servico = new Servico();
-
-                servico.setDescricao(this.telaMovimentoCheck.getjTextFieldDescricao().getText());
-                servico.setObs(this.telaMovimentoCheck.getjTextAreaObs().getText());
-
-                if (this.telaMovimentoCheck.getjTextFieldID().getText().trim().equalsIgnoreCase("")) {
-                //inclusao
-                servico.setStatus('A');
-                service.ServicoService.Criar(servico);
-                } else {
-                servico.setId(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldID().getText()));
-                char status;
-                if(this.telaMovimentoCheck.getjComboBoxSituacao().getSelectedIndex() == 0){
-                status = 'A';
-                }else{
-                status = 'I';
-                }
-                
-                servico.setStatus(status);
-                service.ServicoService.Atualizar(servico);
-                }
-                utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), true);
-                utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), false);
-                }
-                } else if (e.getSource() == this.telaMovimentoCheck.getjButtonBuscar()) {
-                codigo = 0;
-                
-                BuscaServico telaBuscaServico = new BuscaServico(null, true);
-                ControllerBuscaServico controllerBuscaServico = new ControllerBuscaServico(telaBuscaServico);
-                telaBuscaServico.setVisible(true);
-                
-                if (codigo != 0) {
-                utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
-                utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
-
-                this.telaMovimentoCheck.getjTextFieldIDReserva().setText(codigo + "");
-                this.telaMovimentoCheck.getjTextFieldIDReserva().setEnabled(false);
-            
-                Servico servico = new Servico();
-                servico = service.ServicoService.Carregar(codigo);
-                
-                this.telaMovimentoCheck.getjTextFieldDescricao().setText(servico.getDescricao());
-                this.telaMovimentoCheck.getjTextFieldObsReserva().setText(servico.getObs());
-                
-                int index_status;
-                if(servico.getStatus() == 'a' || servico.getStatus() == 'A' ){
-                index_status = 0;
-                }else{
-                index_status = 1;
-                }
-                
-                this.telaMovimentoCheck.getjComboBoxStatusReserva().setSelectedIndex(index_status);
-                }*/
+               
             } catch (ParseException ex) {
                 Logger.getLogger(ControllerMovimentoCheck.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -178,38 +120,61 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             this.telaMovimentoCheck.getjTextFieldCopaQuantidade().setText("");
             this.telaMovimentoCheck.getjTextFieldIDCopa().setText("");
         }else if (e.getSource() == this.telaMovimentoCheck.getjButtonAddQuarto()) {
+            this.telaMovimentoCheck.getjTextFieldQuarto1Valor().setEnabled(true);
             this.telaMovimentoCheck.getjTextFieldQuarto1Valor().setText("");
+            this.telaMovimentoCheck.getjTextFieldQuarto1Capacidade().setEnabled(true);
             this.telaMovimentoCheck.getjTextFieldQuarto1Capacidade().setText("");
+            this.telaMovimentoCheck.getjTextFieldQuarto1Descricao().setEnabled(true);
             this.telaMovimentoCheck.getjTextFieldQuarto1Descricao().setText("");
+            this.telaMovimentoCheck.getjTextFieldQuarto1Obs().setEnabled(true);
             this.telaMovimentoCheck.getjTextFieldQuarto1Obs().setText("");
+            this.telaMovimentoCheck.getjTextFieldQuarto1Andar().setEnabled(true);
             this.telaMovimentoCheck.getjTextFieldQuarto1Andar().setText("");
+            this.telaMovimentoCheck.getjTextFieldIDQuarto().setEnabled(true);
             this.telaMovimentoCheck.getjTextFieldIDQuarto().setText("");
+            
+            this.telaMovimentoCheck.getjCheckBoxAnimais().setEnabled(true);
+            this.telaMovimentoCheck.getjCheckBoxAnimais().setText("");
+            this.telaMovimentoCheck.getjCheckBoxAnimais().setEnabled(true);
+            this.telaMovimentoCheck.getjCheckBoxAnimais().setText("");
+            this.telaMovimentoCheck.getjCheckBoxBebes().setEnabled(true);
+            this.telaMovimentoCheck.getjCheckBoxBebes().setText("");
         }else if (e.getSource() == this.telaMovimentoCheck.getjButtonAddHospede()) {
+            this.telaMovimentoCheck.getjTextFieldQuarto1Obs().setEnabled(true);
             this.telaMovimentoCheck.getjTextFieldQuarto1Obs().setText("");
+            this.telaMovimentoCheck.getjTextFieldIDQuarto().setEnabled(true);
             this.telaMovimentoCheck.getjTextFieldIDQuarto().setText("");
         }else if (e.getSource() == this.telaMovimentoCheck.getjButtonAddOS()) {
+            this.telaMovimentoCheck.getjTextFieldOSDescricao().setEnabled(true);
             this.telaMovimentoCheck.getjTextFieldOSDescricao().setText("");
+            this.telaMovimentoCheck.getjTextFieldOSObs().setEnabled(true);
             this.telaMovimentoCheck.getjTextFieldOSObs().setText("");
+            this.telaMovimentoCheck.getjTextFieldOSValor().setEnabled(true);
             this.telaMovimentoCheck.getjTextFieldOSValor().setText("");
+            this.telaMovimentoCheck.getjTextFieldIDOs().setEnabled(true);
             this.telaMovimentoCheck.getjTextFieldIDOs().setText("");
+        }else if (e.getSource() == this.telaMovimentoCheck.getjButtonAddVaga()) {
+            this.telaMovimentoCheck.getjTextFieldVeiculoCor().setEnabled(true);
+            this.telaMovimentoCheck.getjTextFieldVeiculoCor().setText("");
+            this.telaMovimentoCheck.getjTextFieldVeiculoPlaca().setEnabled(true);
+            this.telaMovimentoCheck.getjTextFieldVeiculoPlaca().setText("");
+            this.telaMovimentoCheck.getjTextFieldVeiculoObs().setEnabled(true);
+            this.telaMovimentoCheck.getjTextFieldVeiculoObs().setText("");
+            this.telaMovimentoCheck.getjComboBoxVeiculoModelo().setEnabled(true);
+            this.telaMovimentoCheck.getjComboBoxVeiculoModelo().setText("");
+            this.telaMovimentoCheck.getjComboBoxVeiculoMarca().setEnabled(true);
+            this.telaMovimentoCheck.getjComboBoxVeiculoMarca().setText("");
         }
     }
     
     @Override
     public void mouseClicked(java.awt.event.MouseEvent evt) {
-        /*if(evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDHospede()){
-            if (evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
-                JOptionPane.showMessageDialog(null, "Clique Duplo");
-                System.out.println("Clique Duplo Detectado!");
-            }
-        }*/
     }
 
     @Override
     public void mousePressed(java.awt.event.MouseEvent evt) {
         if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDHospede()) {
             if (this.telaMovimentoCheck.getjTextFieldIDHospede().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
-                // Sua lógica de busca aqui
                 
                 codigo = 0;
                 
@@ -217,14 +182,9 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                 ControllerBuscaHospede2 controllerBuscaHospede = new ControllerBuscaHospede2(telaBuscaHospede);
                 telaBuscaHospede.setVisible(true);
                 
-                //System.out.println("Clique Duplo Detectado no MousePressed!");
                 
                 if (codigo != 0) {
-                    //utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
-                    //utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
-
                     this.telaMovimentoCheck.getjTextFieldIDHospede().setText(codigo + "");
-                    //this.telaMovimentoCheck.getjTextFieldIDHospede().setEnabled(false);
 
                     Hospede hospede = new Hospede();
                     hospede = service.HospedeService.Carregar(codigo);
@@ -274,11 +234,8 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                 //JOptionPane.showMessageDialog(null, "clique duplo quarto");
                         
                 if (codigo != 0) {
-                    //utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
-                    //utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
 
                     this.telaMovimentoCheck.getjTextFieldIDQuarto().setText(codigo + "");
-                    //this.telaMovimentoCheck.getjTextFieldIDQuarto().setEnabled(false);
 
                     Quarto hospede = new Quarto();
                     hospede = service.QuartoService.Carregar(codigo);
@@ -312,7 +269,6 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             }
         }else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDOs()) {
             if (this.telaMovimentoCheck.getjTextFieldIDOs().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
-                //System.out.println("Clique Duplo Detectado no MousePressed!-quarto");
                 
                 codigo = 0;
                 
@@ -322,11 +278,8 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                 //JOptionPane.showMessageDialog(null, "clique duplo quarto");
                         
                 if (codigo != 0) {
-                    //utilities.Utilities.ativaDesativaBotoes(this.telaMovimentoCheck.getjPanelBotoes(), false);
-                    //utilities.Utilities.limpaComponentes(this.telaMovimentoCheck.getjPanelDados(), true);
 
                     this.telaMovimentoCheck.getjTextFieldIDOs().setText(codigo + "");
-                    //this.telaMovimentoCheck.getjTextFieldIDOs().setEnabled(false);
 
                     Servico hospede = new Servico();
                     hospede = service.ServicoService.Carregar(codigo);
@@ -360,9 +313,6 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     this.telaMovimentoCheck.getjTextFieldCopaDescricao().setText(hospede.getDescricao());
                     this.telaMovimentoCheck.getjTextFieldCopaDescricao().setEnabled(false);
 
-                    //this.telaMovimentoCheck.getjTextFieldCopaValor().setText(hospede.getObs());
-                    //this.telaMovimentoCheck.getjTextFieldCopaValor().setEnabled(false);
-
                     Date hoje = new Date();
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     String data = sdf.format(hoje);
@@ -370,7 +320,6 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
             }
         } else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDVaga()) {
             if (this.telaMovimentoCheck.getjTextFieldIDVaga().isEnabled() && evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt)) {
-                //System.out.println("Clique Duplo Detectado no MousePressed!-vaga");
                 
                 codigo = 0;
                 
@@ -379,15 +328,12 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                 telaBuscaHospede.setVisible(true);
                 
                 if (codigo != 0) {
-                    //this.telaMovimentoCheck.getjTextFieldIDVaga().setText(codigo + "");
 
                     VagaEstacionamento vaga = new VagaEstacionamento();
                     vaga = service.VagaEstacionamentoService.Carregar(codigo);
                     
                     this.telaMovimentoCheck.getjTextFieldIDVaga().setText(vaga.getDescricao().substring(0, 6));
                     this.telaMovimentoCheck.getjTextFieldIDVaga().setEnabled(false);
-
-                    
                 }
             }
         }else if (evt.getSource() == this.telaMovimentoCheck.getjTextFieldIDVeiculo()) {
