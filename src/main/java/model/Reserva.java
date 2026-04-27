@@ -1,11 +1,16 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Reserva {
     private int id;
     private String dataHoraReserva, dataPrevistaEntrada, dataPrevistaSaida, obs;
     private char status;
+    private List<ReservaQuarto> reservaQuartos;
 
     public Reserva() {
+        this.reservaQuartos = new ArrayList<>();
     }
 
     public Reserva(int id, String dataHoraReserva, String dataPrevistaEntrada, String dataPrevistaSaida, String obs, char status) {
@@ -15,6 +20,7 @@ public class Reserva {
         this.dataPrevistaSaida = dataPrevistaSaida;
         this.obs = obs;
         this.status = status;
+        this.reservaQuartos = new ArrayList<>();
         
     }
 
@@ -74,6 +80,18 @@ public class Reserva {
     public void setStatus(char status) {
         this.status = status;
     }
+
+    public List<ReservaQuarto> getReservaQuartos() {
+        return reservaQuartos;
+    }
+
+    public void setReservaQuartos(List<ReservaQuarto> reservaQuartos) {
+        this.reservaQuartos = reservaQuartos;
+    }
     
-    
+    public void addQuartoComReserva(ReservaQuarto reservaQuarto){
+        this.reservaQuartos.add(reservaQuarto);
+        reservaQuarto.setReserva(this);
+        
+    }
 }

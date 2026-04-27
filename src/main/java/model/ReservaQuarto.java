@@ -4,6 +4,8 @@ public class ReservaQuarto {
     private int id;
     private String dataHoraInicio, dataHoraFim, obs;
     private char status;
+    private Quarto quarto;
+    private Reserva reserva;
 
     public ReservaQuarto() {
     }
@@ -62,6 +64,22 @@ public class ReservaQuarto {
 
     public void setStatus(char status) {
         this.status = status;
+    }
+
+    public Quarto getQuarto() {
+        return quarto;
+    }
+
+    public void setQuarto(Quarto quarto) {
+        this.quarto = quarto;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
     }
     
     

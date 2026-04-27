@@ -589,7 +589,6 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     !this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText().contains("  /  /    ")){
                 if(this.telaMovimentoCheck.getjTextFieldIDReserva().getText().trim().equalsIgnoreCase("")){
                     Reserva reserva = new Reserva();
-                    ReservaQuarto reservaQuarto = new ReservaQuarto();
                     
                     Date hoje = new Date();
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -598,9 +597,7 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     reserva.setDataHoraReserva(data);
                     
                     reserva.setDataPrevistaEntrada(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText());
-                    reservaQuarto.setDataHoraInicio(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText());
                     reserva.setDataPrevistaSaida(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText());
-                    reservaQuarto.setDataHoraFim(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText());
                     reserva.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
                     
                     char status;
@@ -611,11 +608,24 @@ public class ControllerMovimentoCheck implements ActionListener, MouseListener, 
                     }
 
                     reserva.setStatus(status);
-                    reservaQuarto.setStatus(status);
-                    reserva.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
-                    reservaQuarto.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
+                    
+                    //verificar se fazer aqui ou vincular com o botao pressionado 
+                        //(ou componentização, se der)
+                    /*for (Quarto quarto : quartos) {*/
+                        ReservaQuarto reservaQuarto = new ReservaQuarto();
+
+                        reservaQuarto.setDataHoraInicio(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText());
+                        reservaQuarto.setDataHoraFim(this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText());
+                        reservaQuarto.setStatus(status);
+                        reservaQuarto.setObs(this.telaMovimentoCheck.getjTextFieldObsReserva().getText());
+                        reservaQuarto.setQuarto(service.QuartoService.Carregar(Integer.parseInt(this.telaMovimentoCheck.getjTextFieldIDQuarto().getText())));
+
+                        reserva.addQuartoComReserva(reservaQuarto);
+                    /*}*/
                     
                     JOptionPane.showMessageDialog(null, "Salva Reserva");
+                    JOptionPane.showMessageDialog(null, "Reserva: " + reserva);
+                    JOptionPane.showMessageDialog(null, "ReservaQuarto: " + reservaQuarto);
                     
                     /*JOptionPane.showMessageDialog(null, "\""+this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoEntrada().getText()+"\"");
                     JOptionPane.showMessageDialog(null, "\""+this.telaMovimentoCheck.getjFormattedTextFieldPrevisaoSaida().getText()+"\"");*/
